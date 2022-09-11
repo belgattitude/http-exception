@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.5
+
+### Patch Changes
+
+- [#11](https://github.com/belgattitude/http-exception/pull/11) [`6168b27`](https://github.com/belgattitude/http-exception/commit/6168b279201255281afd2b3e5e9863368c670ea5) Thanks [@belgattitude](https://github.com/belgattitude)! - Publish with browser field
+
 ## 0.1.4
 
 ### Patch Changes
