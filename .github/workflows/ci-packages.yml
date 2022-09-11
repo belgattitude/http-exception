@@ -79,28 +79,28 @@ jobs:
 
       - name: Typecheck
         run: |
-          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main --recursive run typecheck
+          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run typecheck
 
       - name: Prettier checks
         run: |
-          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main --recursive run prettier-check
+          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run prettier-check
 
       - name: ESLint checks
         run: |
-          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main --recursive run lint
+          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run lint
 
       - name: Unit tests changed packages
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main --recursive run test-unit
+          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run test-unit
 
       - name: Run build for changed packages
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main --recursive run build
+          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run build
 
       - name: Check build for size-limits
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main --recursive run check-size
+          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run check-size
 
       - name: Check build ecmascript compliance
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main --recursive run check-dist
+          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run check-dist
