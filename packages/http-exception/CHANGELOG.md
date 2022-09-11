@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.4
+
+### Patch Changes
+
+- [`281a688`](https://github.com/belgattitude/http-exception/commit/281a688450f58546cdf429e5e33e312e791f0db0) Thanks [@belgattitude](https://github.com/belgattitude)! - Re-publish with module to test bundlephobia
+
 ## 0.1.3
 
 ### Patch Changes
