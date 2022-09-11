@@ -15,15 +15,13 @@
   "sideEffects": false,
   "type": "module",
   "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
   "typings": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.js",
       "module": "./dist/esm/index.js",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js"
     },
     "./package.json": "./package.json"
   },
