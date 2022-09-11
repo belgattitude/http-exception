@@ -5,5 +5,7 @@
     "@examples/nextjs-esm": "0.1.8",
     "@belgattitude/http-exception": "0.1.8"
   },
-  "changesets": []
+  "changesets": [
+    "moody-terms-joke"
+  ]
 }
