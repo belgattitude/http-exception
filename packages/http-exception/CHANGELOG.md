@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.8
+
+### Patch Changes
+
+- [#16](https://github.com/belgattitude/http-exception/pull/16) [`cdf3333`](https://github.com/belgattitude/http-exception/commit/cdf3333887c480c01c638714bd49843d8d30e385) Thanks [@belgattitude](https://github.com/belgattitude)! - Add sourcemaps to published dist
+
 ## 0.1.7
 
 ### Patch Changes
