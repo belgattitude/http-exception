@@ -19,6 +19,7 @@
   "scripts": {
     "g:clean": "yarn clean:global-cache && yarn workspaces foreach -pv run clean",
     "g:build": "yarn workspaces foreach -ptv run build",
+    "g:build-doc": "yarn workspaces foreach -ptv run build-doc",
     "g:test-unit": "yarn workspaces foreach -pv run test-unit",
     "g:prettier-check": "yarn workspaces foreach -v run prettier-check",
     "g:prettier-fix": "yarn workspaces foreach -v run prettier-fix",
