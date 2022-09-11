@@ -1,4 +1,4 @@
-# @belgattitude/errorh
+# @belgattitude/http-exception
 
 | Class                   | Status | hhh |
 | :---------------------- | -----: | --- |

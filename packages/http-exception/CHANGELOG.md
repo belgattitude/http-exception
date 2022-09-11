@@ -1,1 +1,1 @@
-# @belgattitude/errorh
+# @belgattitude/http-exception
