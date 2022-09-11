@@ -27,7 +27,6 @@ const getEsbuildPlugin = (format, minify) => {
   return esbuild({
     format,
     tsconfig: './tsconfig.build.json',
-    sourceMap: config.sourceMap,
     treeShaking: true,
     platform: 'browser',
     target: [config.ecmascriptLevel],
