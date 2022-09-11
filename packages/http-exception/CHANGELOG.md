@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.7
+
+### Patch Changes
+
+- [#14](https://github.com/belgattitude/http-exception/pull/14) [`3fe82d8`](https://github.com/belgattitude/http-exception/commit/3fe82d8ce626ba693f0079a9523194ba78b2a437) Thanks [@belgattitude](https://github.com/belgattitude)! - Internal package in cjs to help dual packaging
+
 ## 0.1.6
 
 ### Patch Changes
