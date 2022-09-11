@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.3
+
+### Patch Changes
+
+- [`1b493ad`](https://github.com/belgattitude/http-exception/commit/1b493add604758e455d72b9a1b94c991ed67b651) Thanks [@belgattitude](https://github.com/belgattitude)! - Rework publishing
+
 ## 0.1.2
 
 ### Patch Changes
