@@ -61,9 +61,9 @@ jobs:
         env:
           HUSKY: 0
 
-      - name: Build cache-interop packages
+      - name: Build packages
         run: |
-          yarn g:build
+          yarn workspaces foreach -v --from '@belgattitude/*' run build
 
       - name: Typecheck
         run: |
