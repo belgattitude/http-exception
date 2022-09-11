@@ -2,6 +2,8 @@
 
 Delightful http exceptions for typescript and js.
 
+![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge)
+
 ## Docs
 
 | Class                   | Status | hhh |
