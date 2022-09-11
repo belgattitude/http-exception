@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpUnauthorized
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpUnauthorized
 
 # Class: HttpUnauthorized
 
 [client](../modules/client.md).HttpUnauthorized
+
+Client status 401
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpUnauthorized**(`params?`)
+• **new HttpUnauthorized**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

@@ -1,4 +1,4 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / types
+[@belgattitude/http-exception - v0.1.0](../README.md) / types
 
 # Module: types
 

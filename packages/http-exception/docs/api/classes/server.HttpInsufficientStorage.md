@@ -1,10 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [server](../modules/server.md) / HttpInsufficientStorage
+[@belgattitude/http-exception - v0.1.0](../README.md) / [server](../modules/server.md) / HttpInsufficientStorage
 
 # Class: HttpInsufficientStorage
 
 [server](../modules/server.md).HttpInsufficientStorage
 
-InsufficientStorage is specific to webdav.
+Server status 507 - webdav specific
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/507
 
 ## Hierarchy
 
@@ -28,13 +32,13 @@ InsufficientStorage is specific to webdav.
 
 ### constructor
 
-• **new HttpInsufficientStorage**(`params?`)
+• **new HttpInsufficientStorage**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

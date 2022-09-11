@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpUnavailableForLegalReasons
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpUnavailableForLegalReasons
 
 # Class: HttpUnavailableForLegalReasons
 
 [client](../modules/client.md).HttpUnavailableForLegalReasons
+
+Client status 451
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/451
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpUnavailableForLegalReasons**(`params?`)
+• **new HttpUnavailableForLegalReasons**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

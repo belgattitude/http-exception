@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpPreconditionRequired
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpPreconditionRequired
 
 # Class: HttpPreconditionRequired
 
 [client](../modules/client.md).HttpPreconditionRequired
+
+Client status 428
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/428
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpPreconditionRequired**(`params?`)
+• **new HttpPreconditionRequired**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

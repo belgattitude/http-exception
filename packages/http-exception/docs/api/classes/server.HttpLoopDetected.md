@@ -1,10 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [server](../modules/server.md) / HttpLoopDetected
+[@belgattitude/http-exception - v0.1.0](../README.md) / [server](../modules/server.md) / HttpLoopDetected
 
 # Class: HttpLoopDetected
 
 [server](../modules/server.md).HttpLoopDetected
 
-LoopDetected is specific to webdav.
+Server status 508 - webdav specific
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/508
 
 ## Hierarchy
 
@@ -28,13 +32,13 @@ LoopDetected is specific to webdav.
 
 ### constructor
 
-• **new HttpLoopDetected**(`params?`)
+• **new HttpLoopDetected**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

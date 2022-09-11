@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [server](../modules/server.md) / HttpServiceUnavailable
+[@belgattitude/http-exception - v0.1.0](../README.md) / [server](../modules/server.md) / HttpServiceUnavailable
 
 # Class: HttpServiceUnavailable
 
 [server](../modules/server.md).HttpServiceUnavailable
+
+Server status 503
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpServiceUnavailable**(`params?`)
+• **new HttpServiceUnavailable**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

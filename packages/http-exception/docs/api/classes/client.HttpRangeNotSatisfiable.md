@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpRangeNotSatisfiable
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpRangeNotSatisfiable
 
 # Class: HttpRangeNotSatisfiable
 
 [client](../modules/client.md).HttpRangeNotSatisfiable
+
+Client status 416
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/416
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpRangeNotSatisfiable**(`params?`)
+• **new HttpRangeNotSatisfiable**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

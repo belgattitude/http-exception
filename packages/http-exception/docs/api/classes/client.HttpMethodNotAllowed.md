@@ -1,4 +1,4 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpMethodNotAllowed
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpMethodNotAllowed
 
 # Class: HttpMethodNotAllowed
 
@@ -32,13 +32,13 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
 
 ### constructor
 
-• **new HttpMethodNotAllowed**(`params?`)
+• **new HttpMethodNotAllowed**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

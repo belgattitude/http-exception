@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpRequestHeaderFieldsTooLarge
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpRequestHeaderFieldsTooLarge
 
 # Class: HttpRequestHeaderFieldsTooLarge
 
 [client](../modules/client.md).HttpRequestHeaderFieldsTooLarge
+
+Client status 431
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/431
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpRequestHeaderFieldsTooLarge**(`params?`)
+• **new HttpRequestHeaderFieldsTooLarge**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

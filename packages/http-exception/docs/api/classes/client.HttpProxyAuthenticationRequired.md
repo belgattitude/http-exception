@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpProxyAuthenticationRequired
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpProxyAuthenticationRequired
 
 # Class: HttpProxyAuthenticationRequired
 
 [client](../modules/client.md).HttpProxyAuthenticationRequired
+
+Client status 407
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/407
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpProxyAuthenticationRequired**(`params?`)
+• **new HttpProxyAuthenticationRequired**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

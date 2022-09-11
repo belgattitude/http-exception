@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [server](../modules/server.md) / HttpNotExtended
+[@belgattitude/http-exception - v0.1.0](../README.md) / [server](../modules/server.md) / HttpNotExtended
 
 # Class: HttpNotExtended
 
 [server](../modules/server.md).HttpNotExtended
+
+Server status 510
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/510
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpNotExtended**(`params?`)
+• **new HttpNotExtended**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

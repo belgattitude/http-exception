@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpPayloadTooLarge
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpPayloadTooLarge
 
 # Class: HttpPayloadTooLarge
 
 [client](../modules/client.md).HttpPayloadTooLarge
+
+Client status 413
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpPayloadTooLarge**(`params?`)
+• **new HttpPayloadTooLarge**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [server](../modules/server.md) / HttpVariantAlsoNegociates
+[@belgattitude/http-exception - v0.1.0](../README.md) / [server](../modules/server.md) / HttpVariantAlsoNegociates
 
 # Class: HttpVariantAlsoNegociates
 
 [server](../modules/server.md).HttpVariantAlsoNegociates
+
+Server status 506
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/506
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpVariantAlsoNegociates**(`params?`)
+• **new HttpVariantAlsoNegociates**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

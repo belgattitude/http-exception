@@ -1,4 +1,4 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpForbidden
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpForbidden
 
 # Class: HttpForbidden
 
@@ -32,13 +32,13 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
 
 ### constructor
 
-• **new HttpForbidden**(`params?`)
+• **new HttpForbidden**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpPaymentRequired
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpPaymentRequired
 
 # Class: HttpPaymentRequired
 
 [client](../modules/client.md).HttpPaymentRequired
+
+Client status 402
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpPaymentRequired**(`params?`)
+• **new HttpPaymentRequired**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

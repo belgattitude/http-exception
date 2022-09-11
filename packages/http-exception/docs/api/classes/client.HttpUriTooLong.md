@@ -1,8 +1,14 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpUriTooLong
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpUriTooLong
 
 # Class: HttpUriTooLong
 
 [client](../modules/client.md).HttpUriTooLong
+
+Client status 414
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/414
 
 ## Hierarchy
 
@@ -26,13 +32,13 @@
 
 ### constructor
 
-• **new HttpUriTooLong**(`params?`)
+• **new HttpUriTooLong**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 

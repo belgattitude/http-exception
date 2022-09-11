@@ -1,6 +1,6 @@
-@belgattitude/errorh - v0.1.0
+@belgattitude/http-exception - v0.1.0
 
-# @belgattitude/errorh - v0.1.0
+# @belgattitude/http-exception - v0.1.0
 
 ## Table of contents
 

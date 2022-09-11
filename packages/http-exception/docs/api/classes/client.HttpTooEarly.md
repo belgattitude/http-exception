@@ -1,10 +1,15 @@
-[@belgattitude/errorh - v0.1.0](../README.md) / [client](../modules/client.md) / HttpTooEarly
+[@belgattitude/http-exception - v0.1.0](../README.md) / [client](../modules/client.md) / HttpTooEarly
 
 # Class: HttpTooEarly
 
 [client](../modules/client.md).HttpTooEarly
 
+Client status 425
 Experimental: expect this behaviour to change in the future
+
+**`Link`**
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/425
 
 ## Hierarchy
 
@@ -28,13 +33,13 @@ Experimental: expect this behaviour to change in the future
 
 ### constructor
 
-• **new HttpTooEarly**(`params?`)
+• **new HttpTooEarly**(`msgOrParams?`)
 
 #### Parameters
 
-| Name      | Type                                                                 |
-| :-------- | :------------------------------------------------------------------- |
-| `params?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                 |
+| :------------- | :------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
 
 #### Overrides
 
