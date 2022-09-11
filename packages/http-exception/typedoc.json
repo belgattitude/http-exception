@@ -6,7 +6,7 @@
     "src/http/typeguards/index.ts",
     "src/http/types/index.ts"
   ],
-  "out": "./docs/api",
+  "out": "../../docs/api",
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeExternals": true,
