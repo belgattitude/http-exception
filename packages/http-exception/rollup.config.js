@@ -1,8 +1,11 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 
 import { createRequire } from 'node:module';
+import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
+// import { terser } from 'rollup-plugin-terser';
+import { globalCachePath } from '../../cache.config.mjs';
 const require = createRequire(import.meta.url);
 
 const pkg = require('./package.json');
@@ -10,7 +13,7 @@ const pkg = require('./package.json');
 const config = {
   distDir: './dist',
   ecmascriptLevel: 'es2017',
-  sourceMap: process.env.NODE_ENV === 'production',
+  sourceMap: false, // process.env.NODE_ENV === 'production',
   external: [
     ...Object.keys(pkg.dependencies ?? {}),
     ...Object.keys(pkg?.peerDependencies ?? {}),
@@ -31,8 +34,23 @@ const getEsbuildPlugin = (format, minify) => {
     platform: 'browser',
     target: [config.ecmascriptLevel],
     minify: minify,
+    mangleQuoted: !minify,
     minifyWhitespace: minify, // setting to false allows to create patches
     minifyIdentifiers: minify,
+  });
+};
+
+const getTypescriptPlugin = (format, minify) => {
+  return typescript({
+    tsconfig: './tsconfig.build.json',
+    target: config.ecmascriptLevel,
+    sourceMap: false,
+    cacheDir: `${globalCachePath}/rollup/http-exception-${format}`,
+    compilerOptions: {
+      incremental: false,
+      // inlineSourceMap: true,
+      // sourceMap: true
+    },
   });
 };
 
@@ -42,11 +60,19 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: true,
     external: config.external,
-    plugins: [getEsbuildPlugin('esm', true)],
+    plugins: [getTypescriptPlugin('esm', false)],
+    // plugins: [getEsbuildPlugin('esm', false)],
     output: {
       dir: `${config.distDir}/esm`,
       format: 'esm',
       sourcemap: config.sourceMap,
+      /*
+      plugins: [
+        terser({
+          module: true,
+          ecma: 2017
+        })
+      ] */
     },
   },
   // CJS

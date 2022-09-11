@@ -11,7 +11,7 @@
 
 const { resolve } = require('path');
 
-const globalCachePath = resolve(`${__dirname}/.cache`);
+export const globalCachePath = resolve(`${__dirname}/.cache`);
 
 /**
  * @param {string} packageName
@@ -25,10 +25,6 @@ function sanitize(packageName) {
  * @param {string} packageName
  * @returns string
  */
-function getEslintCachePath(packageName) {
+export function getEslintCachePath(packageName) {
   return `${globalCachePath}/eslint/${sanitize(packageName)}`;
 }
-
-module.exports = {
-  getEslintCachePath,
-};
