@@ -7,14 +7,15 @@ const require = createRequire(import.meta.url);
 
 const pkg = require('./package.json');
 
-const external = [
-  ...Object.keys(pkg.dependencies ?? {}),
-  ...Object.keys(pkg?.peerDependencies ?? {}),
-];
-
-const distDir = './dist';
-
-const ecmascriptLevel = 'es2017';
+const config = {
+  distDir: './dist',
+  ecmascriptLevel: 'es2017',
+  sourceMap: process.env.NODE_ENV === 'production',
+  external: [
+    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg?.peerDependencies ?? {}),
+  ],
+};
 
 /**
  *
@@ -26,10 +27,9 @@ const getEsbuildPlugin = (format, minify) => {
   return esbuild({
     format,
     tsconfig: './tsconfig.build.json',
-    sourceMap: false,
     treeShaking: true,
     platform: 'browser',
-    target: [ecmascriptLevel],
+    target: [config.ecmascriptLevel],
     minify: minify,
     minifyWhitespace: minify, // setting to false allows to create patches
     minifyIdentifiers: minify,
@@ -41,33 +41,33 @@ export default () => [
   {
     input: ['./src/index.ts'],
     preserveModules: true,
-    external,
+    external: config.external,
     plugins: [getEsbuildPlugin('esm', true)],
     output: {
-      dir: `${distDir}/esm`,
+      dir: `${config.distDir}/esm`,
       format: 'esm',
-      sourcemap: false,
+      sourcemap: config.sourceMap,
     },
   },
   // CJS
   {
     input: ['./src/index.ts'],
     preserveModules: false,
-    external,
+    external: config.external,
     plugins: [getEsbuildPlugin('esm', true)],
     output: {
-      dir: `${distDir}/cjs`,
+      dir: `${config.distDir}/cjs`,
       format: 'cjs',
-      sourcemap: false,
+      sourcemap: config.sourceMap,
     },
   },
   // Typings
   {
     input: './src/index.ts',
     output: {
-      file: `${distDir}/types/index.d.ts`,
+      file: `${config.distDir}/types/index.d.ts`,
     },
-    external,
+    external: config.external,
     plugins: [
       dts({
         compilerOptions: {
