@@ -9,6 +9,13 @@ Delightful http exceptions for typescript and js.
 ![typings](https://img.shields.io/static/v1?label=typings&message=4.0%2B&logo=typescript&style=for-the-badge&labelColor=000000&color=9cf)
 [![license](https://img.shields.io/npm/l/@belgattitude/http-exception?style=for-the-badge&labelColor=000000")](https://github.com/belgattitude/http-exception/blob/main/LICENSE)
 
+## Install
+
+```bash
+$ npm install @belgattitude/http-exception  # via npm
+$ yarn add @belgattitude/http-exception     # via yarn
+```
+
 ## Docs
 
 | Class                   | Status | hhh |
