@@ -5,6 +5,9 @@
     "baseUrl": "./src",
     "rootDir": "./src",
     "module": "ESNext",
+    "target": "es2017",
+    "sourceMap": true,
+    "inlineSources": true,
     "declaration": false
   },
   "exclude": ["dist", "**/__tests__/*"]

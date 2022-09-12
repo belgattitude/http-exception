@@ -7,13 +7,14 @@ import esbuild from 'rollup-plugin-esbuild';
 import { terser } from 'rollup-plugin-terser';
 import { globalCachePath } from '../../cache.config.mjs';
 const require = createRequire(import.meta.url);
+// import swc from 'rollup-plugin-swc3'
 
 const pkg = require('./package.json');
 
 const config = {
   distDir: './dist',
   ecmascriptLevel: 'es2017',
-  sourceMap: false, // process.env.NODE_ENV === 'production',
+  sourceMap: true, // process.env.NODE_ENV === 'production',
   external: [
     ...Object.keys(pkg.dependencies ?? {}),
     ...Object.keys(pkg?.peerDependencies ?? {}),
@@ -40,11 +41,11 @@ const getEsbuildPlugin = (format, minify) => {
   });
 };
 
-const getTypescriptPlugin = (format, minify) => {
+const getTypescriptPlugin = (format, sourceMap) => {
   return typescript({
     tsconfig: './tsconfig.build.json',
     target: config.ecmascriptLevel,
-    sourceMap: false,
+    sourceMap: sourceMap,
     cacheDir: `${globalCachePath}/rollup/http-exception-${format}`,
     compilerOptions: {
       incremental: false,
@@ -60,20 +61,37 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: true,
     external: config.external,
-    plugins: [getTypescriptPlugin('esm', false)],
+    plugins: [
+      /*
+        swc({
+          tsconfig: 'tsconfig.build.json',
+          sourceMaps: true,
+          minify: false,
+        }), */
+      getTypescriptPlugin('esm', true),
+      terser({
+        module: true,
+        safari10: false,
+        ie8: false,
+        compress: true,
+        ecma: 2017,
+      }),
+    ],
+    // plugins: [getTypescriptPlugin('esm', false)],
     // plugins: [getEsbuildPlugin('esm', false)],
     output: {
       dir: `${config.distDir}/esm`,
       format: 'esm',
       sourcemap: config.sourceMap,
       plugins: [
+        /*
         terser({
           module: true,
           safari10: false,
           ie8: false,
           compress: true,
           ecma: 2017,
-        }),
+        }), */
       ],
     },
   },
@@ -82,7 +100,7 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: false,
     external: config.external,
-    plugins: [getTypescriptPlugin('cjs', false)],
+    plugins: [getTypescriptPlugin('cjs', true)],
     // plugins: [getEsbuildPlugin('esm', true)],
     output: {
       dir: `${config.distDir}/cjs`,
