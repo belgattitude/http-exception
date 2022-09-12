@@ -1,5 +1,12 @@
 # @examples/nextjs-app
 
+## 0.1.10-canary.0
+
+### Patch Changes
+
+- Updated dependencies [[`c153ff8`](https://github.com/belgattitude/http-exception/commit/c153ff82d16851bdf2b39a5f2367515a0fffc305)]:
+  - @belgattitude/http-exception@0.1.10-canary.0
+
 ## 0.1.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.10-canary.0
+
+### Patch Changes
+
+- [#25](https://github.com/belgattitude/http-exception/pull/25) [`c153ff8`](https://github.com/belgattitude/http-exception/commit/c153ff82d16851bdf2b39a5f2367515a0fffc305) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve build
+
 ## 0.1.9
 
 ### Patch Changes
