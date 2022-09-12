@@ -72,9 +72,9 @@ export default () => [
           safari10: false,
           ie8: false,
           compress: true,
-          ecma: 2017
-        })
-      ]
+          ecma: 2017,
+        }),
+      ],
     },
   },
   // CJS
@@ -94,9 +94,9 @@ export default () => [
           safari10: false,
           ie8: false,
           compress: true,
-          ecma: 2017
-        })
-      ]
+          ecma: 2017,
+        }),
+      ],
     },
   },
   // Typings
