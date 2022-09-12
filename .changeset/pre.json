@@ -1,0 +1,9 @@
+{
+  "mode": "pre",
+  "tag": "canary",
+  "initialVersions": {
+    "@examples/nextjs-esm": "0.1.9",
+    "@belgattitude/http-exception": "0.1.9"
+  },
+  "changesets": []
+}
