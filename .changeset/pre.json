@@ -6,6 +6,7 @@
     "@belgattitude/http-exception": "0.1.8"
   },
   "changesets": [
-    "moody-terms-joke"
+    "moody-terms-joke",
+    "weak-tables-fold"
   ]
 }

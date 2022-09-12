@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.9-canary.1
+
+### Patch Changes
+
+- [#20](https://github.com/belgattitude/http-exception/pull/20) [`633b1e0`](https://github.com/belgattitude/http-exception/commit/633b1e0f925c6cfcf7dc48e21132fcede103c0db) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve tree-shaking commonjs
+
 ## 0.1.9-canary.0
 
 ### Patch Changes
