@@ -3,18 +3,17 @@
 import { createRequire } from 'node:module';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
-import esbuild from 'rollup-plugin-esbuild';
 import { terser } from 'rollup-plugin-terser';
 import { globalCachePath } from '../../cache.config.mjs';
 const require = createRequire(import.meta.url);
-// import swc from 'rollup-plugin-swc3'
 
 const pkg = require('./package.json');
 
 const config = {
   distDir: './dist',
-  ecmascriptLevel: 'es2017',
-  sourceMap: true, // process.env.NODE_ENV === 'production',
+  ecmascriptLevel: '2017',
+  sourceMap: false, // process.env.NODE_ENV === 'production',
+  cache: false,
   external: [
     ...Object.keys(pkg.dependencies ?? {}),
     ...Object.keys(pkg?.peerDependencies ?? {}),
@@ -22,37 +21,44 @@ const config = {
 };
 
 /**
- *
- * @param format
- * @param minify
- * @returns {Plugin}
+ * @param { 'cjs' | 'esm' } format
+ * @param { boolean } minify
+ * @param { boolean } sourceMap
+ * @param { boolean } cache
  */
-const getEsbuildPlugin = (format, minify) => {
-  return esbuild({
-    format,
-    tsconfig: './tsconfig.build.json',
-    treeShaking: true,
-    platform: 'browser',
-    target: [config.ecmascriptLevel],
-    minify: minify,
-    mangleQuoted: !minify,
-    minifyWhitespace: minify, // setting to false allows to create patches
-    minifyIdentifiers: minify,
-  });
-};
-
-const getTypescriptPlugin = (format, sourceMap) => {
-  return typescript({
-    tsconfig: './tsconfig.build.json',
-    target: config.ecmascriptLevel,
-    sourceMap: sourceMap,
-    cacheDir: `${globalCachePath}/rollup/http-exception-${format}`,
-    compilerOptions: {
-      incremental: false,
-      // inlineSourceMap: true,
-      // sourceMap: true
-    },
-  });
+const getDefaultRollupPlugins = (
+  format,
+  minify,
+  sourceMap = false,
+  cache = false
+) => {
+  return [
+    typescript({
+      tsconfig: './tsconfig.build.json',
+      target: `es${config.ecmascriptLevel}`,
+      sourceMap: sourceMap,
+      cacheDir: cache
+        ? `${globalCachePath}/rollup/http-exception-${format}`
+        : false,
+      compilerOptions: {
+        incremental: false,
+        inlineSourceMap: sourceMap,
+        sourceMap: sourceMap,
+      },
+    }),
+    ...(minify
+      ? [
+          terser({
+            module: format === 'esm',
+            compress: minify,
+            ecma: config.ecmascriptLevel,
+            ie8: false,
+            safari10: false,
+            mangle: true, // Here mangling does not reduce size enough, let's keep clean
+          }),
+        ]
+      : []),
+  ];
 };
 
 export default () => [
@@ -62,37 +68,12 @@ export default () => [
     preserveModules: true,
     external: config.external,
     plugins: [
-      /*
-        swc({
-          tsconfig: 'tsconfig.build.json',
-          sourceMaps: true,
-          minify: false,
-        }), */
-      getTypescriptPlugin('esm', true),
-      terser({
-        module: true,
-        safari10: false,
-        ie8: false,
-        compress: true,
-        ecma: 2017,
-      }),
+      ...getDefaultRollupPlugins('esm', true, config.sourceMap, config.cache),
     ],
-    // plugins: [getTypescriptPlugin('esm', false)],
-    // plugins: [getEsbuildPlugin('esm', false)],
     output: {
       dir: `${config.distDir}/esm`,
       format: 'esm',
       sourcemap: config.sourceMap,
-      plugins: [
-        /*
-        terser({
-          module: true,
-          safari10: false,
-          ie8: false,
-          compress: true,
-          ecma: 2017,
-        }), */
-      ],
     },
   },
   // CJS
@@ -100,21 +81,13 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: false,
     external: config.external,
-    plugins: [getTypescriptPlugin('cjs', true)],
-    // plugins: [getEsbuildPlugin('esm', true)],
+    plugins: [
+      ...getDefaultRollupPlugins('cjs', true, config.sourceMap, config.cache),
+    ],
     output: {
       dir: `${config.distDir}/cjs`,
       format: 'cjs',
       sourcemap: config.sourceMap,
-      plugins: [
-        terser({
-          module: true,
-          safari10: false,
-          ie8: false,
-          compress: true,
-          ecma: 2017,
-        }),
-      ],
     },
   },
   // Typings

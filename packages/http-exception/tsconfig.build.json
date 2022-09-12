@@ -2,13 +2,10 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./src",
-    "rootDir": "./src",
     "module": "ESNext",
-    "target": "es2017",
-    "sourceMap": true,
-    "inlineSources": true,
-    "declaration": false
+    "declaration": false,
+    "rootDir": "./src",
+    "baseUrl": "./src"
   },
-  "exclude": ["dist", "**/__tests__/*"]
+  "exclude": ["dist"]
 }
