@@ -1,7 +1,7 @@
 // @ts-check
 
 // Regularly update this max size when new legit code is added (keep a threshold)
-const fullEsmBundleMaxSize = "2700B";
+const fullBundleMaxSize = "2700B";
 
 /**
  * Will ensure esm tree-shakeability and total size are within expectations.
@@ -17,7 +17,7 @@ module.exports = [
     name: "ESM (import everything *)",
     path: ["dist/esm/index.js"],
     import: "*",
-    limit: fullEsmBundleMaxSize,
+    limit: fullBundleMaxSize,
   },
   {
     name: "ESM (only HttpNotFound exception)",
@@ -61,7 +61,8 @@ module.exports = [
   {
     name: "CJS (require everything *)",
     path: ["dist/cjs/index.js"],
+    import: "*",
     webpack: true,
-    limit: "1600B",
+    limit: fullBundleMaxSize,
   }
 ];
