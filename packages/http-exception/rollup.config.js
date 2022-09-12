@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import esbuild from 'rollup-plugin-esbuild';
-// import { terser } from 'rollup-plugin-terser';
+import { terser } from 'rollup-plugin-terser';
 import { globalCachePath } from '../../cache.config.mjs';
 const require = createRequire(import.meta.url);
 
@@ -66,13 +66,15 @@ export default () => [
       dir: `${config.distDir}/esm`,
       format: 'esm',
       sourcemap: config.sourceMap,
-      /*
       plugins: [
         terser({
           module: true,
-          ecma: 2017
-        })
-      ] */
+          safari10: false,
+          ie8: false,
+          compress: true,
+          ecma: 2017,
+        }),
+      ],
     },
   },
   // CJS
@@ -80,11 +82,21 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: false,
     external: config.external,
-    plugins: [getEsbuildPlugin('esm', true)],
+    plugins: [getTypescriptPlugin('cjs', false)],
+    // plugins: [getEsbuildPlugin('esm', true)],
     output: {
       dir: `${config.distDir}/cjs`,
       format: 'cjs',
       sourcemap: config.sourceMap,
+      plugins: [
+        terser({
+          module: true,
+          safari10: false,
+          ie8: false,
+          compress: true,
+          ecma: 2017,
+        }),
+      ],
     },
   },
   // Typings
