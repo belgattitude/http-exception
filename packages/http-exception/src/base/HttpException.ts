@@ -12,8 +12,10 @@ export class HttpException extends Error {
   public readonly url: string | undefined;
 
   /**
-   * @param {number} statusCode
-   * @param {HttpExceptionParams | string} msgOrParams
+   * Construct a new HttpException class
+   *
+   * @param statusCode http status code between 400-599, no checks are done on the validity of the number.
+   * @param msgOrParams either a message or an object containing HttpExceptionParams
    */
   constructor(statusCode: number, msgOrParams?: HttpExceptionParams | string) {
     const name = 'HttpException';

@@ -117,7 +117,7 @@ const false3 = isHttpException(new Error());
 | 416         | **↳↳ HttpRangeNotSatisfiable**           |                              |                                                                                        |
 | 417         | **↳↳ HttpExpectationFailed**             |                              |                                                                                        |
 | 418         | **↳↳ HttpImATeapot**                     |                              |                                                                                        |
-| 421         | **↳↳ HttpMisredirectedRequest**          |                              |                                                                                        |
+| 421         | **↳↳ HttpMisdirectedRequest**            |                              |                                                                                        |
 | 422         | **↳↳ HttpUnprocessableEntity**           |                              |                                                                                        |
 | 423         | **↳↳ HttpLocked**                        |                              |                                                                                        |
 | 424         | **↳↳ HttpFailedDependency**              |                              |                                                                                        |
@@ -134,9 +134,8 @@ const false3 = isHttpException(new Error());
 | 503         | **↳↳ HttpServiceUnavailable**            |                              |                                                                                        |
 | 504         | **↳↳ HttpGatewayTimeout**                |                              |                                                                                        |
 | 505         | **↳↳ HttpVersionNotSupported**           |                              |                                                                                        |
-| 506         | **↳↳ HttpVariantAlsoNegociates**         |                              |                                                                                        |
+| 506         | **↳↳ HttpVariantAlsoNegotiates**         |                              |                                                                                        |
 | 507         | **↳↳ HttpInsufficientStorage**           |                              |                                                                                        |
 | 508         | **↳↳ HttpLoopDetected**                  |                              |                                                                                        |
-| 509         | **↳↳ HttpBandwidthLimitExceeded**        |                              |                                                                                        |
 | 510         | **↳↳ HttpNotExtended**                   |                              |                                                                                        |
 | 511         | **↳↳ HttpNetwordAuthenticationRequired** |                              |                                                                                        |

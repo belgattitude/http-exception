@@ -1,5 +1,8 @@
-import type { HttpException } from '../../base';
-import { HttpClientException, HttpServerException } from '../../base';
+import {
+  HttpException,
+  HttpClientException,
+  HttpServerException,
+} from '../../base';
 import { statusMap } from '../../status';
 import type { HttpExceptionParams } from '../../types';
 import { createHttpException } from '../createHttpException';
@@ -22,44 +25,47 @@ describe('createHttpException tests', () => {
         const error = createHttpException(status, params);
         const expected = new cls(params);
         expect(error).toStrictEqual(expected);
+        expect(error.statusCode).toStrictEqual(status);
       }
     );
 
     it.each(all)(
-      'should preserver the oject name (%p.name)',
+      'should preserve the object name (%p.name) and the status (%p)',
       (className, status, cls) => {
         const params = 'msg';
         const error = createHttpException(status, params);
         const expected = new cls(params) as HttpException;
-        expect(error?.name).toStrictEqual(expected.name);
+        expect(error.name).toStrictEqual(expected.name);
+        expect(error.statusCode).toStrictEqual(status);
       }
     );
   });
 
   describe('when server status does not have a concrete class', () => {
-    const nonAssignedByIETF = [
+    const unassignedServerCodes = [
       ['Arbitrary number 599', 599],
       ['Cloudflare - 524 - A Timeout Occurred', 524],
       ['Cloudflare - 525 - SSL Handshake Failed', 525],
     ] as [msg: string, status: number][];
 
-    it.each(nonAssignedByIETF)(
+    it.each(unassignedServerCodes)(
       'should return HttpServerException',
       (msg, status) => {
         const error = createHttpException(status, msg);
         expect(error).toStrictEqual(new HttpServerException(status, msg));
-        expect(error?.name).toStrictEqual('HttpServerException');
+        expect(error.name).toStrictEqual('HttpServerException');
+        expect(error.statusCode).toStrictEqual(status);
       }
     );
   });
 
   describe('when client status does not have a concrete class', () => {
-    const unlistedClientErrors = [
+    const unassignedClientCodes = [
       ['Arbitrary number 499', 499],
       ['Unassigned 427', 427],
     ] as [msg: string, status: number][];
 
-    it.each(unlistedClientErrors)(
+    it.each(unassignedClientCodes)(
       'should return HttpClientException',
       (msg, status) => {
         const error = createHttpException(status, msg);
@@ -68,7 +74,29 @@ describe('createHttpException tests', () => {
             message: msg,
           })
         );
-        expect(error?.name).toStrictEqual('HttpClientException');
+        expect(error.name).toStrictEqual('HttpClientException');
+        expect(error.statusCode).toStrictEqual(status);
+      }
+    );
+  });
+
+  describe('when provided status code is out of [400...599] range', () => {
+    const nonErrorCodes = [
+      ['Success', 200],
+      ['Out of range', 1099],
+    ] as [msg: string, status: number][];
+
+    it.each(nonErrorCodes)(
+      'should return HttpException with the provided status code',
+      (msg, status) => {
+        const error = createHttpException(status, msg);
+        expect(error).toStrictEqual(
+          new HttpException(status, {
+            message: msg,
+          })
+        );
+        expect(error.name).toStrictEqual('HttpException');
+        expect(error.statusCode).toStrictEqual(status);
       }
     );
   });
