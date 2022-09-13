@@ -1,12 +1,14 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpPayloadTooLarge
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpPayloadTooLarge
 
 # Class: HttpPayloadTooLarge
 
 [client](../modules/client.md).HttpPayloadTooLarge
 
-Client status 413
+413 Payload too large (client)
 
-**`Link`**
+Request entity is larger than limits defined by server. The server might close the connection or return an Retry-After header field.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413
 
@@ -36,9 +38,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

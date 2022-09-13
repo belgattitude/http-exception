@@ -1,12 +1,18 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpGone
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpGone
 
 # Class: HttpGone
 
 [client](../modules/client.md).HttpGone
 
-Client status 410
+410 Gone (client)
 
-**`Link`**
+This response is sent when the requested content has been permanently deleted from server, with no forwarding address.
+Clients are expected to remove their caches and links to the resource. The HTTP specification intends
+this status code to be used for "limited-time, promotional services".
+
+APIs should not feel compelled to indicate resources that have been deleted with this status code.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410
 
@@ -36,9 +42,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/410
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

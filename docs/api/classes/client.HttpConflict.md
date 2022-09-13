@@ -1,14 +1,17 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpConflict
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpConflict
 
 # Class: HttpConflict
 
 [client](../modules/client.md).HttpConflict
 
-Client status 409
+409 Conflict (client)
 
-**`Link`**
+This response is sent when a request conflicts with the current state of the server.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409
+**`See`**
+
+- https://httpstatus.in/409/
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409
 
 ## Hierarchy
 
@@ -36,9 +39,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

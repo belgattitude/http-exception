@@ -1,5 +1,4 @@
 export { HttpBadGateway } from './HttpBadGateway';
-export { HttpBandwidthLimitExceeded } from './HttpBandwidthLimitExceeded';
 export { HttpVersionNotSupported } from './HttpVersionNotSupported';
 export { HttpGatewayTimeout } from './HttpGatewayTimeout';
 export { HttpInternalServerError } from './HttpInternalServerError';

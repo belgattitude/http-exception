@@ -1,12 +1,15 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpPaymentRequired
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpPaymentRequired
 
 # Class: HttpPaymentRequired
 
 [client](../modules/client.md).HttpPaymentRequired
 
-Client status 402
+402 Payment required (client)
 
-**`Link`**
+This response code is reserved for future use. The initial aim for creating this code was using it for digital
+payment systems, however this status code is used very rarely and no standard convention exists.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
 
@@ -36,9 +39,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/402
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

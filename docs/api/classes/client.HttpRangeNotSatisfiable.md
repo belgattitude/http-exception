@@ -1,12 +1,15 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpRangeNotSatisfiable
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpRangeNotSatisfiable
 
 # Class: HttpRangeNotSatisfiable
 
 [client](../modules/client.md).HttpRangeNotSatisfiable
 
-Client status 416
+416 Range Not Satisfiable (client)
 
-**`Link`**
+The range specified by the Range header field in the request cannot be fulfilled.
+It's possible that the range is outside the size of the target URI's data.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/416
 
@@ -36,9 +39,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/416
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

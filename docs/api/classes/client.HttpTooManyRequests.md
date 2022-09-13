@@ -1,14 +1,17 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpTooManyRequests
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpTooManyRequests
 
 # Class: HttpTooManyRequests
 
 [client](../modules/client.md).HttpTooManyRequests
 
-Client status 429
+429 Too Many Requests (client)
 
-**`Link`**
+The user has sent too many requests in a given amount of time ("rate limiting").
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+**`See`**
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+- https://httpstatus.in/429/
 
 ## Hierarchy
 
@@ -36,9 +39,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

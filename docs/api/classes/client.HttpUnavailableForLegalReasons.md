@@ -1,14 +1,17 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpUnavailableForLegalReasons
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpUnavailableForLegalReasons
 
 # Class: HttpUnavailableForLegalReasons
 
 [client](../modules/client.md).HttpUnavailableForLegalReasons
 
-Client status 451
+451 Unavailable For Legal Reasons (client)
 
-**`Link`**
+The user agent requested a resource that cannot legally be provided, such as a web page censored by a government.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/451
+**`See`**
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/451
+- https://httpstatus.in/451/
 
 ## Hierarchy
 
@@ -36,9 +39,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/451
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

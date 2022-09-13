@@ -1,4 +1,4 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / base
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / base
 
 # Module: base
 

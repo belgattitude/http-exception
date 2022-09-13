@@ -1,32 +1,31 @@
-import type { HttpStatusCode } from '../types';
-
-export type HttpExceptionParams = {
-  statusCode: HttpStatusCode;
-  message?: string;
-  url?: string;
-  cause?: Error;
-};
+import type { HttpExceptionParams } from '../types';
+import { getSuper } from '../utils';
 
 export class HttpException extends Error {
   /**
-   * Http error status code
+   * Http error status code (400-599)
    */
   public readonly statusCode: number;
   /**
-   * Optional url that caused the error
+   * Indicates the original url that caused the error.
    */
   public readonly url: string | undefined;
 
-  constructor(params: HttpExceptionParams) {
-    const { message, statusCode, url, cause } = params;
+  /**
+   * @param {number} statusCode
+   * @param {HttpExceptionParams | string} msgOrParams
+   */
+  constructor(statusCode: number, msgOrParams?: HttpExceptionParams | string) {
+    const name = 'HttpException';
+    const { message, url, cause } = getSuper(name, msgOrParams);
     if (cause) {
       super(message, { cause });
     } else {
       super(message);
     }
-    this.name = 'HttpException';
     this.url = url;
     this.statusCode = statusCode;
     Object.setPrototypeOf(this, HttpException.prototype);
+    this.name = name;
   }
 }

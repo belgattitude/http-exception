@@ -1,18 +1,21 @@
 import { HttpServerException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpVersionNotSupported';
-
 /**
- * Server status 505
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505
+ * 505 HTTP Version Not Supported
+ *
+ * The HTTP version used in the request is not supported by the server.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505
+ * @see https://httpstatus.in/505/
  */
 export class HttpVersionNotSupported extends HttpServerException {
   static readonly STATUS = 505;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 505, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'VersionNotSupported';
+    super(505, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpVersionNotSupported.prototype);
-    this.name = className;
+    this.name = `Http${name}`;
   }
 }

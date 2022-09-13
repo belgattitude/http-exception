@@ -1,12 +1,14 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpLengthRequired
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpLengthRequired
 
 # Class: HttpLengthRequired
 
 [client](../modules/client.md).HttpLengthRequired
 
-Client status 411
+411 Length required
 
-**`Link`**
+Server rejected the request because the Content-Length header field is not defined and the server requires it.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/411
 
@@ -36,9 +38,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/411
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

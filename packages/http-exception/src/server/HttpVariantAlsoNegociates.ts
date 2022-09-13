@@ -1,18 +1,22 @@
 import { HttpServerException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpVariantAlsoNegociates';
-
 /**
- * Server status 506
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/506
+ * 506 Variant Also Negotiates (server)
+ *
+ * The server has an internal configuration error: the chosen variant resource is configured to engage
+ * in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/506
+ * @see https://httpstatus.in/506/
  */
 export class HttpVariantAlsoNegociates extends HttpServerException {
   static readonly STATUS = 506;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 506, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'VariantAlsoNegociates';
+    super(506, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpVariantAlsoNegociates.prototype);
-    this.name = className;
+    this.name = `Http${name}`;
   }
 }

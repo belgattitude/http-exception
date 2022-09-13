@@ -1,4 +1,4 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [base](../modules/base.md) / HttpServerException
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [base](../modules/base.md) / HttpServerException
 
 # Class: HttpServerException
 
@@ -53,9 +53,9 @@
 
 #### Parameters
 
-| Name     | Type                  |
-| :------- | :-------------------- |
-| `params` | `HttpExceptionParams` |
+| Name     | Type                                                                                 |
+| :------- | :----------------------------------------------------------------------------------- |
+| `params` | [`HttpExceptionParamsWithStatus`](../modules/types.md#httpexceptionparamswithstatus) |
 
 #### Overrides
 

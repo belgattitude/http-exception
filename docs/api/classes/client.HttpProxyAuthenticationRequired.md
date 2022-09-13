@@ -1,12 +1,14 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpProxyAuthenticationRequired
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpProxyAuthenticationRequired
 
 # Class: HttpProxyAuthenticationRequired
 
 [client](../modules/client.md).HttpProxyAuthenticationRequired
 
-Client status 407
+407 Proxy authentication required (client)
 
-**`Link`**
+This is similar to 401 Unauthorized but authentication is needed to be done by a proxy
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/407
 
@@ -36,9 +38,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/407
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

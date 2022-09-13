@@ -1,18 +1,21 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpImATeapot';
-
 /**
- * Client status 418
+ * 418 I'm a teapot (client)
+ *
+ * The server refuses the attempt to brew coffee with a teapot.
+ *
+ * @see https://httpstatus.in/418/
  * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/418
  */
 export class HttpImATeapot extends HttpClientException {
   static readonly STATUS = 418;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 418, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'ImATeapot';
+    super(418, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpImATeapot.prototype);
-    this.name = 'HttpImATeapot';
+    this.name = `Http${name}`;
   }
 }

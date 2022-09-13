@@ -1,12 +1,14 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpUriTooLong
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpUriTooLong
 
 # Class: HttpUriTooLong
 
 [client](../modules/client.md).HttpUriTooLong
 
-Client status 414
+414 URI too long (client)
 
-**`Link`**
+The URI requested by the client is longer than the server is willing to interpret.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/414
 
@@ -36,9 +38,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/414
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

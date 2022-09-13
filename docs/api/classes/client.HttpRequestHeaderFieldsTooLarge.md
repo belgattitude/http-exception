@@ -1,14 +1,18 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpRequestHeaderFieldsTooLarge
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpRequestHeaderFieldsTooLarge
 
 # Class: HttpRequestHeaderFieldsTooLarge
 
 [client](../modules/client.md).HttpRequestHeaderFieldsTooLarge
 
-Client status 431
+431 Request Header Fields Too Large (client)
 
-**`Link`**
+The server is unwilling to process the request because its header fields are too large.
+The request may be resubmitted after reducing the size of the request header fields.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/431
+**`See`**
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/431
+- https://httpstatus.in/431/
 
 ## Hierarchy
 
@@ -36,9 +40,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/431
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

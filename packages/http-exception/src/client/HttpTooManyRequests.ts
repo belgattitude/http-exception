@@ -1,18 +1,21 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpTooManyRequests';
-
 /**
- * Client status 429
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+ * 429 Too Many Requests (client)
+ *
+ * The user has sent too many requests in a given amount of time ("rate limiting").
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429
+ * @see https://httpstatus.in/429/
  */
 export class HttpTooManyRequests extends HttpClientException {
   static readonly STATUS = 429;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 429, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'TooManyRequests';
+    super(429, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpTooManyRequests.prototype);
-    this.name = className;
+    this.name = `Http${name}`;
   }
 }

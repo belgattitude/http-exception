@@ -1,12 +1,13 @@
+import type { HttpException } from '../../base';
 import { HttpClientException, HttpServerException } from '../../base';
 import { statusMap } from '../../status';
-import type { HttpErrorParams } from '../../types';
+import type { HttpExceptionParams } from '../../types';
 import { createHttpException } from '../createHttpException';
 
 describe('createHttpException tests', () => {
   describe('when error status has a concrete class', () => {
     type AnyExceptionClass = {
-      new <T>(params: HttpErrorParams | string): T;
+      new <T>(params: HttpExceptionParams | string): T;
     };
 
     const all = Object.entries(statusMap).map(([code, cls]) => {
@@ -23,25 +24,30 @@ describe('createHttpException tests', () => {
         expect(error).toStrictEqual(expected);
       }
     );
+
+    it.each(all)(
+      'should preserver the oject name (%p.name)',
+      (className, status, cls) => {
+        const params = 'msg';
+        const error = createHttpException(status, params);
+        const expected = new cls(params) as HttpException;
+        expect(error?.name).toStrictEqual(expected.name);
+      }
+    );
   });
 
   describe('when server status does not have a concrete class', () => {
-    const unlistedServerErrors = [
+    const nonAssignedByIETF = [
       ['Arbitrary number 599', 599],
       ['Cloudflare - 524 - A Timeout Occurred', 524],
       ['Cloudflare - 525 - SSL Handshake Failed', 525],
     ] as [msg: string, status: number][];
 
-    it.each(unlistedServerErrors)(
+    it.each(nonAssignedByIETF)(
       'should return HttpServerException',
       (msg, status) => {
         const error = createHttpException(status, msg);
-        expect(error).toStrictEqual(
-          new HttpServerException({
-            message: msg,
-            statusCode: status,
-          })
-        );
+        expect(error).toStrictEqual(new HttpServerException(status, msg));
         expect(error?.name).toStrictEqual('HttpServerException');
       }
     );
@@ -58,9 +64,8 @@ describe('createHttpException tests', () => {
       (msg, status) => {
         const error = createHttpException(status, msg);
         expect(error).toStrictEqual(
-          new HttpClientException({
+          new HttpClientException(status, {
             message: msg,
-            statusCode: status,
           })
         );
         expect(error?.name).toStrictEqual('HttpClientException');

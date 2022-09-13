@@ -1,18 +1,21 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpLocked';
-
 /**
- * Client status 423 (webdav specific)
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses
+ * 423 Locked (client / webdav specific)
+ *
+ * The source or destination resource of a method is locked. This response SHOULD contain an
+ * appropriate precondition or postcondition code, such as ‘lock-token-submitted’ or ‘no-conflicting-lock’.
+ *
+ * @see https://httpstatus.in/423/
  */
 export class HttpLocked extends HttpClientException {
   static readonly STATUS = 423;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 423, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'Locked';
+    super(423, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpLocked.prototype);
-    this.name = className;
+    this.name = `Http${name}`;
   }
 }

@@ -1,18 +1,21 @@
 import { HttpServerException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpNetworkAuthenticationRequired';
-
 /**
- * Server status 511
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/511
+ * 511 Network Authentication Required (server)
+ *
+ * Indicates that the client needs to authenticate to gain network access.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/511
+ * @see https://httpstatus.in/511/
  */
 export class HttpNetworkAuthenticationRequired extends HttpServerException {
   static readonly STATUS = 511;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 511, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'NetworkAuthenticationRequired';
+    super(511, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpNetworkAuthenticationRequired.prototype);
-    this.name = className;
+    this.name = `Http${name}`;
   }
 }

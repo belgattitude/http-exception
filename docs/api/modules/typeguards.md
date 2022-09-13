@@ -1,4 +1,4 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / typeguards
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / typeguards
 
 # Module: typeguards
 

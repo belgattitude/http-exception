@@ -1,4 +1,4 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpExpectationFailed
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpExpectationFailed
 
 # Class: HttpExpectationFailed
 
@@ -6,9 +6,10 @@
 
 Client status 417
 
-**`Link`**
+**`See`**
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/417
+- https://httpstatus.in/417/
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/417
 
 ## Hierarchy
 
@@ -36,9 +37,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/417
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

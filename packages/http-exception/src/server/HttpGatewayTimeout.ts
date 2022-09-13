@@ -1,18 +1,21 @@
 import { HttpServerException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpGatewayTimeout';
-
 /**
- * Server status 504
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504
+ * 504 Gateway Timeout (server)
+ *
+ * This error response is given when the server is acting as a gateway and cannot get a response in time.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504
+ * @see https://httpstatus.in/504/
  */
 export class HttpGatewayTimeout extends HttpServerException {
   static readonly STATUS = 504;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 504, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'GatewayTimeout';
+    super(504, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpGatewayTimeout.prototype);
-    this.name = className;
+    this.name = `Http${name}`;
   }
 }

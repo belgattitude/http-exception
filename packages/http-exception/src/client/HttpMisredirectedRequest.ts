@@ -1,18 +1,22 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpMisredirectedRequest';
-
 /**
- * Client status 421
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/421
+ * 421 Misdirected Request (client)
+ *
+ * The request was directed at a server that is not able to produce a response. This can be sent by a server that
+ * is not configured to produce responses for the combination of scheme and authority that are included
+ * in the request URI.
+ *
+ * @see https://httpstatus.in/421/
  */
 export class HttpMisredirectedRequest extends HttpClientException {
   static readonly STATUS = 421;
-  constructor(msgOrParams?: HttpErrorParams | string) {
-    super(getSuper(className, 421, msgOrParams));
+  constructor(msgOrParams?: HttpExceptionParams | string) {
+    const name = 'MisredirectedRequest';
+    super(421, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpMisredirectedRequest.prototype);
-    this.name = className;
+    this.name = `Http${name}`;
   }
 }

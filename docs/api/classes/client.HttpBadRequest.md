@@ -1,14 +1,18 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpBadRequest
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpBadRequest
 
 # Class: HttpBadRequest
 
 [client](../modules/client.md).HttpBadRequest
 
-Client status 400
+400 Bad Request (client)
 
-**`Link`**
+The server cannot or will not process the request due to something that is perceived to be a client error
+(e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+**`See`**
+
+- https://httpstatus.in/400/
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
 
 ## Hierarchy
 
@@ -36,9 +40,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

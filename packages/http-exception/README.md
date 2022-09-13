@@ -20,28 +20,7 @@ $ yarn add @belgattitude/http-exception     # via yarn
 
 ### Usage
 
-#### Fluent with code completion
-
-> Fluent usage clarify
-
-```typescript
-import { httpException } from "@belgattitude/http-exception";
-
-const err1 = httpException.client.notFound();
-const err2 = httpException.client.notFound("Custom message");
-const err3 = httpException.client.forbidden({
-  // message: 'Forbidden', // Will default to this message
-  url: "https://moma.org/forbidden-art",
-});
-
-const err4 = httpException.server.internalServerError({
-  url: "https://github.org/microservice",
-});
-```
-
-#### Individual imports
-
-> Individual imports allows better tree-shaking (~200 bytes per import).
+#### Creation
 
 ```typescript
 import {
@@ -50,15 +29,29 @@ import {
   HttpInternalServerError,
 } from "@belgattitude/http-exception";
 
+// Basic with default message "Http not found"
 const err1 = new HttpNotFound();
+
+// With custom message
 const err2 = new HttpNotFound("Custom message");
+
+// With original url context
 const err3 = new HttpForbidden({
-  // message: 'Forbidden', // Will default to this message
   url: "https://moma.org/forbidden-art",
 });
+
+// With context and custom message
 const err4 = HttpInternalServerError({
+  message: 'Custom message rather than "Internal Server Error"',
   url: "https://github.org/microservice",
 });
+
+// With cause
+try {
+  throw new Error("Original error");
+} catch (e) {
+  throw new HttpNotFound({ cause: e });
+}
 ```
 
 #### Factories
@@ -72,6 +65,7 @@ const err3 = createHttpException(404, {
   url: "https://moma.org/forbidden-art",
 });
 const err4 = createHttpException(500, {
+  message: 'Custom message rather than "Internal Server Error"',
   url: "https://github.org/microservice",
 });
 ```
