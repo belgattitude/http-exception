@@ -6,6 +6,7 @@
     "@belgattitude/http-exception": "0.1.9"
   },
   "changesets": [
+    "chatty-gorillas-attack",
     "short-paws-jam"
   ]
 }
