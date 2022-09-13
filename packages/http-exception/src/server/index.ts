@@ -8,4 +8,4 @@ export { HttpNotImplemented } from './HttpNotImplemented';
 export { HttpServiceUnavailable } from './HttpServiceUnavailable';
 export { HttpInsufficientStorage } from './HttpInsufficientStorage';
 export { HttpLoopDetected } from './HttpLoopDetected';
-export { HttpVariantAlsoNegociates } from './HttpVariantAlsoNegociates';
+export { HttpVariantAlsoNegotiates } from './HttpVariantAlsoNegotiates';

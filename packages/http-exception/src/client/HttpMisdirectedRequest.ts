@@ -11,12 +11,12 @@ import { getSuper } from '../utils';
  *
  * @see https://httpstatus.in/421/
  */
-export class HttpMisredirectedRequest extends HttpClientException {
+export class HttpMisdirectedRequest extends HttpClientException {
   static readonly STATUS = 421;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const name = 'MisredirectedRequest';
+    const name = 'MisdirectedRequest';
     super(421, getSuper(name, msgOrParams));
-    Object.setPrototypeOf(this, HttpMisredirectedRequest.prototype);
+    Object.setPrototypeOf(this, HttpMisdirectedRequest.prototype);
     this.name = `Http${name}`;
   }
 }

@@ -11,12 +11,12 @@ import { getSuper } from '../utils';
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/506
  * @see https://httpstatus.in/506/
  */
-export class HttpVariantAlsoNegociates extends HttpServerException {
+export class HttpVariantAlsoNegotiates extends HttpServerException {
   static readonly STATUS = 506;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const name = 'VariantAlsoNegociates';
+    const name = 'VariantAlsoNegotiates';
     super(506, getSuper(name, msgOrParams));
-    Object.setPrototypeOf(this, HttpVariantAlsoNegociates.prototype);
+    Object.setPrototypeOf(this, HttpVariantAlsoNegotiates.prototype);
     this.name = `Http${name}`;
   }
 }

@@ -7,7 +7,7 @@ export { HttpGone } from './HttpGone';
 export { HttpImATeapot } from './HttpImATeapot';
 export { HttpLengthRequired } from './HttpLengthRequired';
 export { HttpLocked } from './HttpLocked';
-export { HttpMisredirectedRequest } from './HttpMisredirectedRequest';
+export { HttpMisdirectedRequest } from './HttpMisdirectedRequest';
 export { HttpMethodNotAllowed } from './HttpMethodNotAllowed';
 export { HttpNotAcceptable } from './HttpNotAcceptable';
 export { HttpNotFound } from './HttpNotFound';
