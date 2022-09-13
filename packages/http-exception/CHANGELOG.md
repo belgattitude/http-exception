@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 0.1.10-canary.1
+
+### Patch Changes
+
+- [#28](https://github.com/belgattitude/http-exception/pull/28) [`c76dd69`](https://github.com/belgattitude/http-exception/commit/c76dd69b8aea2436304737e2bcfa23aaa4dd6a27) Thanks [@belgattitude](https://github.com/belgattitude)! - Squeeze out 450 bytes for full import
+
 ## 0.1.10-canary.0
 
 ### Patch Changes
