@@ -329,6 +329,7 @@ __metadata:
     "@size-limit/webpack": "npm:8.1.0"
     "@size-limit/webpack-why": "npm:8.1.0"
     "@types/node": "npm:18.7.16"
+    "@types/statuses": "npm:2.0.0"
     "@vitest/coverage-istanbul": "npm:0.23.2"
     "@vitest/ui": "npm:0.23.2"
     cross-env: "npm:7.0.3"
@@ -340,6 +341,7 @@ __metadata:
     rollup-plugin-dts: "npm:4.2.2"
     rollup-plugin-terser: "npm:7.0.2"
     size-limit: "npm:8.1.0"
+    statuses: "npm:2.0.1"
     terser: "npm:5.15.0"
     tslib: "npm:2.4.0"
     typedoc: "npm:0.23.14"
@@ -2103,6 +2105,13 @@ __metadata:
   version: 2.0.1
   resolution: "@types/stack-utils@npm:2.0.1"
   checksum: a961a1d043517a2b6f7fc326fbce12cd3ba4a8dfc87b63ef2aa7cd991f6a8c7bc87942a51a792c3f922e34e3898d9de3139f2f6636a326a7ec4635389b822bd9
+  languageName: node
+  linkType: hard
+
+"@types/statuses@npm:2.0.0":
+  version: 2.0.0
+  resolution: "@types/statuses@npm:2.0.0"
+  checksum: 9818938903c5d18f2f984be42e2f8a19bae15d7a859a4e5574d85b36102c3cb44c84f14aeb063ccb8c2a04914f0965dd915922ca92c4bb312e70d83697da32ba
   languageName: node
   linkType: hard
 
@@ -8580,6 +8589,13 @@ __metadata:
   dependencies:
     escape-string-regexp: "npm:^2.0.0"
   checksum: 1a2a1450abc302addf8c3f60b38439786b1410fef30a30f162875d03abb38ff5b2c8da97d04552cd018dd5565338b9bc6aeeaade3f779eb910e76cad46be7b30
+  languageName: node
+  linkType: hard
+
+"statuses@npm:2.0.1":
+  version: 2.0.1
+  resolution: "statuses@npm:2.0.1"
+  checksum: a7e9d41901245a442e77b339f715d77ac113c03ab9434d9f81ae45d75ed3437d9824e601ae1a834ad3e471ae3fc78d3c00decec5e826c91552a58d4c38833ecf
   languageName: node
   linkType: hard
 
