@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpInternalServerError extends HttpServerException {
   static readonly STATUS = 500;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'InternalServerError';
-    super(getSuper(className, 500, msgOrParams));
+    const name = 'InternalServerError';
+    super(500, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpInternalServerError.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

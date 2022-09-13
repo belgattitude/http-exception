@@ -47,12 +47,7 @@ describe('createHttpException tests', () => {
       'should return HttpServerException',
       (msg, status) => {
         const error = createHttpException(status, msg);
-        expect(error).toStrictEqual(
-          new HttpServerException({
-            message: msg,
-            statusCode: status,
-          })
-        );
+        expect(error).toStrictEqual(new HttpServerException(status, msg));
         expect(error?.name).toStrictEqual('HttpServerException');
       }
     );
@@ -69,9 +64,8 @@ describe('createHttpException tests', () => {
       (msg, status) => {
         const error = createHttpException(status, msg);
         expect(error).toStrictEqual(
-          new HttpClientException({
+          new HttpClientException(status, {
             message: msg,
-            statusCode: status,
           })
         );
         expect(error?.name).toStrictEqual('HttpClientException');

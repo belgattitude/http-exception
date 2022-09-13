@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpUnavailableForLegalReasons extends HttpClientException {
   static readonly STATUS = 451;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'UnavailableForLegalReasons';
-    super(getSuper(className, 451, msgOrParams));
+    const name = 'UnavailableForLegalReasons';
+    super(451, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpUnavailableForLegalReasons.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

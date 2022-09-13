@@ -14,9 +14,9 @@ import { getSuper } from '../utils';
 export class HttpUpgradeRequired extends HttpClientException {
   static readonly STATUS = 426;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'UpgradeRequired';
-    super(getSuper(className, 426, msgOrParams));
+    const name = 'UpgradeRequired';
+    super(426, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpUpgradeRequired.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

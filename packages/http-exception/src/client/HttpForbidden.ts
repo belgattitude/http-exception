@@ -14,9 +14,9 @@ import { getSuper } from '../utils';
 export class HttpForbidden extends HttpClientException {
   static readonly STATUS = 403;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'Forbidden';
-    super(getSuper(className, 403, msgOrParams));
+    const name = 'Forbidden';
+    super(403, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpForbidden.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

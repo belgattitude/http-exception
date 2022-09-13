@@ -14,9 +14,9 @@ import { getSuper } from '../utils';
 export class HttpMethodNotAllowed extends HttpClientException {
   static readonly STATUS = 405;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'MethodNotAllowed';
-    super(getSuper(className, 405, msgOrParams));
+    const name = 'MethodNotAllowed';
+    super(405, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpMethodNotAllowed.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

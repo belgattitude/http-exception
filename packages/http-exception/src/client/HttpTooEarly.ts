@@ -12,9 +12,9 @@ import { getSuper } from '../utils';
 export class HttpTooEarly extends HttpClientException {
   static readonly STATUS = 425;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'TooEarly';
-    super(getSuper(className, 425, msgOrParams));
+    const name = 'TooEarly';
+    super(425, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpTooEarly.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

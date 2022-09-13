@@ -1,7 +1,7 @@
 // @ts-check
 
 // Regularly update this max size when new legit code is added (keep a threshold)
-const fullBundleMaxSize = "2700B";
+const fullBundleMaxSize = "2110B";
 
 /**
  * Will ensure esm tree-shakeability and total size are within expectations.
@@ -29,7 +29,7 @@ module.exports = [
     name: "ESM (only HttpInternalServerError)",
     path: ["dist/esm/index.js"],
     import: "{ HttpInternalServerError }",
-    limit: "370B",
+    limit: "360B",
   },
   {
     name: "ESM (two exceptions: HttpNotFound HttpInternalServerError)",
@@ -41,7 +41,7 @@ module.exports = [
     name: "ESM (only isHttpException)",
     path: ["dist/esm/index.js"],
     import: "{ isHttpException }",
-    limit: "150B",
+    limit: "280B",
   },
   {
     name: "ESM (only createHttpException)",

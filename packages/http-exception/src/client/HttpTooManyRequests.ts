@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpTooManyRequests extends HttpClientException {
   static readonly STATUS = 429;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'TooManyRequests';
-    super(getSuper(className, 429, msgOrParams));
+    const name = 'TooManyRequests';
+    super(429, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpTooManyRequests.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpLocked extends HttpClientException {
   static readonly STATUS = 423;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'Locked';
-    super(getSuper(className, 423, msgOrParams));
+    const name = 'Locked';
+    super(423, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpLocked.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

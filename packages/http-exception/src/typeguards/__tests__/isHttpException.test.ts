@@ -5,13 +5,7 @@ import { isHttpException } from '../isHttpException';
 
 describe('isHttpException', () => {
   it('should return true if HttpException', () => {
-    expect(
-      isHttpException(
-        new HttpException({
-          statusCode: 500,
-        })
-      )
-    ).toBe(true);
+    expect(isHttpException(new HttpException(500))).toBe(true);
   });
 
   it('should return true if subclass of HttpServerException', () => {

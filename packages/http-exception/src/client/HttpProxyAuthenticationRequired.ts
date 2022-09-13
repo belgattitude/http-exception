@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpProxyAuthenticationRequired extends HttpClientException {
   static readonly STATUS = 407;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'ProxyAuthenticationRequired';
-    super(getSuper(className, 407, msgOrParams));
+    const name = 'ProxyAuthenticationRequired';
+    super(407, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpProxyAuthenticationRequired.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

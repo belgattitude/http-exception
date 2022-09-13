@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpBadGateway extends HttpServerException {
   static readonly STATUS = 502;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'BadGateway';
-    super(getSuper(className, 502, msgOrParams));
+    const name = 'BadGateway';
+    super(502, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpBadGateway.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

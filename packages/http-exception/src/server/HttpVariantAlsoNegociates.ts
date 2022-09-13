@@ -14,9 +14,9 @@ import { getSuper } from '../utils';
 export class HttpVariantAlsoNegociates extends HttpServerException {
   static readonly STATUS = 506;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'VariantAlsoNegociates';
-    super(getSuper(className, 506, msgOrParams));
+    const name = 'VariantAlsoNegociates';
+    super(506, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpVariantAlsoNegociates.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

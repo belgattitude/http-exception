@@ -14,9 +14,9 @@ import { getSuper } from '../utils';
 export class HttpNotAcceptable extends HttpClientException {
   static readonly STATUS = 406;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'NotAcceptable';
-    super(getSuper(className, 406, msgOrParams));
+    const name = 'NotAcceptable';
+    super(406, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpNotAcceptable.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

@@ -20,9 +20,9 @@ import { getSuper } from '../utils';
 export class HttpServiceUnavailable extends HttpServerException {
   static readonly STATUS = 503;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'ServiceUnavailable';
-    super(getSuper(className, 503, msgOrParams));
+    const name = 'ServiceUnavailable';
+    super(503, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpServiceUnavailable.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

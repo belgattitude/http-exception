@@ -15,9 +15,9 @@ import { getSuper } from '../utils';
 export class HttpPreconditionRequired extends HttpClientException {
   static readonly STATUS = 428;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'PreconditionRequired';
-    super(getSuper(className, 428, msgOrParams));
+    const name = 'PreconditionRequired';
+    super(428, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpPreconditionRequired.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

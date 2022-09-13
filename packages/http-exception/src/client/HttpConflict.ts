@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpConflict extends HttpClientException {
   static readonly STATUS = 409;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'Conflict';
-    super(getSuper(className, 409, msgOrParams));
+    const name = 'Conflict';
+    super(409, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpConflict.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

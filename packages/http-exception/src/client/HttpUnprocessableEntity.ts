@@ -18,9 +18,9 @@ import { getSuper } from '../utils';
 export class HttpUnprocessableEntity extends HttpClientException {
   static readonly STATUS = 422;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'UnprocessableEntity';
-    super(getSuper(className, 422, msgOrParams));
+    const name = 'UnprocessableEntity';
+    super(422, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpUnprocessableEntity.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

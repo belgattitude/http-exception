@@ -13,9 +13,9 @@ import { getSuper } from '../utils';
 export class HttpLengthRequired extends HttpClientException {
   static readonly STATUS = 411;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'LengthRequired';
-    super(getSuper(className, 411, msgOrParams));
+    const name = 'LengthRequired';
+    super(411, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpLengthRequired.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }

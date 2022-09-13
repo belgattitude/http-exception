@@ -14,9 +14,9 @@ import { getSuper } from '../utils';
 export class HttpUnauthorized extends HttpClientException {
   static readonly STATUS = 401;
   constructor(msgOrParams?: HttpExceptionParams | string) {
-    const className = 'Unauthorized';
-    super(getSuper(className, 401, msgOrParams));
+    const name = 'Unauthorized';
+    super(401, getSuper(name, msgOrParams));
     Object.setPrototypeOf(this, HttpUnauthorized.prototype);
-    this.name = `Http${className}`;
+    this.name = `Http${name}`;
   }
 }
