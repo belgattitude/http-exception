@@ -104,3 +104,7 @@ jobs:
       - name: Check build ecmascript compliance
         run: |
           yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run check-dist
+
+      - name: Check doc can be built
+        run: |
+          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run build-doc
