@@ -8,3 +8,4 @@ export * from './client';
 export * from './server';
 export * from './typeguards';
 export * from './factory';
+export * from './serializer';
