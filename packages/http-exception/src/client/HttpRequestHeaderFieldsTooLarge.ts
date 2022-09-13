@@ -1,5 +1,5 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
 const className = 'HttpRequestHeaderFieldsTooLarge';
@@ -10,7 +10,7 @@ const className = 'HttpRequestHeaderFieldsTooLarge';
  */
 export class HttpRequestHeaderFieldsTooLarge extends HttpClientException {
   static readonly STATUS = 431;
-  constructor(msgOrParams?: HttpErrorParams | string) {
+  constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 431, msgOrParams));
     Object.setPrototypeOf(this, HttpRequestHeaderFieldsTooLarge.prototype);
     this.name = className;

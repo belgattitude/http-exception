@@ -1,11 +1,11 @@
 import { HttpClientException, HttpServerException } from '../base';
 import { statusMap } from '../status';
 import { isHttpErrorStatusCode } from '../typeguards';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 
 export const createHttpException = (
   statusCode: number,
-  msgOrParams?: string | HttpErrorParams
+  msgOrParams?: string | HttpExceptionParams
 ): HttpServerException | HttpClientException | null => {
   if (isHttpErrorStatusCode(statusCode)) {
     const cls =

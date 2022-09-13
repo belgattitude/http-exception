@@ -1,5 +1,5 @@
 import { HttpServerException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
 const className = 'HttpVariantAlsoNegociates';
@@ -10,7 +10,7 @@ const className = 'HttpVariantAlsoNegociates';
  */
 export class HttpVariantAlsoNegociates extends HttpServerException {
   static readonly STATUS = 506;
-  constructor(msgOrParams?: HttpErrorParams | string) {
+  constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 506, msgOrParams));
     Object.setPrototypeOf(this, HttpVariantAlsoNegociates.prototype);
     this.name = className;

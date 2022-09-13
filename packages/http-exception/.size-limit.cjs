@@ -55,6 +55,18 @@ module.exports = [
     import: "{ httpException }",
     limit: "2000B", // Will import all server/client exceptions
   },
+  {
+    name: "ESM (all clientException)",
+    path: ["dist/esm"],
+    import: "{ clientException }",
+    limit: "1600B", // Will import all server/client exceptions
+  },
+  {
+    name: "ESM (all serverException)",
+    path: ["dist/esm"],
+    import: "{ serverException }",
+    limit: "1600B", // Will import all server/client exceptions
+  },
   // ###################################################
   // Commonjs full bundle
   // ###################################################

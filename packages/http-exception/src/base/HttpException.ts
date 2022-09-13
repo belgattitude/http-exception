@@ -1,11 +1,4 @@
-import type { HttpStatusCode } from '../types';
-
-export type HttpExceptionParams = {
-  statusCode: HttpStatusCode;
-  message?: string;
-  url?: string;
-  cause?: Error;
-};
+import type { HttpExceptionParamsWithStatus } from '../types';
 
 export class HttpException extends Error {
   /**
@@ -17,7 +10,7 @@ export class HttpException extends Error {
    */
   public readonly url: string | undefined;
 
-  constructor(params: HttpExceptionParams) {
+  constructor(params: HttpExceptionParamsWithStatus) {
     const { message, statusCode, url, cause } = params;
     if (cause) {
       super(message, { cause });

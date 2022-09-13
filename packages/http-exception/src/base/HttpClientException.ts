@@ -1,8 +1,8 @@
+import type { HttpExceptionParamsWithStatus } from '../types';
 import { HttpException } from './HttpException';
-import type { HttpExceptionParams } from './HttpException';
 
 export class HttpClientException extends HttpException {
-  constructor(params: HttpExceptionParams) {
+  constructor(params: HttpExceptionParamsWithStatus) {
     super(params);
     this.name = 'HttpClientException';
     Object.setPrototypeOf(this, HttpClientException.prototype);

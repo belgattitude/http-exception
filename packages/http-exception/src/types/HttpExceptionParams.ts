@@ -1,7 +1,7 @@
 /**
  * Named parameters for the `HttpXXX` constructor.
  */
-export type HttpErrorParams = {
+export type HttpExceptionParams = {
   message?: string;
   url?: string;
   cause?: Error;

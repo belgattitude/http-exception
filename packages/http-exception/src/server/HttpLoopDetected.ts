@@ -1,5 +1,5 @@
 import { HttpServerException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
 const className = 'HttpLoopDetected';
@@ -10,7 +10,7 @@ const className = 'HttpLoopDetected';
  */
 export class HttpLoopDetected extends HttpServerException {
   static readonly STATUS = 508;
-  constructor(msgOrParams?: HttpErrorParams | string) {
+  constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 508, msgOrParams));
     Object.setPrototypeOf(this, HttpLoopDetected.prototype);
     this.name = className;

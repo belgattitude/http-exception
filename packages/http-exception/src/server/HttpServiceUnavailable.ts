@@ -1,5 +1,5 @@
 import { HttpServerException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
 const className = 'HttpServiceUnavailable';
@@ -10,7 +10,7 @@ const className = 'HttpServiceUnavailable';
  */
 export class HttpServiceUnavailable extends HttpServerException {
   static readonly STATUS = 503;
-  constructor(msgOrParams?: HttpErrorParams | string) {
+  constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 503, msgOrParams));
     Object.setPrototypeOf(this, HttpServiceUnavailable.prototype);
     this.name = className;

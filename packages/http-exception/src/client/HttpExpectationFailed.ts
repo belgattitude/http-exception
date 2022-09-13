@@ -1,5 +1,5 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
 const className = 'HttpExpectationFailed';
@@ -10,7 +10,7 @@ const className = 'HttpExpectationFailed';
  */
 export class HttpExpectationFailed extends HttpClientException {
   static readonly STATUS = 417;
-  constructor(msgOrParams?: HttpErrorParams | string) {
+  constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 417, msgOrParams));
     Object.setPrototypeOf(this, HttpExpectationFailed.prototype);
     this.name = className;

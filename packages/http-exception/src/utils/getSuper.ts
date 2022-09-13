@@ -1,5 +1,7 @@
-import type { HttpExceptionParams } from '../base/HttpException';
-import type { HttpErrorParams } from '../types';
+import type {
+  HttpExceptionParams,
+  HttpExceptionParamsWithStatus,
+} from '../types';
 import { getMsgFromCls } from './getMsgFromCls';
 
 /**
@@ -10,8 +12,8 @@ import { getMsgFromCls } from './getMsgFromCls';
 export const getSuper = (
   className: string,
   statusCode: number,
-  msgOrParams?: HttpErrorParams | string
-): HttpExceptionParams => {
+  msgOrParams?: HttpExceptionParams | string
+): HttpExceptionParamsWithStatus => {
   const p =
     typeof msgOrParams === 'string' ? { message: msgOrParams } : msgOrParams;
   const { message = getMsgFromCls(className), url, cause } = p ?? {};

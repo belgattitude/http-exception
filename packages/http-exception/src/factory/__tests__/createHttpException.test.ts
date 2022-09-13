@@ -1,12 +1,12 @@
 import { HttpClientException, HttpServerException } from '../../base';
 import { statusMap } from '../../status';
-import type { HttpErrorParams } from '../../types';
+import type { HttpExceptionParams } from '../../types';
 import { createHttpException } from '../createHttpException';
 
 describe('createHttpException tests', () => {
   describe('when error status has a concrete class', () => {
     type AnyExceptionClass = {
-      new <T>(params: HttpErrorParams | string): T;
+      new <T>(params: HttpExceptionParams | string): T;
     };
 
     const all = Object.entries(statusMap).map(([code, cls]) => {

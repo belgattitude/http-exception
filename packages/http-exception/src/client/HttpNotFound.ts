@@ -1,5 +1,5 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
 const className = 'HttpNotFound';
@@ -10,7 +10,7 @@ const className = 'HttpNotFound';
  */
 export class HttpNotFound extends HttpClientException {
   static readonly STATUS = 404;
-  constructor(msgOrParams?: HttpErrorParams | string) {
+  constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 404, msgOrParams));
     Object.setPrototypeOf(this, HttpNotFound.prototype);
     this.name = className;

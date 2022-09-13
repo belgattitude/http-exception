@@ -1,5 +1,5 @@
 import { HttpClientException } from '../base';
-import type { HttpErrorParams } from '../types';
+import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
 const className = 'HttpUriTooLong';
@@ -10,7 +10,7 @@ const className = 'HttpUriTooLong';
  */
 export class HttpUriTooLong extends HttpClientException {
   static readonly STATUS = 414;
-  constructor(msgOrParams?: HttpErrorParams | string) {
+  constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 414, msgOrParams));
     Object.setPrototypeOf(this, HttpUriTooLong.prototype);
     this.name = className;
