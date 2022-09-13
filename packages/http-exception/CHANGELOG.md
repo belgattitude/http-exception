@@ -1,5 +1,17 @@
 # @belgattitude/http-exception
 
+## 1.0.0
+
+### Major Changes
+
+- [#31](https://github.com/belgattitude/http-exception/pull/31) [`662db5f`](https://github.com/belgattitude/http-exception/commit/662db5f34c81527593e4ebc748fc1c144362f9c9) Thanks [@belgattitude](https://github.com/belgattitude)! - Coverage at 100% and last fixes
+
+### Patch Changes
+
+- [#28](https://github.com/belgattitude/http-exception/pull/28) [`c76dd69`](https://github.com/belgattitude/http-exception/commit/c76dd69b8aea2436304737e2bcfa23aaa4dd6a27) Thanks [@belgattitude](https://github.com/belgattitude)! - Squeeze out 450 bytes for full import
+
+- [#25](https://github.com/belgattitude/http-exception/pull/25) [`c153ff8`](https://github.com/belgattitude/http-exception/commit/c153ff82d16851bdf2b39a5f2367515a0fffc305) Thanks [@belgattitude](https://github.com/belgattitude)! - Improve build
+
 ## 0.1.10-canary.1
 
 ### Patch Changes
