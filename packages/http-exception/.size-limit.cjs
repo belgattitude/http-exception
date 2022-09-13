@@ -1,7 +1,7 @@
 // @ts-check
 
 // Regularly update this max size when new legit code is added (keep a threshold)
-const fullBundleMaxSize = "2150B";
+const fullBundleMaxSize = "2500B";
 
 /**
  * Will ensure esm tree-shakeability and total size are within expectations.
