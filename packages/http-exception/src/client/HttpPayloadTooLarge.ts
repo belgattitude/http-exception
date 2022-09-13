@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpPayloadTooLarge';
 
 /**
- * Client status 413
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413
+ * 413 Payload too large (client)
+ *
+ * Request entity is larger than limits defined by server. The server might close the connection or return an Retry-After header field.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/413
+ * @see https://httpstatus.in/413/
  */
 export class HttpPayloadTooLarge extends HttpClientException {
   static readonly STATUS = 413;

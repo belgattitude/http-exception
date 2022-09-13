@@ -1,12 +1,17 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpRequestTimeout
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpRequestTimeout
 
 # Class: HttpRequestTimeout
 
 [client](../modules/client.md).HttpRequestTimeout
 
-Client status 408
+408 Request timeout (client)
 
-**`Link`**
+This response is sent on an idle connection by some servers, even without any previous request by the client.
+It means that the server would like to shut down this unused connection. This response is used much more
+since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to speed up surfing.
+Also note that some servers merely shut down the connection without sending this message.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408
 
@@ -36,9 +41,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/408
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

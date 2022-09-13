@@ -5,6 +5,9 @@
 export const getMsgFromCls = (className: string) => {
   return className
     .replace(/[A-Z]/g, (match) => ` ${match}`)
-    .replace(/^./, (match) => match.toUpperCase())
-    .trim();
+    .trim()
+    .split(' ')
+    .slice(1)
+    .map((word, idx) => (idx === 0 ? word : word.toLowerCase()))
+    .join(' ');
 };

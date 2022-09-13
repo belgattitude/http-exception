@@ -1,4 +1,4 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [server](../modules/server.md) / HttpGatewayTimeout
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [server](../modules/server.md) / HttpGatewayTimeout
 
 # Class: HttpGatewayTimeout
 
@@ -6,7 +6,7 @@
 
 Server status 504
 
-**`Link`**
+**`See`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504
 
@@ -36,9 +36,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/504
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

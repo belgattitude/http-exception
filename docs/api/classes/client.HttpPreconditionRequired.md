@@ -1,14 +1,19 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpPreconditionRequired
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpPreconditionRequired
 
 # Class: HttpPreconditionRequired
 
 [client](../modules/client.md).HttpPreconditionRequired
 
-Client status 428
+428 Precondition Required (client)
 
-**`Link`**
+The origin server requires the request to be conditional. This response is intended to prevent the
+'lost update' problem, where a client GETs a resource's state, modifies it and PUTs it back to the
+server, when meanwhile a third party has modified the state on the server, leading to a conflict.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/428
+**`See`**
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/428
+- https://httpstatus.in/428/
 
 ## Hierarchy
 
@@ -36,9 +41,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/428
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

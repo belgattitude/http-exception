@@ -5,7 +5,11 @@ import { getSuper } from '../utils';
 const className = 'HttpImATeapot';
 
 /**
- * Client status 418
+ * 418 I'm a teapot (client)
+ *
+ * The server refuses the attempt to brew coffee with a teapot.
+ *
+ * @see https://httpstatus.in/418/
  * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/418
  */
 export class HttpImATeapot extends HttpClientException {
@@ -13,6 +17,6 @@ export class HttpImATeapot extends HttpClientException {
   constructor(msgOrParams?: HttpExceptionParams | string) {
     super(getSuper(className, 418, msgOrParams));
     Object.setPrototypeOf(this, HttpImATeapot.prototype);
-    this.name = 'HttpImATeapot';
+    this.name = className;
   }
 }

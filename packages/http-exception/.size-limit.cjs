@@ -23,19 +23,19 @@ module.exports = [
     name: "ESM (only HttpNotFound exception)",
     path: ["dist/esm/index.js"],
     import: "{ HttpNotFound }",
-    limit: "350B",
+    limit: "370B",
   },
   {
     name: "ESM (only HttpInternalServerError)",
     path: ["dist/esm/index.js"],
     import: "{ HttpInternalServerError }",
-    limit: "350B",
+    limit: "370B",
   },
   {
     name: "ESM (two exceptions: HttpNotFound HttpInternalServerError)",
     path: ["dist/esm/index.js"],
     import: "{ HttpNotFound, HttpInternalServerError }",
-    limit: "400B",
+    limit: "420B",
   },
   {
     name: "ESM (only isHttpException)",
@@ -54,18 +54,6 @@ module.exports = [
     path: ["dist/esm/index.js"],
     import: "{ httpException }",
     limit: "2000B", // Will import all server/client exceptions
-  },
-  {
-    name: "ESM (all clientException)",
-    path: ["dist/esm"],
-    import: "{ clientException }",
-    limit: "1600B", // Will import all server/client exceptions
-  },
-  {
-    name: "ESM (all serverException)",
-    path: ["dist/esm"],
-    import: "{ serverException }",
-    limit: "1600B", // Will import all server/client exceptions
   },
   // ###################################################
   // Commonjs full bundle

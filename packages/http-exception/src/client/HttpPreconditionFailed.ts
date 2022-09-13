@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpPreconditionFailed';
 
 /**
- * Client status 412
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/412
+ * 412 Precondition Failed (client)
+ *
+ * The client has indicated preconditions in its headers which the server does not meet.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/412
+ * @see https://httpstatus.in/412/
  */
 export class HttpPreconditionFailed extends HttpClientException {
   static readonly STATUS = 412;

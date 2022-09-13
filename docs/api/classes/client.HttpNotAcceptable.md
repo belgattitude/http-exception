@@ -1,12 +1,15 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpNotAcceptable
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpNotAcceptable
 
 # Class: HttpNotAcceptable
 
 [client](../modules/client.md).HttpNotAcceptable
 
-Client status 406
+406 Not acceptable (client)
 
-**`Link`**
+This response is sent when the web server, after performing server-driven content negotiation, doesn't find
+any content that conforms to the criteria given by the user agent.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406
 
@@ -36,9 +39,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

@@ -6,7 +6,9 @@ const className = 'HttpExpectationFailed';
 
 /**
  * Client status 417
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/417
+ *
+ * @see https://httpstatus.in/417/
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/417
  */
 export class HttpExpectationFailed extends HttpClientException {
   static readonly STATUS = 417;

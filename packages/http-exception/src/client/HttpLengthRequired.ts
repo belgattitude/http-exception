@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpLengthRequired';
 
 /**
- * Client status 411
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/411
+ * 411 Length required
+ *
+ * Server rejected the request because the Content-Length header field is not defined and the server requires it.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/411
+ * @see https://httpstatus.in/411/
  */
 export class HttpLengthRequired extends HttpClientException {
   static readonly STATUS = 411;

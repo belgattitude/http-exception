@@ -1,12 +1,14 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpUnsupportedMediaType
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpUnsupportedMediaType
 
 # Class: HttpUnsupportedMediaType
 
 [client](../modules/client.md).HttpUnsupportedMediaType
 
-Client status 415
+415 Unsupported Media Type (client)
 
-**`Link`**
+The media format of the requested data is not supported by the server, so the server is rejecting the request.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/415
 
@@ -36,9 +38,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/415
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

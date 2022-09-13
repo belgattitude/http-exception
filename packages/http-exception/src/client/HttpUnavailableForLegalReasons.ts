@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpUnavailableForLegalReasons';
 
 /**
- * Client status 451
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/451
+ * 451 Unavailable For Legal Reasons (client)
+ *
+ * The user agent requested a resource that cannot legally be provided, such as a web page censored by a government.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/451
+ * @see https://httpstatus.in/451/
  */
 export class HttpUnavailableForLegalReasons extends HttpClientException {
   static readonly STATUS = 451;

@@ -1,6 +1,6 @@
-@belgattitude/http-exception - v0.1.1
+@belgattitude/http-exception - v0.1.10-canary.0
 
-# @belgattitude/http-exception - v0.1.1
+# @belgattitude/http-exception - v0.1.10-canary.0
 
 ## Table of contents
 

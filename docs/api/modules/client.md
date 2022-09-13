@@ -1,4 +1,4 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / client
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / client
 
 # Module: client
 

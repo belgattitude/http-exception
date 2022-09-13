@@ -1,14 +1,20 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpFailedDependency
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpFailedDependency
 
 # Class: HttpFailedDependency
 
 [client](../modules/client.md).HttpFailedDependency
 
-Http client status 424 (webdav specific)
+424 Failed dependency (client / webdav specific)
 
-**`Link`**
+The method could not be performed on the resource because the requested action depended on another action
+and that action failed.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses
+For example, if a command in a PROPPATCH method fails, then, at minimum, the rest of the commands will
+also fail with 424 Failed Dependency.
+
+**`See`**
+
+https://httpstatus.in/424/
 
 ## Hierarchy
 
@@ -36,9 +42,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

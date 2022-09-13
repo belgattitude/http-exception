@@ -1,4 +1,4 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [server](../modules/server.md) / HttpInsufficientStorage
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [server](../modules/server.md) / HttpInsufficientStorage
 
 # Class: HttpInsufficientStorage
 
@@ -6,7 +6,7 @@
 
 Server status 507 - webdav specific
 
-**`Link`**
+**`See`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/507
 
@@ -36,9 +36,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/507
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

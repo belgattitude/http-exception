@@ -1,10 +1,16 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpImATeapot
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpImATeapot
 
 # Class: HttpImATeapot
 
 [client](../modules/client.md).HttpImATeapot
 
-Client status 418
+418 I'm a teapot (client)
+
+The server refuses the attempt to brew coffee with a teapot.
+
+**`See`**
+
+https://httpstatus.in/418/
 
 **`Link`**
 
@@ -36,9 +42,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/418
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

@@ -5,9 +5,11 @@ import { getSuper } from '../utils';
 const className = 'HttpTooEarly';
 
 /**
- * Client status 425
- * Experimental: expect this behaviour to change in the future
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/425
+ * 425 Too early (client / experimental)
+ *
+ * Indicates that the server is unwilling to risk processing a request that might be replayed.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/425
  */
 export class HttpTooEarly extends HttpClientException {
   static readonly STATUS = 425;

@@ -1,12 +1,17 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpNotFound
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpNotFound
 
 # Class: HttpNotFound
 
 [client](../modules/client.md).HttpNotFound
 
-Client status 404
+404 - Not found (client)
 
-**`Link`**
+The server can not find the requested resource. In the browser, this means the URL is not recognized.
+In an API, this can also mean that the endpoint is valid but the resource itself does not exist.
+Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an
+unauthorized client.
+
+**`Belgattitude`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
 
@@ -36,9 +41,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

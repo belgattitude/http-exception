@@ -40,10 +40,11 @@ export const statusMap = {
   506: Server.HttpVariantAlsoNegociates,
   507: Server.HttpInsufficientStorage, // webdav
   508: Server.HttpLoopDetected, // webdav
-  509: Server.HttpBandwidthLimitExceeded,
+  // Well-known (unassigned by ietf https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
+  // 509: 'BandwidthLimitExceeded',
   510: Server.HttpNotExtended,
   511: Server.HttpNetworkAuthenticationRequired,
-  // Well-known Cloudflare (unassigned)
+  // Well-known Cloudflare (unassigned by ietf https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)
   /*
   520: 'Unknown Error',
   521: 'Web Server Is Down',

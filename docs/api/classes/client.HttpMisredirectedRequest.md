@@ -1,14 +1,18 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpMisredirectedRequest
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpMisredirectedRequest
 
 # Class: HttpMisredirectedRequest
 
 [client](../modules/client.md).HttpMisredirectedRequest
 
-Client status 421
+421 Misdirected Request (client)
 
-**`Link`**
+The request was directed at a server that is not able to produce a response. This can be sent by a server that
+is not configured to produce responses for the combination of scheme and authority that are included
+in the request URI.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/421
+**`See`**
+
+https://httpstatus.in/421/
 
 ## Hierarchy
 
@@ -36,9 +40,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/421
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

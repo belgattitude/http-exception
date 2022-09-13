@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpVersionNotSupported';
 
 /**
- * Server status 505
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505
+ * 505 HTTP Version Not Supported
+ *
+ * The HTTP version used in the request is not supported by the server.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/505
+ * @see https://httpstatus.in/505/
  */
 export class HttpVersionNotSupported extends HttpServerException {
   static readonly STATUS = 505;

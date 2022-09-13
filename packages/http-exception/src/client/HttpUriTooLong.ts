@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpUriTooLong';
 
 /**
- * Client status 414
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/414
+ * 414 URI too long (client)
+ *
+ * The URI requested by the client is longer than the server is willing to interpret.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/414
+ * @see https://httpstatus.in/414/
  */
 export class HttpUriTooLong extends HttpClientException {
   static readonly STATUS = 414;

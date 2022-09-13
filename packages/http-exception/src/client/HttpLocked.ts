@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpLocked';
 
 /**
- * Client status 423 (webdav specific)
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses
+ * 423 Locked (client / webdav specific)
+ *
+ * The source or destination resource of a method is locked. This response SHOULD contain an
+ * appropriate precondition or postcondition code, such as ‘lock-token-submitted’ or ‘no-conflicting-lock’.
+ *
+ * @see https://httpstatus.in/423/
  */
 export class HttpLocked extends HttpClientException {
   static readonly STATUS = 423;

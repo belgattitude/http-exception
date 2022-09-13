@@ -1,12 +1,16 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpUpgradeRequired
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpUpgradeRequired
 
 # Class: HttpUpgradeRequired
 
 [client](../modules/client.md).HttpUpgradeRequired
 
-Client status 426
+426 Upgrade Required (client)
 
-**`Link`**
+The server refuses to perform the request using the current protocol but might be willing to do so after
+the client upgrades to a different protocol. The server sends an Upgrade header in a 426 response
+to indicate the required protocol(s).
+
+**`See`**
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/426
 
@@ -36,9 +40,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/426
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 

@@ -5,8 +5,12 @@ import { getSuper } from '../utils';
 const className = 'HttpLoopDetected';
 
 /**
- * Server status 508 - webdav specific
- * @link https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/508
+ * 508 Loop Detected (server / webdav specific)
+ *
+ * The server detected an infinite loop while processing the request.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/508
+ * @see https://httpstatus.in/508/
  */
 export class HttpLoopDetected extends HttpServerException {
   static readonly STATUS = 508;

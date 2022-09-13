@@ -1,14 +1,22 @@
-[@belgattitude/http-exception - v0.1.1](../README.md) / [client](../modules/client.md) / HttpUnprocessableEntity
+[@belgattitude/http-exception - v0.1.10-canary.0](../README.md) / [client](../modules/client.md) / HttpUnprocessableEntity
 
 # Class: HttpUnprocessableEntity
 
 [client](../modules/client.md).HttpUnprocessableEntity
 
-Client status 422
+422 Unprocessable entity (client / webdav specific)
 
-**`Link`**
+The server understands the content type of the request entity (hence a 415 Unsupported Media Type status code
+is inappropriate), and the syntax of the request entity is correct (thus a 400 Bad Request status code is
+inappropriate) but was unable to process the contained instructions.
 
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422
+For example, this error condition may occur if an XML request body contains well-formed
+(i.e., syntactically correct), but semantically erroneous, XML instructions.
+
+**`See`**
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422
+- https://httpstatus.in/422/
 
 ## Hierarchy
 
@@ -36,9 +44,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422
 
 #### Parameters
 
-| Name           | Type                                                                 |
-| :------------- | :------------------------------------------------------------------- |
-| `msgOrParams?` | `string` \| [`HttpErrorParams`](../modules/types.md#httperrorparams) |
+| Name           | Type                                                                         |
+| :------------- | :--------------------------------------------------------------------------- |
+| `msgOrParams?` | `string` \| [`HttpExceptionParams`](../modules/types.md#httpexceptionparams) |
 
 #### Overrides
 
