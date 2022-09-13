@@ -6,11 +6,10 @@
     "src/typeguards/index.ts",
     "src/types/index.ts"
   ],
-  "out": "../../docs/api",
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeExternals": true,
-  "includeVersion": true,
+  "includeVersion": false,
   "disableSources": true,
   "entryDocument": "README.md",
   "githubPages": false,
