@@ -72,6 +72,7 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: true,
     external: config.external,
+    treeshake: true,
     plugins: [
       ...getDefaultRollupPlugins('esm', true, config.sourceMap, config.cache),
     ],
@@ -79,6 +80,7 @@ export default () => [
       dir: `${config.distDir}/esm`,
       format: 'esm',
       sourcemap: config.sourceMap,
+      hoistTransitiveImports: false,
     },
   },
   // CJS
@@ -86,6 +88,7 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: false,
     external: config.external,
+    treeshake: false,
     plugins: [
       ...getDefaultRollupPlugins('cjs', true, config.sourceMap, config.cache),
     ],
@@ -93,6 +96,7 @@ export default () => [
       dir: `${config.distDir}/cjs`,
       format: 'cjs',
       sourcemap: config.sourceMap,
+      hoistTransitiveImports: false,
     },
   },
   // Typings
