@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpUpgradeRequired';
-
 /**
  * 426 Upgrade Required (client)
  *
@@ -16,8 +14,9 @@ const className = 'HttpUpgradeRequired';
 export class HttpUpgradeRequired extends HttpClientException {
   static readonly STATUS = 426;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'UpgradeRequired';
     super(getSuper(className, 426, msgOrParams));
     Object.setPrototypeOf(this, HttpUpgradeRequired.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

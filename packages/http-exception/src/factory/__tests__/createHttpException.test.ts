@@ -1,3 +1,4 @@
+import type { HttpException } from '../../base';
 import { HttpClientException, HttpServerException } from '../../base';
 import { statusMap } from '../../status';
 import type { HttpExceptionParams } from '../../types';
@@ -23,16 +24,26 @@ describe('createHttpException tests', () => {
         expect(error).toStrictEqual(expected);
       }
     );
+
+    it.each(all)(
+      'should preserver the oject name (%p.name)',
+      (className, status, cls) => {
+        const params = 'msg';
+        const error = createHttpException(status, params);
+        const expected = new cls(params) as HttpException;
+        expect(error?.name).toStrictEqual(expected.name);
+      }
+    );
   });
 
   describe('when server status does not have a concrete class', () => {
-    const unlistedServerErrors = [
+    const nonAssignedByIETF = [
       ['Arbitrary number 599', 599],
       ['Cloudflare - 524 - A Timeout Occurred', 524],
       ['Cloudflare - 525 - SSL Handshake Failed', 525],
     ] as [msg: string, status: number][];
 
-    it.each(unlistedServerErrors)(
+    it.each(nonAssignedByIETF)(
       'should return HttpServerException',
       (msg, status) => {
         const error = createHttpException(status, msg);

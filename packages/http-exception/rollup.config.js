@@ -41,9 +41,11 @@ const getDefaultRollupPlugins = (
         ? `${globalCachePath}/rollup/http-exception-${format}`
         : false,
       compilerOptions: {
+        target: `es${config.ecmascriptLevel}`,
         incremental: false,
         inlineSourceMap: sourceMap,
         sourceMap: sourceMap,
+        removeComments: false,
       },
     }),
     ...(minify
@@ -52,6 +54,9 @@ const getDefaultRollupPlugins = (
             module: format === 'esm',
             compress: minify,
             ecma: config.ecmascriptLevel,
+            format: {
+              keep_quoted_props: true,
+            },
             ie8: false,
             safari10: false,
             mangle: true, // Here mangling does not reduce size enough, let's keep clean

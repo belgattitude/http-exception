@@ -2,8 +2,6 @@ import { HttpServerException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpInsufficientStorage';
-
 /**
  * 507 Insufficient Storage (client / webdav specific)
  *
@@ -15,8 +13,9 @@ const className = 'HttpInsufficientStorage';
 export class HttpInsufficientStorage extends HttpServerException {
   static readonly STATUS = 507;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'InsufficientStorage';
     super(getSuper(className, 507, msgOrParams));
     Object.setPrototypeOf(this, HttpInsufficientStorage.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpUnprocessableEntity';
-
 /**
  * 422 Unprocessable entity (client / webdav specific)
  *
@@ -20,8 +18,9 @@ const className = 'HttpUnprocessableEntity';
 export class HttpUnprocessableEntity extends HttpClientException {
   static readonly STATUS = 422;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'UnprocessableEntity';
     super(getSuper(className, 422, msgOrParams));
     Object.setPrototypeOf(this, HttpUnprocessableEntity.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpProxyAuthenticationRequired';
-
 /**
  * 407 Proxy authentication required (client)
  *
@@ -15,8 +13,9 @@ const className = 'HttpProxyAuthenticationRequired';
 export class HttpProxyAuthenticationRequired extends HttpClientException {
   static readonly STATUS = 407;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'ProxyAuthenticationRequired';
     super(getSuper(className, 407, msgOrParams));
     Object.setPrototypeOf(this, HttpProxyAuthenticationRequired.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

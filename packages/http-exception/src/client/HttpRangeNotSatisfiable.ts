@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpRangeNotSatisfiable';
-
 /**
  * 416 Range Not Satisfiable (client)
  *
@@ -16,8 +14,9 @@ const className = 'HttpRangeNotSatisfiable';
 export class HttpRangeNotSatisfiable extends HttpClientException {
   static readonly STATUS = 416;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'RangeNotSatisfiable';
     super(getSuper(className, 416, msgOrParams));
     Object.setPrototypeOf(this, HttpRangeNotSatisfiable.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

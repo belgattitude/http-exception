@@ -2,8 +2,6 @@ import { HttpServerException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpNotExtended';
-
 /**
  * 510 Not Extended (server)
  *
@@ -15,8 +13,9 @@ const className = 'HttpNotExtended';
 export class HttpNotExtended extends HttpServerException {
   static readonly STATUS = 510;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'NotExtended';
     super(getSuper(className, 510, msgOrParams));
     Object.setPrototypeOf(this, HttpNotExtended.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

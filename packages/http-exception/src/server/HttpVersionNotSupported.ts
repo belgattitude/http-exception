@@ -2,8 +2,6 @@ import { HttpServerException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpVersionNotSupported';
-
 /**
  * 505 HTTP Version Not Supported
  *
@@ -15,8 +13,9 @@ const className = 'HttpVersionNotSupported';
 export class HttpVersionNotSupported extends HttpServerException {
   static readonly STATUS = 505;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'VersionNotSupported';
     super(getSuper(className, 505, msgOrParams));
     Object.setPrototypeOf(this, HttpVersionNotSupported.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

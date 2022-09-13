@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpPreconditionRequired';
-
 /**
  * 428 Precondition Required (client)
  *
@@ -17,8 +15,9 @@ const className = 'HttpPreconditionRequired';
 export class HttpPreconditionRequired extends HttpClientException {
   static readonly STATUS = 428;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'PreconditionRequired';
     super(getSuper(className, 428, msgOrParams));
     Object.setPrototypeOf(this, HttpPreconditionRequired.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

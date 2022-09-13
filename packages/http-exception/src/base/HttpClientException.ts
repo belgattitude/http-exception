@@ -4,7 +4,7 @@ import { HttpException } from './HttpException';
 export class HttpClientException extends HttpException {
   constructor(params: HttpExceptionParamsWithStatus) {
     super(params);
-    this.name = 'HttpClientException';
     Object.setPrototypeOf(this, HttpClientException.prototype);
+    this.name = 'HttpClientException';
   }
 }

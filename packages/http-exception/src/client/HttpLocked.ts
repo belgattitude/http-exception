@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpLocked';
-
 /**
  * 423 Locked (client / webdav specific)
  *
@@ -15,8 +13,9 @@ const className = 'HttpLocked';
 export class HttpLocked extends HttpClientException {
   static readonly STATUS = 423;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'Locked';
     super(getSuper(className, 423, msgOrParams));
     Object.setPrototypeOf(this, HttpLocked.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

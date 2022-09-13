@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpConflict';
-
 /**
  * 409 Conflict (client)
  *
@@ -15,8 +13,9 @@ const className = 'HttpConflict';
 export class HttpConflict extends HttpClientException {
   static readonly STATUS = 409;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'Conflict';
     super(getSuper(className, 409, msgOrParams));
     Object.setPrototypeOf(this, HttpConflict.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

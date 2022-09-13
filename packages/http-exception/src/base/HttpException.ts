@@ -2,11 +2,11 @@ import type { HttpExceptionParamsWithStatus } from '../types';
 
 export class HttpException extends Error {
   /**
-   * Http error status code
+   * Http error status code (400-599)
    */
   public readonly statusCode: number;
   /**
-   * Optional url that caused the error
+   * Indicates the original url that caused the error.
    */
   public readonly url: string | undefined;
 
@@ -17,9 +17,9 @@ export class HttpException extends Error {
     } else {
       super(message);
     }
-    this.name = 'HttpException';
     this.url = url;
     this.statusCode = statusCode;
     Object.setPrototypeOf(this, HttpException.prototype);
+    this.name = 'HttpException';
   }
 }

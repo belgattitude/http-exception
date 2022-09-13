@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpUnsupportedMediaType';
-
 /**
  * 415 Unsupported Media Type (client)
  *
@@ -15,8 +13,9 @@ const className = 'HttpUnsupportedMediaType';
 export class HttpUnsupportedMediaType extends HttpClientException {
   static readonly STATUS = 415;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'UnsupportedMediaType';
     super(getSuper(className, 415, msgOrParams));
     Object.setPrototypeOf(this, HttpUnsupportedMediaType.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

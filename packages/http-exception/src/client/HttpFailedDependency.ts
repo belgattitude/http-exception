@@ -2,8 +2,6 @@ import { HttpClientException } from '../base';
 import type { HttpExceptionParams } from '../types';
 import { getSuper } from '../utils';
 
-const className = 'HttpFailedDependency';
-
 /**
  * 424 Failed dependency (client / webdav specific)
  *
@@ -18,8 +16,9 @@ const className = 'HttpFailedDependency';
 export class HttpFailedDependency extends HttpClientException {
   static readonly STATUS = 424;
   constructor(msgOrParams?: HttpExceptionParams | string) {
+    const className = 'FailedDependency';
     super(getSuper(className, 424, msgOrParams));
     Object.setPrototypeOf(this, HttpFailedDependency.prototype);
-    this.name = className;
+    this.name = `Http${className}`;
   }
 }

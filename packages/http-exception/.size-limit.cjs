@@ -23,7 +23,7 @@ module.exports = [
     name: "ESM (only HttpNotFound exception)",
     path: ["dist/esm/index.js"],
     import: "{ HttpNotFound }",
-    limit: "370B",
+    limit: "360B",
   },
   {
     name: "ESM (only HttpInternalServerError)",
@@ -41,19 +41,13 @@ module.exports = [
     name: "ESM (only isHttpException)",
     path: ["dist/esm/index.js"],
     import: "{ isHttpException }",
-    limit: "400B",
+    limit: "150B",
   },
   {
     name: "ESM (only createHttpException)",
     path: ["dist/esm/index.js"],
     import: "{ createHttpException }",
-    limit: "2300B", // Will import all server/client exceptions
-  },
-  {
-    name: "ESM (only httpException helper)",
-    path: ["dist/esm/index.js"],
-    import: "{ httpException }",
-    limit: "2000B", // Will import all server/client exceptions
+    limit: "1750B", // Will import all server/client exceptions
   },
   // ###################################################
   // Commonjs full bundle
