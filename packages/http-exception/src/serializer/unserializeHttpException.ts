@@ -13,9 +13,11 @@ export const unserializeHttpException = (
   const deserialized = JSON.parse(
     serializedHttpException
   ) as SerializedHttpException;
-  const { __type, statusCode, message, url, stack, cause } = deserialized;
+  const type = deserialized?.__type ?? '';
+  const { statusCode, message, url, stack, cause } = deserialized;
   let e: HttpException | null = null;
-  if (__type.startsWith('Http')) {
+  // @todo do the real thing
+  if (type.startsWith('Http')) {
     e = createHttpException(statusCode, {
       message: message ?? undefined,
       url: url ?? undefined,

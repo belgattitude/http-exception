@@ -1,9 +1,6 @@
 import { HttpException } from '../base';
-import type {
-  SerializedHttpException} from './serializeHttpException';
-import {
-  serializeHttpException,
-} from './serializeHttpException';
+import type { SerializedHttpException } from './serializeHttpException';
+import { serializeHttpException } from './serializeHttpException';
 
 export type SerializedError = {
   __type: string;

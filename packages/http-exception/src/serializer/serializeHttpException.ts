@@ -1,10 +1,6 @@
 import { HttpException } from '../base';
-import type {
-  SerializedError} from './serializeNativeError';
-import {
-  isNativeError,
-  serializeNativeError,
-} from './serializeNativeError';
+import type { SerializedError } from './serializeNativeError';
+import { isNativeError, serializeNativeError } from './serializeNativeError';
 
 export type SerializedHttpException = SerializedError & {
   statusCode: number;

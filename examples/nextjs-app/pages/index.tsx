@@ -1,11 +1,11 @@
-import {HttpBadRequest} from "@belgattitude/http-exception";
+import { HttpBadRequest } from '@belgattitude/http-exception';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
-  const error = new HttpBadRequest('hello')
+  const error = new HttpBadRequest('hello');
 
   return (
     <div className={styles.container}>
@@ -17,8 +17,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div>
-          HttpBadRequest -{' '}
-          <span>{error.message}</span>
+          HttpBadRequest - <span>{error.message}</span>
         </div>
       </main>
 
