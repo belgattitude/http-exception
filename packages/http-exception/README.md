@@ -3,7 +3,7 @@
 Delightful http exceptions for typescript and js.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge)](https://www.npmjs.com/package/@belgattitude/http-exception)
-[![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=000000)](https://bundlephobia.com/package/@belgattitude/http-exception)
+[![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=000000)](https://bundlephobia.com/package/@belgattitude/http-exception@latest)
 [![techdebt](https://img.shields.io/codeclimate/tech-debt/belgattitude/http-exception?label=TechDebt&logo=code-climate&style=for-the-badge&labelColor=000000)](https://codeclimate.com/github/belgattitude/http-exception)
 [![maintainability](https://img.shields.io/codeclimate/maintainability/belgattitude/http-exception?label=Maintainability&logo=code-climate&style=for-the-badge&labelColor=000000)](https://codeclimate.com/github/belgattitude/http-exception)
 ![typings](https://img.shields.io/static/v1?label=typings&message=4.0%2B&logo=typescript&style=for-the-badge&labelColor=000000&color=9cf)
@@ -77,8 +77,6 @@ import {
   isHttpException,
   isHttpClientException,
   isHttpServerException,
-  createHttpException,
-  HttpClientException,
   HttpNotFound,
   HttpInternalServerError,
 } from "@belgattitude/http-exception";
@@ -88,8 +86,29 @@ const true2 = isHttpClientException(new HttpNotFound());
 const true3 = isHttpServerException(new HttpInternalServerError());
 
 const false1 = isHttpClientException(new HttpInternalServerError());
-const false2 = isHttpClientException(new HttpNotFound());
+const false2 = isHttpServerException(new HttpNotFound());
 const false3 = isHttpException(new Error());
+```
+
+### Instances
+
+```typescript
+import {
+  HttpException,
+  HttpClientException,
+  HttpServerException,
+  HttpNotFound,
+  HttpInternalServerError,
+} from "@belgattitude/http-exception";
+
+const true1 = new HttpNotFound() instanceof HttpNotFound;
+const true2 = new HttpNotFound() instanceof HttpException;
+const true3 = new HttpNotFound() instanceof HttpClientException;
+const true4 = new HttpInternalServerError() instanceof HttpServerException;
+
+const false1 = new HttpNotFoundError() instanceof HttpServerException;
+const false2 = new HttpInternalServerError() instanceof HttpClientException;
+const false3 = new Error() instanceof HttpException;
 ```
 
 ### List
