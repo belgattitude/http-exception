@@ -18,7 +18,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@belgattitude/eslint-config-bases": "1.7.0",
+    "@belgattitude/eslint-config-bases": "1.8.0",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",

@@ -275,9 +275,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@belgattitude/eslint-config-bases@npm:1.7.0":
-  version: 1.7.0
-  resolution: "@belgattitude/eslint-config-bases@npm:1.7.0"
+"@belgattitude/eslint-config-bases@npm:1.8.0":
+  version: 1.8.0
+  resolution: "@belgattitude/eslint-config-bases@npm:1.8.0"
   dependencies:
     "@graphql-eslint/eslint-plugin": "npm:^3.10.7"
     "@rushstack/eslint-patch": "npm:^1.1.4"
@@ -316,7 +316,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 132bc1b468c6a095844445ba2842fe24ef9f85fa54ec249370a19b310ee33ebf409bba815955d34a3fd6b5d61336c9e222d782a9d9beddc403b80a30f2323b26
+  checksum: 1d67ebedaf830883acd086a6a6b61862c04b9d99ee9eaa84b90b5f3c2f01e8b017d42e0d80bb2095c4751693b89714252df8b108a0c7f0673d3baec5c51f89fc
   languageName: node
   linkType: hard
 
@@ -324,7 +324,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@belgattitude/http-exception@workspace:packages/http-exception"
   dependencies:
-    "@belgattitude/eslint-config-bases": "npm:1.7.0"
+    "@belgattitude/eslint-config-bases": "npm:1.8.0"
     "@rollup/plugin-typescript": "npm:8.5.0"
     "@size-limit/file": "npm:8.1.0"
     "@size-limit/webpack": "npm:8.1.0"
@@ -878,7 +878,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@examples/nextjs-esm@workspace:examples/nextjs-app"
   dependencies:
-    "@belgattitude/eslint-config-bases": "npm:1.7.0"
+    "@belgattitude/eslint-config-bases": "npm:1.8.0"
     "@belgattitude/http-exception": "workspace:^"
     "@types/node": "npm:18.7.18"
     "@types/react": "npm:18.0.20"
@@ -4814,7 +4814,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "faiwell-monorepo@workspace:."
   dependencies:
-    "@belgattitude/eslint-config-bases": "npm:1.7.0"
+    "@belgattitude/eslint-config-bases": "npm:1.8.0"
     "@changesets/changelog-github": "npm:0.4.6"
     "@changesets/cli": "npm:2.24.4"
     "@commitlint/cli": "npm:17.1.2"
