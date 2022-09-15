@@ -26,7 +26,7 @@ module.exports = {
     // Add specific rules for nextjs
     'next/core-web-vitals',
     // Apply prettier and disable incompatible rules
-    '@belgattitude/eslint-config-bases/prettier',
+    '@belgattitude/eslint-config-bases/prettier-plugin',
   ],
   rules: {
     // optional overrides per project

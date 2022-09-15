@@ -77,8 +77,6 @@ import {
   isHttpException,
   isHttpClientException,
   isHttpServerException,
-  createHttpException,
-  HttpClientException,
   HttpNotFound,
   HttpInternalServerError,
 } from "@belgattitude/http-exception";
@@ -90,6 +88,27 @@ const true3 = isHttpServerException(new HttpInternalServerError());
 const false1 = isHttpClientException(new HttpInternalServerError());
 const false2 = isHttpServerException(new HttpNotFound());
 const false3 = isHttpException(new Error());
+```
+
+### Instances
+
+```typescript
+import {
+  HttpException,
+  HttpClientException,
+  HttpServerException,
+  HttpNotFound,
+  HttpInternalServerError,
+} from "@belgattitude/http-exception";
+
+const true1 = new HttpNotFound() instanceof HttpNotFound;
+const true2 = new HttpNotFound() instanceof HttpException;
+const true3 = new HttpNotFound() instanceof HttpClientException;
+const true4 = new HttpInternalServerError() instanceof HttpServerException;
+
+const false1 = new HttpNotFoundError() instanceof HttpServerException;
+const false2 = new HttpInternalServerError() instanceof HttpClientException;
+const false3 = new Error() instanceof HttpException;
 ```
 
 ### List
