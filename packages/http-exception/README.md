@@ -4,8 +4,8 @@ Delightful http exceptions for typescript and js.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge&labelColor=222)](https://www.npmjs.com/package/@belgattitude/http-exception)
 [![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=444)](https://bundlephobia.com/package/@belgattitude/http-exception@latest)
-[![treeshakable](https://img.shields.io/static/v1?label=&message=es2017|cjs%2Besm&logo=javascript&style=for-the-badge&labelColor=444&color=9cf)](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/package.json)
-[![dist](https://img.shields.io/static/v1?label=treeshakable&message=esm&logo=webpack&style=for-the-badge&labelColor=444&color=9cf)](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/package.json)
+[![dist](https://img.shields.io/static/v1?label=&message=es2017|cjs%2Besm&logo=javascript&style=for-the-badge&labelColor=444&color=9cf)](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/package.json)
+[![treeshakeability](https://img.shields.io/static/v1?label=treeshaking&message=esm&logo=webpack&style=for-the-badge&labelColor=444&color=9cf)](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs)
 [![techdebt](https://img.shields.io/codeclimate/tech-debt/belgattitude/http-exception?label=TechDebt&logo=code-climate&style=for-the-badge&labelColor=444)](https://codeclimate.com/github/belgattitude/http-exception)
 [![maintainability](https://img.shields.io/codeclimate/maintainability/belgattitude/http-exception?label=Maintainability&logo=code-climate&style=for-the-badge&labelColor=444)](https://codeclimate.com/github/belgattitude/http-exception)
 ![typings](https://img.shields.io/static/v1?label=typings&message=4.0%2B&logo=typescript&style=for-the-badge&labelColor=444&color=9cf)
