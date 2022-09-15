@@ -81,10 +81,6 @@ jobs:
         run: |
           yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run typecheck
 
-      - name: Prettier checks
-        run: |
-          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run prettier-check
-
       - name: ESLint checks
         run: |
           yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run lint
