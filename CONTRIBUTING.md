@@ -30,8 +30,6 @@ The base branch is **`main`**.
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `yarn g:changeset`           | Add a changeset to declare a new version                                                                                             |
 | `yarn g:typecheck`           | Run typechecks in all workspaces                                                                                                     |
-| `yarn g:prettier-check`      | Run prettier checks                                                                                                                  |
-| `yarn g:prettier-fix`        | Fix all prettier errors                                                                                                              |
 | `yarn g:lint`                | Display linter issues in all workspaces                                                                                              |
 | `yarn g:lint --fix`          | Attempt to run linter auto-fix in all workspaces                                                                                     |
 | `yarn g:test-unit`           | Run unit tests in all workspaces                                                                                                     |

@@ -28,7 +28,6 @@ const rules = {
         maxWarnings: 25,
         files: filenames,
       }),
-      `prettier --write ${concatFilesForPrettier(filenames)}`,
     ];
   },
   '**/*.{json,md,mdx,css,html,yml,yaml,scss}': (filenames) => {
