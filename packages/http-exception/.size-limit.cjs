@@ -15,37 +15,37 @@ module.exports = [
   // ###################################################
   {
     name: "ESM (import everything *)",
-    path: ["dist/esm/index.js"],
+    path: ["dist/esm/index.mjs"],
     import: "*",
     limit: fullEsmMaxSize,
   },
   {
     name: "ESM (only HttpNotFound exception)",
-    path: ["dist/esm/index.js"],
+    path: ["dist/esm/index.mjs"],
     import: "{ HttpNotFound }",
     limit: "1100B",
   },
   {
     name: "ESM (only HttpInternalServerError)",
-    path: ["dist/esm/index.js"],
+    path: ["dist/esm/index.mjs"],
     import: "{ HttpInternalServerError }",
     limit: "1100B",
   },
   {
     name: "ESM (two exceptions: HttpNotFound + HttpInternalServerError)",
-    path: ["dist/esm/index.js"],
+    path: ["dist/esm/index.mjs"],
     import: "{ HttpNotFound, HttpInternalServerError }",
     limit: "1200B",
   },
   {
     name: "ESM (only isHttpException)",
-    path: ["dist/esm/index.js"],
+    path: ["dist/esm/index.mjs"],
     import: "{ isHttpException }",
     limit: "1000B",
   },
   {
     name: "ESM (only createHttpException)",
-    path: ["dist/esm/index.js"],
+    path: ["dist/esm/index.mjs"],
     import: "{ createHttpException }",
     limit: "2400B", // Will import all server/client exceptions
   },
