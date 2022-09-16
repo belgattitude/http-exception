@@ -1509,11 +1509,12 @@ __metadata:
     "@babel/preset-typescript": "npm:7.18.6"
     "@belgattitude/eslint-config-bases": "npm:1.8.0"
     "@rollup/plugin-babel": "npm:5.3.1"
-    "@rollup/plugin-commonjs": "npm:22.0.2"
     "@rollup/plugin-node-resolve": "npm:14.1.0"
+    "@rollup/plugin-typescript": "npm:8.5.0"
     "@size-limit/file": "npm:8.1.0"
     "@size-limit/webpack": "npm:8.1.0"
     "@size-limit/webpack-why": "npm:8.1.0"
+    "@swc/core": "npm:1.3.1"
     "@types/node": "npm:18.7.18"
     "@types/statuses": "npm:2.0.0"
     "@vitest/coverage-istanbul": "npm:0.23.2"
@@ -1528,6 +1529,7 @@ __metadata:
     rimraf: "npm:3.0.2"
     rollup: "npm:2.79.0"
     rollup-plugin-dts: "npm:4.2.2"
+    rollup-plugin-swc3: "npm:0.6.0"
     rollup-plugin-terser: "npm:7.0.2"
     size-limit: "npm:8.1.0"
     statuses: "npm:2.0.1"
@@ -2713,23 +2715,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:22.0.2":
-  version: 22.0.2
-  resolution: "@rollup/plugin-commonjs@npm:22.0.2"
-  dependencies:
-    "@rollup/pluginutils": "npm:^3.1.0"
-    commondir: "npm:^1.0.1"
-    estree-walker: "npm:^2.0.1"
-    glob: "npm:^7.1.6"
-    is-reference: "npm:^1.2.1"
-    magic-string: "npm:^0.25.7"
-    resolve: "npm:^1.17.0"
-  peerDependencies:
-    rollup: ^2.68.0
-  checksum: 532072063075f64081f97910efb69dd551eb83b1b577ec9fe2911e71b4638ba1ca1e612fe65c8ef4d6246134d975f5950c6eca8eda72d196c0baa7713330ea6f
-  languageName: node
-  linkType: hard
-
 "@rollup/plugin-commonjs@npm:^17.0.0":
   version: 17.1.0
   resolution: "@rollup/plugin-commonjs@npm:17.1.0"
@@ -2790,6 +2775,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-typescript@npm:8.5.0":
+  version: 8.5.0
+  resolution: "@rollup/plugin-typescript@npm:8.5.0"
+  dependencies:
+    "@rollup/pluginutils": "npm:^3.1.0"
+    resolve: "npm:^1.17.0"
+  peerDependencies:
+    rollup: ^2.14.0
+    tslib: "*"
+    typescript: ">=3.7.0"
+  peerDependenciesMeta:
+    tslib:
+      optional: true
+  checksum: a6fd2ae48d4b2f78ef92c2030627aa72c40ba6c072d42b2b5f3e938a1252ea050c178083d092e9b90f997e460d68796dd87d13cce9d74290cb63e412691b6267
+  languageName: node
+  linkType: hard
+
 "@rollup/pluginutils@npm:^3.0.8, @rollup/pluginutils@npm:^3.1.0":
   version: 3.1.0
   resolution: "@rollup/pluginutils@npm:3.1.0"
@@ -2803,7 +2805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^4.1.2":
+"@rollup/pluginutils@npm:^4.1.2, @rollup/pluginutils@npm:^4.2.1":
   version: 4.2.1
   resolution: "@rollup/pluginutils@npm:4.2.1"
   dependencies:
@@ -3044,12 +3046,179 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc/core-android-arm-eabi@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-android-arm-eabi@npm:1.3.1"
+  dependencies:
+    "@swc/wasm": "npm:1.2.122"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-android-arm64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-android-arm64@npm:1.3.1"
+  dependencies:
+    "@swc/wasm": "npm:1.2.130"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-arm64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-darwin-arm64@npm:1.3.1"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-x64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-darwin-x64@npm:1.3.1"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-freebsd-x64@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-freebsd-x64@npm:1.3.1"
+  dependencies:
+    "@swc/wasm": "npm:1.2.130"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm-gnueabihf@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.1"
+  dependencies:
+    "@swc/wasm": "npm:1.2.130"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-gnu@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.1"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-musl@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.1"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-gnu@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.1"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-musl@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.1"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-arm64-msvc@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.1"
+  dependencies:
+    "@swc/wasm": "npm:1.2.130"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-ia32-msvc@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.1"
+  dependencies:
+    "@swc/wasm": "npm:1.2.130"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-x64-msvc@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.1"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@swc/core@npm:1.3.1":
+  version: 1.3.1
+  resolution: "@swc/core@npm:1.3.1"
+  dependencies:
+    "@swc/core-android-arm-eabi": "npm:1.3.1"
+    "@swc/core-android-arm64": "npm:1.3.1"
+    "@swc/core-darwin-arm64": "npm:1.3.1"
+    "@swc/core-darwin-x64": "npm:1.3.1"
+    "@swc/core-freebsd-x64": "npm:1.3.1"
+    "@swc/core-linux-arm-gnueabihf": "npm:1.3.1"
+    "@swc/core-linux-arm64-gnu": "npm:1.3.1"
+    "@swc/core-linux-arm64-musl": "npm:1.3.1"
+    "@swc/core-linux-x64-gnu": "npm:1.3.1"
+    "@swc/core-linux-x64-musl": "npm:1.3.1"
+    "@swc/core-win32-arm64-msvc": "npm:1.3.1"
+    "@swc/core-win32-ia32-msvc": "npm:1.3.1"
+    "@swc/core-win32-x64-msvc": "npm:1.3.1"
+  dependenciesMeta:
+    "@swc/core-android-arm-eabi":
+      optional: true
+    "@swc/core-android-arm64":
+      optional: true
+    "@swc/core-darwin-arm64":
+      optional: true
+    "@swc/core-darwin-x64":
+      optional: true
+    "@swc/core-freebsd-x64":
+      optional: true
+    "@swc/core-linux-arm-gnueabihf":
+      optional: true
+    "@swc/core-linux-arm64-gnu":
+      optional: true
+    "@swc/core-linux-arm64-musl":
+      optional: true
+    "@swc/core-linux-x64-gnu":
+      optional: true
+    "@swc/core-linux-x64-musl":
+      optional: true
+    "@swc/core-win32-arm64-msvc":
+      optional: true
+    "@swc/core-win32-ia32-msvc":
+      optional: true
+    "@swc/core-win32-x64-msvc":
+      optional: true
+  bin:
+    swcx: run_swcx.js
+  checksum: ba3e340df98d06badbf822b90b0a674e11e82edfd6dc1b5065b26114e3d179eb8527670ea630dee771b55e4c281da2e00b0e228042b09ad245a25df697898bd0
+  languageName: node
+  linkType: hard
+
 "@swc/helpers@npm:0.4.11":
   version: 0.4.11
   resolution: "@swc/helpers@npm:0.4.11"
   dependencies:
     tslib: "npm:^2.4.0"
   checksum: beb0124de3b8e1108325e81f46d85b987118a804e7fb347d6fdc28a4be0df80dff57e7031ce75cc8ac0411644ffd93d352cb73ed9c32ec057438c06cf2d98e9b
+  languageName: node
+  linkType: hard
+
+"@swc/wasm@npm:1.2.122":
+  version: 1.2.122
+  resolution: "@swc/wasm@npm:1.2.122"
+  checksum: 9c9896e62921925d469d9a7ec01331f2e11c452d56b080a1dd0b4569dcd69a5ba244b0a21c5688b71dfd3de780a1cbb3b204144026954fa55a4c451a29e2b18a
+  languageName: node
+  linkType: hard
+
+"@swc/wasm@npm:1.2.130":
+  version: 1.2.130
+  resolution: "@swc/wasm@npm:1.2.130"
+  checksum: ff270fbb0a77d1e697a98209f180cea0c85c6c6e91df20361d8318d9d13749a0f2c23d0a20e78079e7d721ce7e203e91f2fff62f614d1635a73c5fb0f2ad897e
   languageName: node
   linkType: hard
 
@@ -10769,6 +10938,20 @@ __metadata:
   peerDependencies:
     postcss: 8.x
   checksum: 167821d96309266bf11af178a39090a5ababd940cd42c4b6a5407441c20aba72fc93544b92b092ab47f1f4bf177579c0b84d24ec03cbb0a49be86e1ff92fed1a
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-swc3@npm:0.6.0":
+  version: 0.6.0
+  resolution: "rollup-plugin-swc3@npm:0.6.0"
+  dependencies:
+    "@rollup/pluginutils": "npm:^4.2.1"
+    deepmerge: "npm:^4.2.2"
+    get-tsconfig: "npm:^4.2.0"
+  peerDependencies:
+    "@swc/core": ">=1.2.165"
+    rollup: ^2.0.0
+  checksum: 4345a5d35148046c93efe5ff821f28721a55531fd3fb990eda48d41af90436711444cb6728f40dfe78acc72e81d816521513e7c8d6cfc7ef77b9fc54b2ac8cc6
   languageName: node
   linkType: hard
 
