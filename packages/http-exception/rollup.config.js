@@ -1,12 +1,12 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 
 import { createRequire } from 'node:module';
+import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
 const require = createRequire(import.meta.url);
-import { babel } from '@rollup/plugin-babel';
 
 const pkg = require('./package.json');
 
@@ -19,7 +19,7 @@ const config = {
   removeComments: true,
   minify: false,
   external: [
-    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg?.dependencies ?? {}),
     ...Object.keys(pkg?.peerDependencies ?? {}),
   ],
 };
@@ -27,9 +27,8 @@ const config = {
 /**
  * @param { 'cjs' | 'esm' } format
  * @param { boolean } minify
- * @param { boolean } sourceMap
  */
-const getDefaultRollupPlugins = (format, minify, sourceMap = false) => {
+const getDefaultRollupPlugins = (format, minify) => {
   return [
     // Allows node_modules resolution
     resolve({ extensions: config.extensions }),
@@ -70,9 +69,7 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
     external: config.external,
-    plugins: [
-      ...getDefaultRollupPlugins('esm', config.minify, config.sourceMap),
-    ],
+    plugins: [...getDefaultRollupPlugins('esm', config.minify)],
     output: {
       format: 'esm',
       dir: `${config.distDir}/esm`,
@@ -85,9 +82,7 @@ export default () => [
     input: ['./src/index.ts'],
     preserveModules: false,
     external: config.external,
-    plugins: [
-      ...getDefaultRollupPlugins('cjs', config.minify, config.sourceMap),
-    ],
+    plugins: [...getDefaultRollupPlugins('cjs', config.minify)],
     output: {
       format: 'cjs',
       dir: `${config.distDir}/cjs`,
