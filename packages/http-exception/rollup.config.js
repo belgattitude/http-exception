@@ -16,7 +16,6 @@ const config = {
   sourceMap: false, // process.env.NODE_ENV === 'production',
   cache: false,
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  removeComments: true,
   minify: false,
   external: [
     ...Object.keys(pkg?.dependencies ?? {}),
@@ -39,24 +38,14 @@ const getDefaultRollupPlugins = (format, minify) => {
       extensions: config.extensions,
       include: ['src/**/*'],
       babelHelpers: 'bundled',
+      skipPreflightCheck: false,
     }),
     ...(minify
       ? [
           terser({
             module: format === 'esm',
-            compress: {
-              drop_console: true,
-              drop_debugger: true,
-              ecma: config.ecmascriptLevel,
-              dead_code: true,
-              directives: true,
-              inline: false,
-            },
-            format: {
-              beautify: true,
-              comments: !config.removeComments,
-            },
-            mangle: false, // Here mangling does not reduce size enough, let's keep clean
+            mangle: false, // Mangling does not reduce size enough, let's keep clean
+            compress: true,
           }),
         ]
       : []),
