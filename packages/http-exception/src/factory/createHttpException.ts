@@ -24,9 +24,8 @@ export const createHttpException = (
   statusCode: number,
   msgOrParams?: string | HttpExceptionParams
 ): HttpException | HttpServerException | HttpClientException => {
-  if (isHttpErrorStatusCode(statusCode)) {
-    const code = statusCode as unknown as AssignedStatusCodes;
-    const cls = statusMap?.[code];
+  if (isHttpErrorStatusCode<AssignedStatusCodes>(statusCode)) {
+    const cls = statusMap?.[statusCode];
     if (cls) {
       return new cls(msgOrParams);
     }

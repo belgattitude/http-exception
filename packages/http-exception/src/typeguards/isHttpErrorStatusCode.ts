@@ -3,9 +3,11 @@ import type { HttpStatusCode } from '../types';
 /**
  * Check if the provided value is a valid http status code
  */
-export const isHttpErrorStatusCode = (
+export const isHttpErrorStatusCode = <
+  T extends HttpStatusCode = HttpStatusCode
+>(
   statusCode: unknown
-): statusCode is HttpStatusCode => {
+): statusCode is T => {
   if (typeof statusCode !== 'number') {
     return false;
   }

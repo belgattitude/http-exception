@@ -1,65 +1,82 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 
 import { createRequire } from 'node:module';
+import { babel } from '@rollup/plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
-import { terser } from 'rollup-plugin-terser';
+import { minify as swcMinify } from 'rollup-plugin-swc3';
 import { globalCachePath } from '../../cache.config.mjs';
-const require = createRequire(import.meta.url);
 
+const require = createRequire(import.meta.url);
 const pkg = require('./package.json');
 
 const config = {
   distDir: './dist',
-  ecmascriptLevel: '2017',
+  ecmascriptLevel: '2015',
   sourceMap: false, // process.env.NODE_ENV === 'production',
   cache: false,
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  minify: true,
   external: [
-    ...Object.keys(pkg.dependencies ?? {}),
+    ...Object.keys(pkg?.dependencies ?? {}),
     ...Object.keys(pkg?.peerDependencies ?? {}),
   ],
 };
 
-/**
- * @param { 'cjs' | 'esm' } format
- * @param { boolean } minify
- * @param { boolean } sourceMap
- * @param { boolean } cache
- */
-const getDefaultRollupPlugins = (
-  format,
-  minify,
-  sourceMap = false,
-  cache = false
-) => {
-  return [
+const rollupPlugins = {
+  compat: [
+    // resolve typescript extensions
+    resolve({ extensions: config.extensions }),
+    // Bundle with babel (currently only the best size for spread/class transforms)
+    babel({
+      extensions: config.extensions,
+      include: ['src/**/*'],
+      babelHelpers: 'bundled',
+      skipPreflightCheck: false,
+    }),
+  ],
+  modern: [
     typescript({
       tsconfig: './tsconfig.build.json',
       target: `es${config.ecmascriptLevel}`,
-      sourceMap: sourceMap,
-      cacheDir: cache
-        ? `${globalCachePath}/rollup/http-exception-${format}`
+      sourceMap: config.sourceMap,
+      cacheDir: config.cache
+        ? `${globalCachePath}/rollup-typescript/http-exception`
         : false,
       compilerOptions: {
         target: `es${config.ecmascriptLevel}`,
         incremental: false,
-        inlineSourceMap: sourceMap,
-        sourceMap: sourceMap,
+        inlineSourceMap: config.sourceMap,
+        sourceMap: config.sourceMap,
         removeComments: false,
       },
     }),
+  ],
+};
+
+/**
+ * @param { 'modern' | 'compat' } type
+ * @param { 'cjs' | 'esm' } format
+ * @param { boolean } minify
+ */
+const getDefaultRollupPlugins = (type, format, minify) => {
+  return [
+    ...(type === 'compat' ? rollupPlugins.compat : rollupPlugins.modern),
     ...(minify
       ? [
-          terser({
+          swcMinify({
             module: format === 'esm',
-            compress: minify,
+            mangle: true, // Mangling does not reduce size enough, let's keep clean
             ecma: config.ecmascriptLevel,
-            format: {
-              keep_quoted_props: true,
+            compress: {
+              drop_console: true,
+              drop_debugger: true,
+              dead_code: true,
             },
-            ie8: false,
-            safari10: false,
-            mangle: true, // Here mangling does not reduce size enough, let's keep clean
+            format: {
+              beautify: true,
+            },
           }),
         ]
       : []),
@@ -67,34 +84,47 @@ const getDefaultRollupPlugins = (
 };
 
 export default () => [
-  // ESM
+  // ESM Compat
   {
     input: ['./src/index.ts'],
-    preserveModules: true,
+    preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
     external: config.external,
-    plugins: [
-      ...getDefaultRollupPlugins('esm', true, config.sourceMap, config.cache),
-    ],
+    plugins: [...getDefaultRollupPlugins('compat', 'esm', config.minify)],
     output: {
-      dir: `${config.distDir}/esm`,
       format: 'esm',
+      dir: `${config.distDir}/esm`,
+      entryFileNames: '[name].mjs',
       sourcemap: config.sourceMap,
     },
   },
-  // CJS
+  // ESM Modern
+  /*
+  {
+    input: ['./src/index.ts'],
+    preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
+    external: config.external,
+    plugins: [...getDefaultRollupPlugins('modern', 'esm', config.minify)],
+    output: {
+      format: 'esm',
+      dir: `${config.distDir}/modern/esm`,
+      entryFileNames: '[name].mjs',
+      sourcemap: config.sourceMap,
+    },
+  }, */
+  // CJS compat
   {
     input: ['./src/index.ts'],
     preserveModules: false,
     external: config.external,
-    plugins: [
-      ...getDefaultRollupPlugins('cjs', true, config.sourceMap, config.cache),
-    ],
+    plugins: [...getDefaultRollupPlugins('compat', 'cjs', config.minify)],
     output: {
-      dir: `${config.distDir}/cjs`,
       format: 'cjs',
+      dir: `${config.distDir}/cjs`,
+      entryFileNames: '[name].cjs',
       sourcemap: config.sourceMap,
     },
   },
+
   // Typings
   {
     input: './src/index.ts',
