@@ -1,19 +1,23 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 
 import { createRequire } from 'node:module';
-import typescript from '@rollup/plugin-typescript';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
-import { globalCachePath } from '../../cache.config.mjs';
 const require = createRequire(import.meta.url);
+import { babel } from '@rollup/plugin-babel';
 
 const pkg = require('./package.json');
 
 const config = {
   distDir: './dist',
-  ecmascriptLevel: '2017',
+  ecmascriptLevel: '2015',
   sourceMap: false, // process.env.NODE_ENV === 'production',
   cache: false,
+  extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  removeComments: true,
+  minify: false,
   external: [
     ...Object.keys(pkg.dependencies ?? {}),
     ...Object.keys(pkg?.peerDependencies ?? {}),
@@ -24,42 +28,36 @@ const config = {
  * @param { 'cjs' | 'esm' } format
  * @param { boolean } minify
  * @param { boolean } sourceMap
- * @param { boolean } cache
  */
-const getDefaultRollupPlugins = (
-  format,
-  minify,
-  sourceMap = false,
-  cache = false
-) => {
+const getDefaultRollupPlugins = (format, minify, sourceMap = false) => {
   return [
-    typescript({
-      tsconfig: './tsconfig.build.json',
-      target: `es${config.ecmascriptLevel}`,
-      sourceMap: sourceMap,
-      cacheDir: cache
-        ? `${globalCachePath}/rollup/http-exception-${format}`
-        : false,
-      compilerOptions: {
-        target: `es${config.ecmascriptLevel}`,
-        incremental: false,
-        inlineSourceMap: sourceMap,
-        sourceMap: sourceMap,
-        removeComments: false,
-      },
+    // Allows node_modules resolution
+    resolve({ extensions: config.extensions }),
+    // Allow bundling cjs modules. Rollup doesn't understand cjs
+    commonjs(),
+    // Bundle with babel (currently only the best size for spread/class transforms)
+    babel({
+      extensions: config.extensions,
+      include: ['src/**/*'],
+      babelHelpers: 'bundled',
     }),
     ...(minify
       ? [
           terser({
             module: format === 'esm',
-            compress: minify,
-            ecma: config.ecmascriptLevel,
-            format: {
-              keep_quoted_props: true,
+            compress: {
+              drop_console: true,
+              drop_debugger: true,
+              ecma: config.ecmascriptLevel,
+              dead_code: true,
+              directives: true,
+              inline: false,
             },
-            ie8: false,
-            safari10: false,
-            mangle: true, // Here mangling does not reduce size enough, let's keep clean
+            format: {
+              beautify: true,
+              comments: !config.removeComments,
+            },
+            mangle: false, // Here mangling does not reduce size enough, let's keep clean
           }),
         ]
       : []),
@@ -70,14 +68,15 @@ export default () => [
   // ESM
   {
     input: ['./src/index.ts'],
-    preserveModules: true,
+    preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
     external: config.external,
     plugins: [
-      ...getDefaultRollupPlugins('esm', true, config.sourceMap, config.cache),
+      ...getDefaultRollupPlugins('esm', config.minify, config.sourceMap),
     ],
     output: {
-      dir: `${config.distDir}/esm`,
       format: 'esm',
+      dir: `${config.distDir}/esm`,
+      entryFileNames: '[name].js',
       sourcemap: config.sourceMap,
     },
   },
@@ -87,11 +86,12 @@ export default () => [
     preserveModules: false,
     external: config.external,
     plugins: [
-      ...getDefaultRollupPlugins('cjs', true, config.sourceMap, config.cache),
+      ...getDefaultRollupPlugins('cjs', config.minify, config.sourceMap),
     ],
     output: {
-      dir: `${config.distDir}/cjs`,
       format: 'cjs',
+      dir: `${config.distDir}/cjs`,
+      entryFileNames: '[name].cjs',
       sourcemap: config.sourceMap,
     },
   },
