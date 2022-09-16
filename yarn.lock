@@ -1533,6 +1533,7 @@ __metadata:
     rollup-plugin-terser: "npm:7.0.2"
     size-limit: "npm:8.1.0"
     statuses: "npm:2.0.1"
+    superjson: "npm:1.9.1"
     terser: "npm:5.15.0"
     tslib: "npm:2.4.0"
     tsup: "npm:6.2.3"
@@ -2080,6 +2081,7 @@ __metadata:
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
     rimraf: "npm:3.0.2"
+    superjson: "npm:1.9.1"
     typescript: "npm:4.8.3"
   languageName: unknown
   linkType: soft
@@ -5175,6 +5177,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"copy-anything@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "copy-anything@npm:3.0.2"
+  dependencies:
+    is-what: "npm:^4.1.6"
+  checksum: 5cf2b3f2524430a300e99f715030ed17f76659e1b4b17913630bb44ac9de1714b1ba94b349dc1f61cf22ad3162029ccc65080aa1de8c8d2073079e2e1e783b2a
+  languageName: node
+  linkType: hard
+
 "core-js-compat@npm:^3.25.1":
   version: 3.25.1
   resolution: "core-js-compat@npm:3.25.1"
@@ -7965,6 +7976,13 @@ __metadata:
   dependencies:
     call-bind: "npm:^1.0.2"
   checksum: fdd5b2df8209f8387a86c8a504f6983fff0f90b46aabfe8d97ffbf34d2cbb6f64edbaec8da16deedd876c228b7b721ead65f42f20f1a0e7ebf294f669542c534
+  languageName: node
+  linkType: hard
+
+"is-what@npm:^4.1.6":
+  version: 4.1.7
+  resolution: "is-what@npm:4.1.7"
+  checksum: e6f55ed6999674be3b4bce6937a9202cb429ae1470c4138e581176bb1ea4b5c0ddacb6368d990d60af1465d5219fd0bcf1ee1d61006954bca303eaf1f52d6769
   languageName: node
   linkType: hard
 
@@ -11767,6 +11785,15 @@ __metadata:
     sucrase: bin/sucrase
     sucrase-node: bin/sucrase-node
   checksum: 8ff34ba3af8f4464bd33b3feb4c65f13e47ff9ceec742ff90f64f57eeeab61ad3cd500da7209d2e9979e08ecd3e81be9ea1aad52d649c3f87bf37f0a6b7b5325
+  languageName: node
+  linkType: hard
+
+"superjson@npm:1.9.1":
+  version: 1.9.1
+  resolution: "superjson@npm:1.9.1"
+  dependencies:
+    copy-anything: "npm:^3.0.2"
+  checksum: d98354a40a9a837e15a7f679a3519c47c65f5e938d9b29df45464c44f0feabdeba049e7425a13434c4fac8285494e61789cf50a5797e6ea7c1f926eda303e07c
   languageName: node
   linkType: hard
 
