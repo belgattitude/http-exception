@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 1.0.1
+
+### Patch Changes
+
+- [#40](https://github.com/belgattitude/http-exception/pull/40) [`d1ed899`](https://github.com/belgattitude/http-exception/commit/d1ed89948229de00ca3e119365269a1850fbf575) Thanks [@belgattitude](https://github.com/belgattitude)! - Support for older browser (class / spread transform)
+
 ## 1.0.0
 
 ### Major Changes
