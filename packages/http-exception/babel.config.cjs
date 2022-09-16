@@ -1,18 +1,8 @@
 module.exports = {
   comments: false,
   presets: [
-    [
-      '@babel/preset-env',
-      {
-        targets: '> 0.25%, not dead',
-      },
-    ],
-    [
-      '@babel/preset-typescript',
-      {
-        optimizeConstEnums: true,
-      },
-    ],
+    '@babel/preset-env',
+    '@babel/preset-typescript',
   ],
   plugins: [
     '@babel/plugin-transform-spread',
