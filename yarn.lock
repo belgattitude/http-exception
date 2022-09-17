@@ -1497,6 +1497,51 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@belgattitude/eslint-config-bases@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@belgattitude/eslint-config-bases@npm:1.9.0"
+  dependencies:
+    "@graphql-eslint/eslint-plugin": "npm:^3.10.7"
+    "@rushstack/eslint-patch": "npm:^1.2.0"
+    "@testing-library/jest-dom": "npm:^5.16.5"
+    "@testing-library/react": "npm:^13.4.0"
+    "@testing-library/react-hooks": "npm:^8.0.1"
+    "@typescript-eslint/eslint-plugin": "npm:^5.37.0"
+    "@typescript-eslint/parser": "npm:^5.37.0"
+    eslint-config-prettier: "npm:^8.5.0"
+    eslint-import-resolver-typescript: "npm:^3.5.1"
+    eslint-plugin-import: "npm:^2.26.0"
+    eslint-plugin-jest: "npm:^27.0.4"
+    eslint-plugin-jest-formatting: "npm:^3.1.0"
+    eslint-plugin-jsx-a11y: "npm:^6.6.1"
+    eslint-plugin-playwright: "npm:^0.11.1"
+    eslint-plugin-prettier: "npm:4.2.1"
+    eslint-plugin-react: "npm:^7.31.8"
+    eslint-plugin-react-hooks: "npm:^4.6.0"
+    eslint-plugin-regexp: "npm:^1.9.0"
+    eslint-plugin-sonarjs: "npm:^0.15.0"
+    eslint-plugin-storybook: "npm:^0.6.4"
+    eslint-plugin-tailwindcss: "npm:^3.6.2"
+    eslint-plugin-testing-library: "npm:^5.6.4"
+  peerDependencies:
+    eslint: ^8.0.0
+    graphql: ^16.4.0
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
+    typescript: ^4.5.2
+  peerDependenciesMeta:
+    graphql:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    typescript:
+      optional: true
+  checksum: 028da8fc7ef10865547821a0e669df1d811a75d32acd8719812e4870d3a612cd7d49d14d51345a28a2fcba7672e3af0cf27c7d1ca9ac69e9e6799143ddfa6abd
+  languageName: node
+  linkType: hard
+
 "@belgattitude/http-exception@workspace:^, @belgattitude/http-exception@workspace:packages/http-exception":
   version: 0.0.0-use.local
   resolution: "@belgattitude/http-exception@workspace:packages/http-exception"
@@ -1507,7 +1552,7 @@ __metadata:
     "@babel/plugin-transform-typescript": "npm:7.19.1"
     "@babel/preset-env": "npm:7.19.1"
     "@babel/preset-typescript": "npm:7.18.6"
-    "@belgattitude/eslint-config-bases": "npm:1.8.0"
+    "@belgattitude/eslint-config-bases": "npm:1.9.0"
     "@rollup/plugin-babel": "npm:5.3.1"
     "@rollup/plugin-node-resolve": "npm:14.1.0"
     "@rollup/plugin-typescript": "npm:8.5.0"
@@ -2815,10 +2860,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-patch@npm:^1.1.3, @rushstack/eslint-patch@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@rushstack/eslint-patch@npm:1.1.4"
-  checksum: aec1d4a5cb907c58be23160d59ffd7f6711ad6174f26f1aae964a732a4427aa5822bbc697b8610095c07b9caa3fbc86752d881520242b2eda457cc77668028f3
+"@rushstack/eslint-patch@npm:^1.1.3, @rushstack/eslint-patch@npm:^1.1.4, @rushstack/eslint-patch@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@rushstack/eslint-patch@npm:1.2.0"
+  checksum: f91904a54e780bf2bb7644fb6d9bfcbf49ec92910c9aa3a3c7ba33f975e8c102a191d2bd18e49b41abdb13f5e5f6d54756299145e87ee073a93d111b9519ba1b
   languageName: node
   linkType: hard
 
@@ -6443,14 +6488,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-tailwindcss@npm:^3.6.1":
-  version: 3.6.1
-  resolution: "eslint-plugin-tailwindcss@npm:3.6.1"
+"eslint-plugin-tailwindcss@npm:^3.6.1, eslint-plugin-tailwindcss@npm:^3.6.2":
+  version: 3.6.2
+  resolution: "eslint-plugin-tailwindcss@npm:3.6.2"
   dependencies:
     fast-glob: "npm:^3.2.5"
     postcss: "npm:^8.4.4"
     tailwindcss: "npm:^3.1.3"
-  checksum: ff100762c8764b4fe83cf603a9d2fe3b253e0612a0b8e5766c55c6380113f531b3575ed5ce4cc9dbbd5879b79320b4fda1d52b31fb56f61014c281edb0ac6c6a
+  checksum: e1ff9ee65e041323d5070f9823418f9448aa9828a4b029f88db6050c5db25279e766f5046aa5ab5415bde6fda192a7f7b3d0751e7bb56f4da6329342b76d053e
   languageName: node
   linkType: hard
 
@@ -6744,7 +6789,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "faiwell-monorepo@workspace:."
   dependencies:
-    "@belgattitude/eslint-config-bases": "npm:1.8.0"
+    "@belgattitude/eslint-config-bases": "npm:1.9.0"
     "@changesets/changelog-github": "npm:0.4.6"
     "@changesets/cli": "npm:2.24.4"
     "@commitlint/cli": "npm:17.1.2"
