@@ -1,9 +1,6 @@
 import type { HttpException } from '../../base';
 import { HttpBadGateway } from '../../server';
-import {
-  SerializedHttpException,
-  serializeHttpException,
-} from '../serializeHttpException';
+import { serializeHttpException } from '../serializeHttpException';
 import { unserializeHttpException } from '../unserializeHttpException';
 
 describe('unserializeHttpException tests', () => {
