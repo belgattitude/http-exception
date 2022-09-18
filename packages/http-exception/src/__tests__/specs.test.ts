@@ -5,7 +5,7 @@ import { createHttpException } from '../factory';
 import { statusMap } from '../status';
 
 describe('Common specs', () => {
-  describe('All known statuses', () => {
+  describe('compare with npm:statuses package', () => {
     const all = Object.entries(statusMap).map(([code]) => {
       const exception = createHttpException(Number.parseInt(code, 10));
       return [exception?.name ?? '', Number.parseInt(code, 10), exception];
