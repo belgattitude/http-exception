@@ -1497,6 +1497,51 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@belgattitude/eslint-config-bases@npm:1.9.0":
+  version: 1.9.0
+  resolution: "@belgattitude/eslint-config-bases@npm:1.9.0"
+  dependencies:
+    "@graphql-eslint/eslint-plugin": "npm:^3.10.7"
+    "@rushstack/eslint-patch": "npm:^1.2.0"
+    "@testing-library/jest-dom": "npm:^5.16.5"
+    "@testing-library/react": "npm:^13.4.0"
+    "@testing-library/react-hooks": "npm:^8.0.1"
+    "@typescript-eslint/eslint-plugin": "npm:^5.37.0"
+    "@typescript-eslint/parser": "npm:^5.37.0"
+    eslint-config-prettier: "npm:^8.5.0"
+    eslint-import-resolver-typescript: "npm:^3.5.1"
+    eslint-plugin-import: "npm:^2.26.0"
+    eslint-plugin-jest: "npm:^27.0.4"
+    eslint-plugin-jest-formatting: "npm:^3.1.0"
+    eslint-plugin-jsx-a11y: "npm:^6.6.1"
+    eslint-plugin-playwright: "npm:^0.11.1"
+    eslint-plugin-prettier: "npm:4.2.1"
+    eslint-plugin-react: "npm:^7.31.8"
+    eslint-plugin-react-hooks: "npm:^4.6.0"
+    eslint-plugin-regexp: "npm:^1.9.0"
+    eslint-plugin-sonarjs: "npm:^0.15.0"
+    eslint-plugin-storybook: "npm:^0.6.4"
+    eslint-plugin-tailwindcss: "npm:^3.6.2"
+    eslint-plugin-testing-library: "npm:^5.6.4"
+  peerDependencies:
+    eslint: ^8.0.0
+    graphql: ^16.4.0
+    react: ^17.0.2 || ^18.0.0
+    react-dom: ^17.0.2 || ^18.0.0
+    typescript: ^4.5.2
+  peerDependenciesMeta:
+    graphql:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    typescript:
+      optional: true
+  checksum: 028da8fc7ef10865547821a0e669df1d811a75d32acd8719812e4870d3a612cd7d49d14d51345a28a2fcba7672e3af0cf27c7d1ca9ac69e9e6799143ddfa6abd
+  languageName: node
+  linkType: hard
+
 "@belgattitude/http-exception@workspace:^, @belgattitude/http-exception@workspace:packages/http-exception":
   version: 0.0.0-use.local
   resolution: "@belgattitude/http-exception@workspace:packages/http-exception"
@@ -1507,7 +1552,7 @@ __metadata:
     "@babel/plugin-transform-typescript": "npm:7.19.1"
     "@babel/preset-env": "npm:7.19.1"
     "@babel/preset-typescript": "npm:7.18.6"
-    "@belgattitude/eslint-config-bases": "npm:1.8.0"
+    "@belgattitude/eslint-config-bases": "npm:1.9.0"
     "@rollup/plugin-babel": "npm:5.3.1"
     "@rollup/plugin-node-resolve": "npm:14.1.0"
     "@rollup/plugin-typescript": "npm:8.5.0"
@@ -1517,8 +1562,8 @@ __metadata:
     "@swc/core": "npm:1.3.1"
     "@types/node": "npm:18.7.18"
     "@types/statuses": "npm:2.0.0"
-    "@vitest/coverage-istanbul": "npm:0.23.2"
-    "@vitest/ui": "npm:0.23.2"
+    "@vitest/coverage-istanbul": "npm:0.23.4"
+    "@vitest/ui": "npm:0.23.4"
     corejs: "npm:1.0.0"
     cross-env: "npm:7.0.3"
     es-check: "npm:7.0.1"
@@ -1542,7 +1587,7 @@ __metadata:
     typescript: "npm:4.8.3"
     vite: "npm:3.1.2"
     vite-tsconfig-paths: "npm:3.5.0"
-    vitest: "npm:0.23.2"
+    vitest: "npm:0.23.4"
     webpack: "npm:5.74.0"
   languageName: unknown
   linkType: soft
@@ -2817,10 +2862,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/eslint-patch@npm:^1.1.3, @rushstack/eslint-patch@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "@rushstack/eslint-patch@npm:1.1.4"
-  checksum: aec1d4a5cb907c58be23160d59ffd7f6711ad6174f26f1aae964a732a4427aa5822bbc697b8610095c07b9caa3fbc86752d881520242b2eda457cc77668028f3
+"@rushstack/eslint-patch@npm:^1.1.3, @rushstack/eslint-patch@npm:^1.1.4, @rushstack/eslint-patch@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@rushstack/eslint-patch@npm:1.2.0"
+  checksum: f91904a54e780bf2bb7644fb6d9bfcbf49ec92910c9aa3a3c7ba33f975e8c102a191d2bd18e49b41abdb13f5e5f6d54756299145e87ee073a93d111b9519ba1b
   languageName: node
   linkType: hard
 
@@ -3815,9 +3860,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-istanbul@npm:0.23.2":
-  version: 0.23.2
-  resolution: "@vitest/coverage-istanbul@npm:0.23.2"
+"@vitest/coverage-istanbul@npm:0.23.4":
+  version: 0.23.4
+  resolution: "@vitest/coverage-istanbul@npm:0.23.4"
   dependencies:
     istanbul-lib-coverage: "npm:^3.2.0"
     istanbul-lib-instrument: "npm:^5.2.0"
@@ -3825,17 +3870,17 @@ __metadata:
     istanbul-lib-source-maps: "npm:^4.0.1"
     istanbul-reports: "npm:^3.1.5"
     test-exclude: "npm:^6.0.0"
-    vitest: "npm:0.23.2"
-  checksum: 3a1ee3881aa80b75b5b0880f6a9e319bf2af61b5f729389f76ff2713846920fa620a7515bc286b50b567a7c79457485b01007b6b3969195931961059fb3e8ffd
+    vitest: "npm:0.23.4"
+  checksum: 0d421741d71d093866e88291b7fde14f56a30cb5df412e0bd08caf3aa69df5b44a869787985cfb6d677d4869e3da30835581b383ce4cd301b05e5aa8c894f5f5
   languageName: node
   linkType: hard
 
-"@vitest/ui@npm:0.23.2":
-  version: 0.23.2
-  resolution: "@vitest/ui@npm:0.23.2"
+"@vitest/ui@npm:0.23.4":
+  version: 0.23.4
+  resolution: "@vitest/ui@npm:0.23.4"
   dependencies:
     sirv: "npm:^2.0.2"
-  checksum: 3970c466c727235cbe8ac938da49070ab17c46c4ac4db1fe6ffa0da76e1c3b8dbc3dd3824b98dea6b0bc47d3f785984b63095e0c897ecd5d31289426985f1c9c
+  checksum: dab4b97892d3c4b5bab4ffca9ecaf3b285762f5515406992f21aa0b1e7f6f24bf67e0a1546b1de38511a12b91290bcf46390a026ea19477142ce2a97de838e18
   languageName: node
   linkType: hard
 
@@ -6454,14 +6499,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-tailwindcss@npm:^3.6.1":
-  version: 3.6.1
-  resolution: "eslint-plugin-tailwindcss@npm:3.6.1"
+"eslint-plugin-tailwindcss@npm:^3.6.1, eslint-plugin-tailwindcss@npm:^3.6.2":
+  version: 3.6.2
+  resolution: "eslint-plugin-tailwindcss@npm:3.6.2"
   dependencies:
     fast-glob: "npm:^3.2.5"
     postcss: "npm:^8.4.4"
     tailwindcss: "npm:^3.1.3"
-  checksum: ff100762c8764b4fe83cf603a9d2fe3b253e0612a0b8e5766c55c6380113f531b3575ed5ce4cc9dbbd5879b79320b4fda1d52b31fb56f61014c281edb0ac6c6a
+  checksum: e1ff9ee65e041323d5070f9823418f9448aa9828a4b029f88db6050c5db25279e766f5046aa5ab5415bde6fda192a7f7b3d0751e7bb56f4da6329342b76d053e
   languageName: node
   linkType: hard
 
@@ -6755,7 +6800,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "faiwell-monorepo@workspace:."
   dependencies:
-    "@belgattitude/eslint-config-bases": "npm:1.8.0"
+    "@belgattitude/eslint-config-bases": "npm:1.9.0"
     "@changesets/changelog-github": "npm:0.4.6"
     "@changesets/cli": "npm:2.24.4"
     "@commitlint/cli": "npm:17.1.2"
@@ -11729,12 +11774,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"strip-literal@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "strip-literal@npm:0.4.0"
+"strip-literal@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "strip-literal@npm:0.4.1"
   dependencies:
-    acorn: "npm:^8.7.1"
-  checksum: 064c51b978577d979faf1e404b72bb63fde9478480f1f6047061fd339d34f0a5a90dbbd98255cfdcfa92900ba0b1327055b947bfb4ef3432ca4a46c829fb220e
+    acorn: "npm:^8.8.0"
+  checksum: f1266805dfa6051d7062bf1876379a82027cd46bd53fa993cda31dcf59a8b6a47601506927ba1e7c6d34c1bb0e3be76b246e011d2c70ad7e5407ade5841cf1fa
   languageName: node
   linkType: hard
 
@@ -12599,9 +12644,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:0.23.2":
-  version: 0.23.2
-  resolution: "vitest@npm:0.23.2"
+"vitest@npm:0.23.4":
+  version: 0.23.4
+  resolution: "vitest@npm:0.23.4"
   dependencies:
     "@types/chai": "npm:^4.3.3"
     "@types/chai-subset": "npm:^1.3.3"
@@ -12609,7 +12654,7 @@ __metadata:
     chai: "npm:^4.3.6"
     debug: "npm:^4.3.4"
     local-pkg: "npm:^0.4.2"
-    strip-literal: "npm:^0.4.0"
+    strip-literal: "npm:^0.4.1"
     tinybench: "npm:^2.1.5"
     tinypool: "npm:^0.3.0"
     tinyspy: "npm:^1.0.2"
@@ -12633,7 +12678,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: 5c3a489e963dc410d88675aca332bc0ad1b3457902607549a310f76310c4b105cf8b370291228931cfe45bad019b3259889bd0ab0dec2ee85a507d4c98e8c5f0
+  checksum: 5a5b9fe99a03e2aa68ef3c9799ec4f3ee32ba3a2cf03fa9a806762abd02d6b4bf17ab4aff7263de3a92048dbff83252a40038ee7234854b00dac5ea0ce39a863
   languageName: node
   linkType: hard
 
