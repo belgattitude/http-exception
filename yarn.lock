@@ -2120,6 +2120,7 @@ __metadata:
     "@types/node": "npm:18.7.18"
     "@types/react": "npm:18.0.20"
     "@types/react-dom": "npm:18.0.6"
+    cross-env: "npm:7.0.3"
     eslint: "npm:8.23.1"
     eslint-config-next: "npm:12.3.0"
     next: "npm:12.3.0"
