@@ -2,7 +2,7 @@ import type { HttpException } from '../base';
 import { serializeCause } from './serializeCause';
 import type { SerializableHttpException } from './types';
 
-export const serializeHttpException = (
+const getSerializableHttpException = (
   httpException: HttpException
 ): SerializableHttpException => {
   const {
@@ -23,4 +23,10 @@ export const serializeHttpException = (
     stack,
     cause: cause instanceof Error ? serializeCause(cause) : null,
   };
+};
+
+export const serializeHttpException = (
+  httpException: HttpException
+): string => {
+  return JSON.stringify(getSerializableHttpException(httpException));
 };

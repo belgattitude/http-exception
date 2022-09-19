@@ -5,21 +5,19 @@ import { unserializeHttpException } from '../unserializeHttpException';
 
 describe('unserializeHttpException tests', () => {
   it('should give the expected payload', () => {
-    const errorCause = new Error('cool');
-    let error: HttpException | null = null;
+    let throwed: HttpException | null;
+    const nonThrowed = new HttpBadGateway('Bad gateway (nonThrowed)');
     try {
       throw new HttpBadGateway({
-        message: 'Bad Gateway',
+        message: 'Bad gateway (throwed)',
         url: 'http://localhost:3000',
-        cause: errorCause,
       });
     } catch (e) {
-      error = e as unknown as HttpException;
+      throwed = e as unknown as HttpException;
     }
-    const serialized = JSON.stringify(serializeHttpException(error));
+    const serialized = serializeHttpException(throwed);
     const unserialized = unserializeHttpException(serialized);
-    expect(unserialized).toStrictEqual(error);
-    expect(unserialized).toBeInstanceOf(HttpBadGateway);
-    expect(unserialized?.cause).toStrictEqual(errorCause);
+    expect(unserialized).toStrictEqual(throwed);
+    expect(unserialized).not.equal(nonThrowed.message);
   });
 });
