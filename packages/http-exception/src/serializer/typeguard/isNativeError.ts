@@ -3,30 +3,28 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types
  * @see https://262.ecma-international.org/12.0/#sec-well-known-intrinsic-objects
  */
-const nativeErrors = [
-  Error,
-  AggregateError,
-  EvalError,
-  RangeError,
-  ReferenceError,
-  SyntaxError,
-  TypeError,
-  URIError,
-];
+import type { NativeError } from '../types';
 
-export type NativeError =
-  | Error
-  | AggregateError
-  | EvalError
-  | RangeError
-  | ReferenceError
-  | SyntaxError
-  | TypeError
-  | URIError;
+export const nativeErrorMap = {
+  Error: Error,
+  EvalError: EvalError,
+  RangeError: RangeError,
+  ReferenceError: ReferenceError,
+  SyntaxError: SyntaxError,
+  TypeError: TypeError,
+  UriError: URIError,
+};
 
-export const isNativeError = (error: unknown): error is NativeError => {
-  return (
-    nativeErrors.filter((nativeError) => error instanceof nativeError).length >
-    0
-  );
+export const nativeErrors = Object.values(nativeErrorMap);
+
+export const isNativeError = (error: Error): error is NativeError => {
+  if (!((error as unknown) instanceof Error)) {
+    return false;
+  }
+  for (const e of nativeErrors) {
+    if (error.name === e.name) {
+      return true;
+    }
+  }
+  return false;
 };

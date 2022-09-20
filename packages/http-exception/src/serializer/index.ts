@@ -1,2 +1,4 @@
-export { serializeHttpException } from './serializeHttpException';
-export { unserializeHttpException } from './unserializeHttpException';
+export {
+  toJson as serializeHttpException,
+  fromJson as unserializeHttpException,
+} from './json';
