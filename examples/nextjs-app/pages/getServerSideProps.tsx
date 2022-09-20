@@ -3,6 +3,7 @@ import {
   HttpNotFound,
   HttpRequestTimeout,
   serializeHttpException,
+  unserializeHttpException,
 } from '@belgattitude/http-exception';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
@@ -26,10 +27,15 @@ export default function MonitorSentrySsrRoute(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const { apiData } = props;
+  const error: Error | null = apiData.success
+    ? null
+    : unserializeHttpException(apiData.error);
+  console.log('apiData', apiData);
   return (
     <div>
-      <h1>Unexpected error</h1>
-      <p>{JSON.stringify(apiData)}</p>
+      <h1>Should display the error below</h1>
+      <pre>{JSON.stringify(error, null, 2)}</pre>
+      <div>{JSON.stringify(apiData)}</div>
     </div>
   );
 }
@@ -55,12 +61,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
         notFound: true,
       };
     }
-    const serialized = JSON.stringify(
-      serializeHttpException(e as unknown as HttpException)
-    );
     apiData = {
       success: false,
-      error: serialized,
+      error: serializeHttpException(e as HttpException),
     };
   }
   return {
