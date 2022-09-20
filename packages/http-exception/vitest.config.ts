@@ -3,12 +3,15 @@ import { defineConfig } from 'vitest/config';
 
 const testFiles = ['./src/**/*.test.{js,ts}'];
 
+import 'error-cause-polyfill/auto';
+
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     globals: true,
     environment: 'node',
     passWithNoTests: false,
+    setupFiles: './test/setupVitest.ts',
     cache: {
       dir: '../../.cache/vitest/errorh',
     },
