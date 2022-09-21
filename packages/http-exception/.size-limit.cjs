@@ -23,13 +23,13 @@ module.exports = [
     name: "ESM (only HttpNotFound exception)",
     path: ["dist/esm/index.mjs"],
     import: "{ HttpNotFound }",
-    limit: "1100B",
+    limit: "1150B",
   },
   {
     name: "ESM (only HttpInternalServerError)",
     path: ["dist/esm/index.mjs"],
     import: "{ HttpInternalServerError }",
-    limit: "1100B",
+    limit: "1150B",
   },
   {
     name: "ESM (two exceptions: HttpNotFound + HttpInternalServerError)",
