@@ -6,6 +6,7 @@ import {
   unserializeHttpException,
 } from '@belgattitude/http-exception';
 import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { Scenarios } from '../components/Scenarios';
 
 type ApiData =
   | {
@@ -36,6 +37,7 @@ export default function MonitorSentrySsrRoute(
       <h1>Should display the error below</h1>
       <pre>{JSON.stringify(error, null, 2)}</pre>
       <div>{JSON.stringify(apiData)}</div>
+      <Scenarios />
     </div>
   );
 }
