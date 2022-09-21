@@ -10,8 +10,8 @@ const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
 );
 
 const TYPESCRIPT_CONFIG = process.env.TSCONFIG
-    ? process.env.TSCONFIG
-    : './tsconfig.json';
+  ? process.env.TSCONFIG
+  : './tsconfig.json';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
