@@ -28,6 +28,7 @@ The request may be resubmitted after reducing the size of the request header fie
 
 ### Properties
 
+- [cause](client.HttpRequestHeaderFieldsTooLarge.md#cause)
 - [statusCode](client.HttpRequestHeaderFieldsTooLarge.md#statuscode)
 - [url](client.HttpRequestHeaderFieldsTooLarge.md#url)
 - [STATUS](client.HttpRequestHeaderFieldsTooLarge.md#status)
@@ -49,6 +50,23 @@ The request may be resubmitted after reducing the size of the request header fie
 [HttpClientException](base.HttpClientException.md).[constructor](base.HttpClientException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[cause](base.HttpClientException.md#cause)
+
+---
 
 ### statusCode
 

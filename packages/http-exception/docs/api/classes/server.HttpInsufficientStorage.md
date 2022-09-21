@@ -27,6 +27,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/507
 
 ### Properties
 
+- [cause](server.HttpInsufficientStorage.md#cause)
 - [statusCode](server.HttpInsufficientStorage.md#statuscode)
 - [url](server.HttpInsufficientStorage.md#url)
 - [STATUS](server.HttpInsufficientStorage.md#status)
@@ -48,6 +49,23 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/507
 [HttpServerException](base.HttpServerException.md).[constructor](base.HttpServerException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[cause](base.HttpServerException.md#cause)
+
+---
 
 ### statusCode
 

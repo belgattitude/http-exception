@@ -28,6 +28,7 @@ in the request's Expect header could not be met.
 
 ### Properties
 
+- [cause](client.HttpExpectationFailed.md#cause)
 - [statusCode](client.HttpExpectationFailed.md#statuscode)
 - [url](client.HttpExpectationFailed.md#url)
 - [STATUS](client.HttpExpectationFailed.md#status)
@@ -49,6 +50,23 @@ in the request's Expect header could not be met.
 [HttpClientException](base.HttpClientException.md).[constructor](base.HttpClientException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[cause](base.HttpClientException.md#cause)
+
+---
 
 ### statusCode
 
