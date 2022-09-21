@@ -65,7 +65,7 @@ module.exports = [
     name: "ESM ({ unserializeHttpException })",
     path: ["dist/esm/index.mjs"],
     import: "{ unserializeHttpException }",
-    limit: "3000B", // Will import all server/client exceptions
+    limit: "3050B", // Will import all server/client exceptions
   },
 
   // ###################################################
@@ -83,6 +83,6 @@ module.exports = [
     path: ["dist/cjs/index.cjs"],
     import: "{ isHttpException }",
     webpack: true,
-    limit: '2300B',
+    limit: '2350B',
   }
 ];
