@@ -28,9 +28,18 @@ Indicates that the client needs to authenticate to gain network access.
 ### Properties
 
 - [cause](server.HttpNetworkAuthenticationRequired.md#cause)
+- [message](server.HttpNetworkAuthenticationRequired.md#message)
+- [name](server.HttpNetworkAuthenticationRequired.md#name)
+- [stack](server.HttpNetworkAuthenticationRequired.md#stack)
 - [statusCode](server.HttpNetworkAuthenticationRequired.md#statuscode)
 - [url](server.HttpNetworkAuthenticationRequired.md#url)
 - [STATUS](server.HttpNetworkAuthenticationRequired.md#status)
+- [prepareStackTrace](server.HttpNetworkAuthenticationRequired.md#preparestacktrace)
+- [stackTraceLimit](server.HttpNetworkAuthenticationRequired.md#stacktracelimit)
+
+### Methods
+
+- [captureStackTrace](server.HttpNetworkAuthenticationRequired.md#capturestacktrace)
 
 ## Constructors
 
@@ -67,6 +76,36 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ---
 
+### message
+
+• **message**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[message](base.HttpServerException.md#message)
+
+---
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[name](base.HttpServerException.md#name)
+
+---
+
+### stack
+
+• `Optional` **stack**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[stack](base.HttpServerException.md#stack)
+
+---
+
 ### statusCode
 
 • `Readonly` **statusCode**: `number`
@@ -94,3 +133,67 @@ Indicates the original url that caused the error.
 ### STATUS
 
 ▪ `Static` `Readonly` **STATUS**: `511`
+
+---
+
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+#### Type declaration
+
+▸ (`err`, `stackTraces`): `any`
+
+Optional override for formatting stack traces
+
+**`See`**
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+##### Parameters
+
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
+| `stackTraces` | `CallSite`[] |
+
+##### Returns
+
+`any`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[prepareStackTrace](base.HttpServerException.md#preparestacktrace)
+
+---
+
+### stackTraceLimit
+
+▪ `Static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[stackTraceLimit](base.HttpServerException.md#stacktracelimit)
+
+## Methods
+
+### captureStackTrace
+
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[captureStackTrace](base.HttpServerException.md#capturestacktrace)
