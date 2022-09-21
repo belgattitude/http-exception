@@ -1540,6 +1540,7 @@ __metadata:
     "@vitest/ui": "npm:0.23.4"
     corejs: "npm:1.0.0"
     cross-env: "npm:7.0.3"
+    error-cause-polyfill: "npm:1.1.0"
     es-check: "npm:7.0.1"
     eslint: "npm:8.23.1"
     get-tsconfig: "npm:4.2.0"
@@ -6308,6 +6309,13 @@ __metadata:
   version: 2.0.3
   resolution: "err-code@npm:2.0.3"
   checksum: 12244d58c3eeb73a5ebf633ff615b2366cedaccfea3c2b4d6a3295f6440661052e9574c71f89d6dc8a5466e3d84be0b1994e2a4017ab10e1f037f8be1ca89a37
+  languageName: node
+  linkType: hard
+
+"error-cause-polyfill@npm:1.1.0":
+  version: 1.1.0
+  resolution: "error-cause-polyfill@npm:1.1.0"
+  checksum: efbf48634a79a11496eff7ba66a5b4179cef80769fd49271d4576fac95fe83acb61e37dfd7aed1836cc999a11cef5897cc7458288067dce22ac3c25487b480af
   languageName: node
   linkType: hard
 
