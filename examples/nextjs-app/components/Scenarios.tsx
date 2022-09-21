@@ -1,9 +1,5 @@
-import {
-  HttpBadGateway,
-  HttpForbidden,
-  serializeHttpException,
-  unserializeHttpException,
-} from '@belgattitude/http-exception';
+import { HttpBadGateway, HttpForbidden } from '@belgattitude/http-exception';
+import { toJson, fromJson } from '@belgattitude/http-exception/serializer';
 import type { FC } from 'react';
 import superjson from 'superjson';
 
@@ -13,7 +9,7 @@ const SimpleSerialize: FC = () => {
     url: 'http://localhost:3000',
     cause,
   });
-  const converted = unserializeHttpException(serializeHttpException(err));
+  const converted = fromJson(toJson(err));
   return (
     <div>
       <div>SimpleSerialize</div>
