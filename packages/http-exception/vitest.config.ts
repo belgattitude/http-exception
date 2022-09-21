@@ -11,9 +11,9 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     passWithNoTests: false,
-    setupFiles: './test/setupVitest.ts',
+    setupFiles: './test/_setup/setupVitest.ts',
     cache: {
-      dir: '../../.cache/vitest/errorh',
+      dir: '../../.cache/vitest/http-exception',
     },
     coverage: {
       provider: 'istanbul',

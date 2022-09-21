@@ -1,8 +1,8 @@
 import statuses from 'statuses';
-import { HttpClientException, HttpException } from '../base';
-import { HttpNotFound } from '../client';
-import { createHttpException } from '../factory';
-import { statusMap } from '../status';
+import { HttpClientException, HttpException } from '../../src/base';
+import { HttpNotFound } from '../../src/client';
+import { createHttpException } from '../../src/factory';
+import { statusMap } from '../../src/status';
 
 describe('Common specs', () => {
   describe('compare with npm:statuses package', () => {
