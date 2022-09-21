@@ -29,9 +29,18 @@ in transparent content negotiation itself, and is therefore not a proper end poi
 ### Properties
 
 - [cause](server.HttpVariantAlsoNegotiates.md#cause)
+- [message](server.HttpVariantAlsoNegotiates.md#message)
+- [name](server.HttpVariantAlsoNegotiates.md#name)
+- [stack](server.HttpVariantAlsoNegotiates.md#stack)
 - [statusCode](server.HttpVariantAlsoNegotiates.md#statuscode)
 - [url](server.HttpVariantAlsoNegotiates.md#url)
 - [STATUS](server.HttpVariantAlsoNegotiates.md#status)
+- [prepareStackTrace](server.HttpVariantAlsoNegotiates.md#preparestacktrace)
+- [stackTraceLimit](server.HttpVariantAlsoNegotiates.md#stacktracelimit)
+
+### Methods
+
+- [captureStackTrace](server.HttpVariantAlsoNegotiates.md#capturestacktrace)
 
 ## Constructors
 
@@ -68,6 +77,36 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ---
 
+### message
+
+• **message**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[message](base.HttpServerException.md#message)
+
+---
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[name](base.HttpServerException.md#name)
+
+---
+
+### stack
+
+• `Optional` **stack**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[stack](base.HttpServerException.md#stack)
+
+---
+
 ### statusCode
 
 • `Readonly` **statusCode**: `number`
@@ -95,3 +134,67 @@ Indicates the original url that caused the error.
 ### STATUS
 
 ▪ `Static` `Readonly` **STATUS**: `506`
+
+---
+
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+#### Type declaration
+
+▸ (`err`, `stackTraces`): `any`
+
+Optional override for formatting stack traces
+
+**`See`**
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+##### Parameters
+
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
+| `stackTraces` | `CallSite`[] |
+
+##### Returns
+
+`any`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[prepareStackTrace](base.HttpServerException.md#preparestacktrace)
+
+---
+
+### stackTraceLimit
+
+▪ `Static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[stackTraceLimit](base.HttpServerException.md#stacktracelimit)
+
+## Methods
+
+### captureStackTrace
+
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[captureStackTrace](base.HttpServerException.md#capturestacktrace)

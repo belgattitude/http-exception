@@ -33,9 +33,18 @@ For example, this error condition may occur if an XML request body contains well
 ### Properties
 
 - [cause](client.HttpUnprocessableEntity.md#cause)
+- [message](client.HttpUnprocessableEntity.md#message)
+- [name](client.HttpUnprocessableEntity.md#name)
+- [stack](client.HttpUnprocessableEntity.md#stack)
 - [statusCode](client.HttpUnprocessableEntity.md#statuscode)
 - [url](client.HttpUnprocessableEntity.md#url)
 - [STATUS](client.HttpUnprocessableEntity.md#status)
+- [prepareStackTrace](client.HttpUnprocessableEntity.md#preparestacktrace)
+- [stackTraceLimit](client.HttpUnprocessableEntity.md#stacktracelimit)
+
+### Methods
+
+- [captureStackTrace](client.HttpUnprocessableEntity.md#capturestacktrace)
 
 ## Constructors
 
@@ -72,6 +81,36 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ---
 
+### message
+
+• **message**: `string`
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[message](base.HttpClientException.md#message)
+
+---
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[name](base.HttpClientException.md#name)
+
+---
+
+### stack
+
+• `Optional` **stack**: `string`
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[stack](base.HttpClientException.md#stack)
+
+---
+
 ### statusCode
 
 • `Readonly` **statusCode**: `number`
@@ -99,3 +138,67 @@ Indicates the original url that caused the error.
 ### STATUS
 
 ▪ `Static` `Readonly` **STATUS**: `422`
+
+---
+
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+#### Type declaration
+
+▸ (`err`, `stackTraces`): `any`
+
+Optional override for formatting stack traces
+
+**`See`**
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+##### Parameters
+
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
+| `stackTraces` | `CallSite`[] |
+
+##### Returns
+
+`any`
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[prepareStackTrace](base.HttpClientException.md#preparestacktrace)
+
+---
+
+### stackTraceLimit
+
+▪ `Static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[stackTraceLimit](base.HttpClientException.md#stacktracelimit)
+
+## Methods
+
+### captureStackTrace
+
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[captureStackTrace](base.HttpClientException.md#capturestacktrace)

@@ -4,24 +4,30 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "cross-env TSCONFIG=./tsconfig.no-paths.json next build",
     "start": "next start",
     "clean": "rimraf --no-glob ./.next ./coverage ./tsconfig.tsbuildinfo",
     "typecheck": "tsc --project tsconfig.json --noEmit",
+    "typecheck-no-paths": "tsc --project tsconfig.no-paths.json --noEmit",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mjs,.cjs,.mts,.cts --cache --cache-location ../../.cache/eslint/nextjs-esm.eslintcache",
+    "prettier-check": "yarn run --top-level prettier --check --config ../../.prettierrc.js --ignore-path ../../.prettierignore \"./**/*.{js,jsx,cjs,mjs,ts,tsx,mts,md,mdx,json,css,scss,less}\"",
+    "prettier-fix": "yarn run --top-level prettier --write --config ../../.prettierrc.js --ignore-path ../../.prettierignore \"./**/*.{js,jsx,cjs,mjs,ts,tsx,mts,md,mdx,json,css,scss,less}\"",
     "fix-staged": "lint-staged --allow-empty"
   },
   "dependencies": {
     "@belgattitude/http-exception": "workspace:^",
     "next": "12.3.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "superjson": "1.10.0",
+    "tailwindcss": "3.1.8"
   },
   "devDependencies": {
     "@belgattitude/eslint-config-bases": "1.9.0",
     "@types/node": "18.7.18",
     "@types/react": "18.0.20",
     "@types/react-dom": "18.0.6",
+    "cross-env": "7.0.3",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.1",
     "rimraf": "3.0.2",

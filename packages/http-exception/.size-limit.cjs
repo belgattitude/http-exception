@@ -15,39 +15,51 @@ module.exports = [
   // ###################################################
   {
     name: "ESM (import everything *)",
-    path: ["dist/esm/index.mjs"],
+    path: ["dist/esm/index.js"],
     import: "*",
     limit: fullEsmMaxSize,
   },
   {
     name: "ESM (only HttpNotFound exception)",
-    path: ["dist/esm/index.mjs"],
+    path: ["dist/esm/index.js"],
     import: "{ HttpNotFound }",
     limit: "1150B",
   },
   {
     name: "ESM (only HttpInternalServerError)",
-    path: ["dist/esm/index.mjs"],
+    path: ["dist/esm/index.js"],
     import: "{ HttpInternalServerError }",
     limit: "1150B",
   },
   {
     name: "ESM (two exceptions: HttpNotFound + HttpInternalServerError)",
-    path: ["dist/esm/index.mjs"],
+    path: ["dist/esm/index.js"],
     import: "{ HttpNotFound, HttpInternalServerError }",
     limit: "1200B",
   },
   {
     name: "ESM (only isHttpException)",
-    path: ["dist/esm/index.mjs"],
+    path: ["dist/esm/index.js"],
     import: "{ isHttpException }",
     limit: "1000B",
   },
   {
     name: "ESM (only createHttpException)",
-    path: ["dist/esm/index.mjs"],
+    path: ["dist/esm/index.js"],
     import: "{ createHttpException }",
     limit: "2400B", // Will import all server/client exceptions
+  },
+  {
+    name: "ESM ({ toJson })",
+    path: ["dist/esm/serializer/index.js"],
+    import: "{ toJson }",
+    limit: "1800B",
+  },
+  {
+    name: "ESM ({ fromJson })",
+    path: ["dist/esm/serializer/index.js"],
+    import: "{ fromJson }",
+    limit: "3100B",
   },
   // ###################################################
   // Commonjs full bundle
@@ -64,6 +76,6 @@ module.exports = [
     path: ["dist/cjs/index.cjs"],
     import: "{ isHttpException }",
     webpack: true,
-    limit: '2200B',
+    limit: '2350B',
   }
 ];

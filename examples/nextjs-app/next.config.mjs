@@ -9,13 +9,17 @@ const NEXTJS_IGNORE_TYPECHECK = trueEnv.includes(
   process.env?.NEXTJS_IGNORE_TYPECHECK ?? 'false'
 );
 
+const TYPESCRIPT_CONFIG = process.env.TSCONFIG
+  ? process.env.TSCONFIG
+  : './tsconfig.json';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   swcMinify: true,
   typescript: {
-    tsconfigPath: './tsconfig.json',
+    tsconfigPath: TYPESCRIPT_CONFIG,
     ignoreBuildErrors: NEXTJS_IGNORE_TYPECHECK,
   },
   eslint: {

@@ -1,24 +1,28 @@
 import statuses from 'statuses';
-import { HttpClientException, HttpException } from '../base';
-import { HttpNotFound } from '../client';
-import { createHttpException } from '../factory';
-import { statusMap } from '../status';
+import { HttpClientException, HttpException } from '../../src/base';
+import { HttpNotFound } from '../../src/client';
+import { createHttpException } from '../../src/factory';
+import { statusMap } from '../../src/status';
 
 describe('Common specs', () => {
-  describe('All known statuses', () => {
-    const all = Object.entries(statusMap).map(([code]) => {
+  describe('compare with npm:statuses package', () => {
+    const all: [
+      className: string,
+      status: number,
+      npmStatusMsg: string,
+      exception: HttpException
+    ][] = Object.entries(statusMap).map(([code]) => {
       const exception = createHttpException(Number.parseInt(code, 10));
-      return [exception?.name ?? '', Number.parseInt(code, 10), exception];
-    }) as [className: string, status: number, exception: HttpException][];
+      const status = Number.parseInt(code, 10);
+      const npmStatusesMsg = statuses(status).toString();
+      return [exception?.name ?? '', status, npmStatusesMsg, exception];
+    });
 
-    describe('classname', () => {
+    describe('class names matches with npm/statuses', () => {
       it.each(all)(
-        'should match official npm/statuses names',
-        (className, status) => {
-          const title = statuses(status)
-            ?.toString()
-            .replace(/[\W_]+/g, '')
-            .toLowerCase();
+        '%s(%i) match statuses "%s"',
+        (className, status, npmStatusMsg) => {
+          const title = npmStatusMsg.replace(/[\W_]+/g, '').toLowerCase();
           // eslint-disable-next-line jest/no-conditional-in-test
           const expected = title.startsWith('http') ? title : `http${title}`;
           expect(className.toLowerCase()).toStrictEqual(expected);
@@ -29,11 +33,8 @@ describe('Common specs', () => {
     describe('default messages', () => {
       it.each(all)(
         'should match official npm/statuses messages',
-        (className, status, exception) => {
-          const expected = statuses(status)
-            ?.toString()
-            .replace(/[\W_]+/g, '')
-            .toLowerCase();
+        (className, status, npmStatusMsg, exception) => {
+          const expected = npmStatusMsg.replace(/[\W_]+/g, '').toLowerCase();
           expect(
             exception?.message.toLowerCase().replace(/[\W_]+/g, '')
           ).toStrictEqual(expected);

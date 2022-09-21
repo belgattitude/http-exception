@@ -87,8 +87,17 @@ either a message or an object containing HttpExceptionParams
 ### Properties
 
 - [cause](base.HttpClientException.md#cause)
+- [message](base.HttpClientException.md#message)
+- [name](base.HttpClientException.md#name)
+- [stack](base.HttpClientException.md#stack)
 - [statusCode](base.HttpClientException.md#statuscode)
 - [url](base.HttpClientException.md#url)
+- [prepareStackTrace](base.HttpClientException.md#preparestacktrace)
+- [stackTraceLimit](base.HttpClientException.md#stacktracelimit)
+
+### Methods
+
+- [captureStackTrace](base.HttpClientException.md#capturestacktrace)
 
 ## Constructors
 
@@ -126,6 +135,36 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ---
 
+### message
+
+• **message**: `string`
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[message](base.HttpException.md#message)
+
+---
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[name](base.HttpException.md#name)
+
+---
+
+### stack
+
+• `Optional` **stack**: `string`
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[stack](base.HttpException.md#stack)
+
+---
+
 ### statusCode
 
 • `Readonly` **statusCode**: `number`
@@ -147,3 +186,67 @@ Indicates the original url that caused the error.
 #### Inherited from
 
 [HttpException](base.HttpException.md).[url](base.HttpException.md#url)
+
+---
+
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+#### Type declaration
+
+▸ (`err`, `stackTraces`): `any`
+
+Optional override for formatting stack traces
+
+**`See`**
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+##### Parameters
+
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
+| `stackTraces` | `CallSite`[] |
+
+##### Returns
+
+`any`
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[prepareStackTrace](base.HttpException.md#preparestacktrace)
+
+---
+
+### stackTraceLimit
+
+▪ `Static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[stackTraceLimit](base.HttpException.md#stacktracelimit)
+
+## Methods
+
+### captureStackTrace
+
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[captureStackTrace](base.HttpException.md#capturestacktrace)

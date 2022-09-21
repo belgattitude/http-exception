@@ -28,9 +28,18 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502
 ### Properties
 
 - [cause](server.HttpBadGateway.md#cause)
+- [message](server.HttpBadGateway.md#message)
+- [name](server.HttpBadGateway.md#name)
+- [stack](server.HttpBadGateway.md#stack)
 - [statusCode](server.HttpBadGateway.md#statuscode)
 - [url](server.HttpBadGateway.md#url)
 - [STATUS](server.HttpBadGateway.md#status)
+- [prepareStackTrace](server.HttpBadGateway.md#preparestacktrace)
+- [stackTraceLimit](server.HttpBadGateway.md#stacktracelimit)
+
+### Methods
+
+- [captureStackTrace](server.HttpBadGateway.md#capturestacktrace)
 
 ## Constructors
 
@@ -67,6 +76,36 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ---
 
+### message
+
+• **message**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[message](base.HttpServerException.md#message)
+
+---
+
+### name
+
+• **name**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[name](base.HttpServerException.md#name)
+
+---
+
+### stack
+
+• `Optional` **stack**: `string`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[stack](base.HttpServerException.md#stack)
+
+---
+
 ### statusCode
 
 • `Readonly` **statusCode**: `number`
@@ -94,3 +133,67 @@ Indicates the original url that caused the error.
 ### STATUS
 
 ▪ `Static` `Readonly` **STATUS**: `502`
+
+---
+
+### prepareStackTrace
+
+▪ `Static` `Optional` **prepareStackTrace**: (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
+
+#### Type declaration
+
+▸ (`err`, `stackTraces`): `any`
+
+Optional override for formatting stack traces
+
+**`See`**
+
+https://v8.dev/docs/stack-trace-api#customizing-stack-traces
+
+##### Parameters
+
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
+| `stackTraces` | `CallSite`[] |
+
+##### Returns
+
+`any`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[prepareStackTrace](base.HttpServerException.md#preparestacktrace)
+
+---
+
+### stackTraceLimit
+
+▪ `Static` **stackTraceLimit**: `number`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[stackTraceLimit](base.HttpServerException.md#stacktracelimit)
+
+## Methods
+
+### captureStackTrace
+
+▸ `Static` **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[captureStackTrace](base.HttpServerException.md#capturestacktrace)
