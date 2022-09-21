@@ -19,6 +19,9 @@
     "paths": {
       "@belgattitude/http-exception": [
         "../../packages/http-exception/src/index"
+      ],
+      "@belgattitude/http-exception/serializer": [
+        "../../packages/http-exception/src/serializer/index"
       ]
     }
   },
