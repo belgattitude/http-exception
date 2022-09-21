@@ -25,11 +25,11 @@
 
 #### Type declaration
 
-| Name       | Type     | Description                                                                                                                                              |
-| :--------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cause?`   | `Error`  | Indicates the original cause of the HttpException **`See`** https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause |
-| `message?` | `string` | Exception message, if not provided the default is the exception name in natural language (ie: "HttpNotFound" -> "Not found")                             |
-| `url?`     | `string` | Indicates the original url that caused the error.                                                                                                        |
+| Name       | Type     | Description                                                                                                                                                                                                                                                            |
+| :--------- | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cause?`   | `Error`  | Indicates the original cause of the HttpException. Will be ignored/discarded if the runtime (browser / node version) does not support it or there's no polyfill **`See`** https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause |
+| `message?` | `string` | Exception message, if not provided the default is the exception name in natural language (ie: "HttpNotFound" -> "Not found")                                                                                                                                           |
+| `url?`     | `string` | Indicates the original url that caused the error.                                                                                                                                                                                                                      |
 
 ---
 

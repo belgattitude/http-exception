@@ -27,6 +27,7 @@ Indicates that the client needs to authenticate to gain network access.
 
 ### Properties
 
+- [cause](server.HttpNetworkAuthenticationRequired.md#cause)
 - [statusCode](server.HttpNetworkAuthenticationRequired.md#statuscode)
 - [url](server.HttpNetworkAuthenticationRequired.md#url)
 - [STATUS](server.HttpNetworkAuthenticationRequired.md#status)
@@ -48,6 +49,23 @@ Indicates that the client needs to authenticate to gain network access.
 [HttpServerException](base.HttpServerException.md).[constructor](base.HttpServerException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[cause](base.HttpServerException.md#cause)
+
+---
 
 ### statusCode
 

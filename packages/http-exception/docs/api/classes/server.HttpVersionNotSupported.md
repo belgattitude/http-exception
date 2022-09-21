@@ -27,6 +27,7 @@ The HTTP version used in the request is not supported by the server.
 
 ### Properties
 
+- [cause](server.HttpVersionNotSupported.md#cause)
 - [statusCode](server.HttpVersionNotSupported.md#statuscode)
 - [url](server.HttpVersionNotSupported.md#url)
 - [STATUS](server.HttpVersionNotSupported.md#status)
@@ -48,6 +49,23 @@ The HTTP version used in the request is not supported by the server.
 [HttpServerException](base.HttpServerException.md).[constructor](base.HttpServerException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[cause](base.HttpServerException.md#cause)
+
+---
 
 ### statusCode
 

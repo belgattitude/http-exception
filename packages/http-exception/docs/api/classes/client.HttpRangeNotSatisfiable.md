@@ -28,6 +28,7 @@ It's possible that the range is outside the size of the target URI's data.
 
 ### Properties
 
+- [cause](client.HttpRangeNotSatisfiable.md#cause)
 - [statusCode](client.HttpRangeNotSatisfiable.md#statuscode)
 - [url](client.HttpRangeNotSatisfiable.md#url)
 - [STATUS](client.HttpRangeNotSatisfiable.md#status)
@@ -49,6 +50,23 @@ It's possible that the range is outside the size of the target URI's data.
 [HttpClientException](base.HttpClientException.md).[constructor](base.HttpClientException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[cause](base.HttpClientException.md#cause)
+
+---
 
 ### statusCode
 

@@ -27,6 +27,7 @@ This is similar to 401 Unauthorized but authentication is needed to be done by a
 
 ### Properties
 
+- [cause](client.HttpProxyAuthenticationRequired.md#cause)
 - [statusCode](client.HttpProxyAuthenticationRequired.md#statuscode)
 - [url](client.HttpProxyAuthenticationRequired.md#url)
 - [STATUS](client.HttpProxyAuthenticationRequired.md#status)
@@ -48,6 +49,23 @@ This is similar to 401 Unauthorized but authentication is needed to be done by a
 [HttpClientException](base.HttpClientException.md).[constructor](base.HttpClientException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[cause](base.HttpClientException.md#cause)
+
+---
 
 ### statusCode
 

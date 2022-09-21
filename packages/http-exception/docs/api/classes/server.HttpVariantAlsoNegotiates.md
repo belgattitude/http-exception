@@ -28,6 +28,7 @@ in transparent content negotiation itself, and is therefore not a proper end poi
 
 ### Properties
 
+- [cause](server.HttpVariantAlsoNegotiates.md#cause)
 - [statusCode](server.HttpVariantAlsoNegotiates.md#statuscode)
 - [url](server.HttpVariantAlsoNegotiates.md#url)
 - [STATUS](server.HttpVariantAlsoNegotiates.md#status)
@@ -49,6 +50,23 @@ in transparent content negotiation itself, and is therefore not a proper end poi
 [HttpServerException](base.HttpServerException.md).[constructor](base.HttpServerException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[cause](base.HttpServerException.md#cause)
+
+---
 
 ### statusCode
 
