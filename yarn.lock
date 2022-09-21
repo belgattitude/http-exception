@@ -2105,6 +2105,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     rimraf: "npm:3.0.2"
     superjson: "npm:1.10.0"
+    tailwindcss: "npm:3.1.8"
     typescript: "npm:4.8.3"
   languageName: unknown
   linkType: soft
@@ -12838,7 +12839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.1.3":
+"tailwindcss@npm:3.1.8, tailwindcss@npm:^3.1.3":
   version: 3.1.8
   resolution: "tailwindcss@npm:3.1.8"
   dependencies:
