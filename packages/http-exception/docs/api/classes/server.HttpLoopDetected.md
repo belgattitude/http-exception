@@ -27,6 +27,7 @@ The server detected an infinite loop while processing the request.
 
 ### Properties
 
+- [cause](server.HttpLoopDetected.md#cause)
 - [statusCode](server.HttpLoopDetected.md#statuscode)
 - [url](server.HttpLoopDetected.md#url)
 - [STATUS](server.HttpLoopDetected.md#status)
@@ -48,6 +49,23 @@ The server detected an infinite loop while processing the request.
 [HttpServerException](base.HttpServerException.md).[constructor](base.HttpServerException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[cause](base.HttpServerException.md#cause)
+
+---
 
 ### statusCode
 

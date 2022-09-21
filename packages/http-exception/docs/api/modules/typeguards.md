@@ -32,9 +32,15 @@ error is HttpClientException
 
 ### isHttpErrorStatusCode
 
-▸ **isHttpErrorStatusCode**(`statusCode`): statusCode is number
+▸ **isHttpErrorStatusCode**<`T`\>(`statusCode`): statusCode is T
 
 Check if the provided value is a valid http status code
+
+#### Type parameters
+
+| Name | Type                        |
+| :--- | :-------------------------- |
+| `T`  | extends `number` = `number` |
 
 #### Parameters
 
@@ -44,7 +50,7 @@ Check if the provided value is a valid http status code
 
 #### Returns
 
-statusCode is number
+statusCode is T
 
 ---
 

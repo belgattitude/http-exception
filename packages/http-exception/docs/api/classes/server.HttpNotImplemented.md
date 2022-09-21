@@ -28,6 +28,7 @@ servers are required to support (and therefore that must not return this code) a
 
 ### Properties
 
+- [cause](server.HttpNotImplemented.md#cause)
 - [statusCode](server.HttpNotImplemented.md#statuscode)
 - [url](server.HttpNotImplemented.md#url)
 - [STATUS](server.HttpNotImplemented.md#status)
@@ -49,6 +50,23 @@ servers are required to support (and therefore that must not return this code) a
 [HttpServerException](base.HttpServerException.md).[constructor](base.HttpServerException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[cause](base.HttpServerException.md#cause)
+
+---
 
 ### statusCode
 

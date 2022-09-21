@@ -28,6 +28,7 @@ is refusing to give the requested resource. Unlike 401 Unauthorized, the client'
 
 ### Properties
 
+- [cause](client.HttpForbidden.md#cause)
 - [statusCode](client.HttpForbidden.md#statuscode)
 - [url](client.HttpForbidden.md#url)
 - [STATUS](client.HttpForbidden.md#status)
@@ -49,6 +50,23 @@ is refusing to give the requested resource. Unlike 401 Unauthorized, the client'
 [HttpClientException](base.HttpClientException.md).[constructor](base.HttpClientException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[cause](base.HttpClientException.md#cause)
+
+---
 
 ### statusCode
 

@@ -27,6 +27,7 @@ The server has encountered a situation it does not know how to handle.
 
 ### Properties
 
+- [cause](server.HttpInternalServerError.md#cause)
 - [statusCode](server.HttpInternalServerError.md#statuscode)
 - [url](server.HttpInternalServerError.md#url)
 - [STATUS](server.HttpInternalServerError.md#status)
@@ -48,6 +49,23 @@ The server has encountered a situation it does not know how to handle.
 [HttpServerException](base.HttpServerException.md).[constructor](base.HttpServerException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[cause](base.HttpServerException.md#cause)
+
+---
 
 ### statusCode
 

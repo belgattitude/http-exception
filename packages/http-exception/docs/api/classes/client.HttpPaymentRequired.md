@@ -28,6 +28,7 @@ payment systems, however this status code is used very rarely and no standard co
 
 ### Properties
 
+- [cause](client.HttpPaymentRequired.md#cause)
 - [statusCode](client.HttpPaymentRequired.md#statuscode)
 - [url](client.HttpPaymentRequired.md#url)
 - [STATUS](client.HttpPaymentRequired.md#status)
@@ -49,6 +50,23 @@ payment systems, however this status code is used very rarely and no standard co
 [HttpClientException](base.HttpClientException.md).[constructor](base.HttpClientException.md#constructor)
 
 ## Properties
+
+### cause
+
+• `Optional` `Readonly` **cause**: `Error`
+
+If set and the runtime (browser or node) supports it
+you can get back the error cause
+
+**`See`**
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
+
+#### Inherited from
+
+[HttpClientException](base.HttpClientException.md).[cause](base.HttpClientException.md#cause)
+
+---
 
 ### statusCode
 

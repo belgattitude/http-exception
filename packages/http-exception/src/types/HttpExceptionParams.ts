@@ -9,7 +9,9 @@ export type HttpExceptionParams = {
    */
   url?: string;
   /**
-   * Indicates the original cause of the HttpException
+   * Indicates the original cause of the HttpException.
+   * Will be ignored/discarded if the runtime (browser / node version) does not support it
+   * or there's no polyfill
    * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause
    */
   cause?: Error;
