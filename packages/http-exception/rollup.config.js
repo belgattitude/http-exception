@@ -86,14 +86,14 @@ const getDefaultRollupPlugins = (type, format, minify) => {
 export default () => [
   // ESM Compat
   {
-    input: ['./src/index.ts'],
+    input: ['./src/index.ts', './src/serializer/index.ts'],
     preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
     external: config.external,
     plugins: [...getDefaultRollupPlugins('compat', 'esm', config.minify)],
     output: {
       format: 'esm',
       dir: `${config.distDir}/esm`,
-      entryFileNames: '[name].mjs',
+      entryFileNames: '[name].js',
       sourcemap: config.sourceMap,
     },
   },
@@ -107,7 +107,7 @@ export default () => [
     output: {
       format: 'esm',
       dir: `${config.distDir}/modern/esm`,
-      entryFileNames: '[name].mjs',
+      entryFileNames: '[name].js',
       sourcemap: config.sourceMap,
     },
   }, */
@@ -130,6 +130,22 @@ export default () => [
     input: './src/index.ts',
     output: {
       file: `${config.distDir}/types/index.d.ts`,
+      format: 'es',
+    },
+    external: config.external,
+    plugins: [
+      dts({
+        compilerOptions: {
+          tsBuildInfoFile: './tsconfig.tsbuildinfo.dts',
+        },
+      }),
+    ],
+  },
+  {
+    input: './src/serializer/index.ts',
+    output: {
+      file: `${config.distDir}/types/serializer/index.d.ts`,
+      format: 'es',
     },
     external: config.external,
     plugins: [
