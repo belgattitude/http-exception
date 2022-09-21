@@ -1,4 +1,1 @@
-export {
-  toJson as serializeHttpException,
-  fromJson as unserializeHttpException,
-} from './json';
+export { toJson, fromJson } from './json';
