@@ -1593,7 +1593,7 @@ __metadata:
     microbundle: "npm:0.15.1"
     npm-run-all: "npm:4.1.5"
     rimraf: "npm:3.0.2"
-    rollup: "npm:2.79.0"
+    rollup: "npm:2.79.1"
     rollup-plugin-dts: "npm:4.2.2"
     rollup-plugin-swc3: "npm:0.6.0"
     rollup-plugin-terser: "npm:7.0.2"
@@ -11998,9 +11998,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.79.0, rollup@npm:^2.35.1, rollup@npm:^2.74.1":
-  version: 2.79.0
-  resolution: "rollup@npm:2.79.0"
+"rollup@npm:2.79.1, rollup@npm:^2.35.1, rollup@npm:^2.74.1":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -12008,7 +12008,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 9b7ff7bf3233597b9dc76bd37024227231699971cc01273ffbeff87023076ef412fd2d93134052d49e3c8402a0381b408a8b00a1357b45206f5036a8756588f2
+  checksum: b91c27c3b5234af864f282ffa2c13891d9caf25cad8ba7ad11f5201bdb6516f10c90a8c3402a5f72eafc74a555b1c685b6b04d107a6d6866195812a82f4aa308
   languageName: node
   linkType: hard
 
