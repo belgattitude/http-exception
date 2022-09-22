@@ -79,28 +79,37 @@ jobs:
 
       - name: Typecheck
         run: |
-          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run typecheck
+          yarn workspaces foreach -tv --from '@belgattitude/*' --no-private --since=origin/main run typecheck
 
       - name: ESLint checks
         run: |
-          yarn workspaces foreach -tv --from '@belgattitude/*' --since=origin/main run lint
+          yarn workspaces foreach -tv --from '@belgattitude/*' --no-private --since=origin/main run lint
 
-      - name: Unit tests changed packages
+      - name: Unit tests
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run test-unit
+          yarn workspaces foreach -tv --include '@belgattitude/*' --no-private run test-unit --coverage
 
-      - name: Run build for changed packages
+      - name: Build packages
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run build
+          yarn workspaces foreach -tv --include '@belgattitude/*' --no-private --since=origin/main run build
 
       - name: Check build for size-limits
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run check-size
+          yarn workspaces foreach -tv --include '@belgattitude/*' --no-private --since=origin/main run check-size
 
-      - name: Check build ecmascript compliance
+      - name: Check build for ecmascript compliance
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run check-dist
+          yarn workspaces foreach -tv --include '@belgattitude/*' --no-private --since=origin/main run check-dist
+
+      - name: Codecov upload
+        uses: codecov/codecov-action@v3
+        with:
+          name: http-exception
+          files: ./packages/http-exception/coverage/clover.xml
+          flags: unittests
+          fail_ci_if_error: false
+          verbose: false
 
       - name: Check doc can be built
         run: |
-          yarn workspaces foreach -tv --include '@belgattitude/*' --since=origin/main run build-doc
+          yarn workspaces foreach -tv --include '@belgattitude/*' --no-private --since=origin/main run build-doc
