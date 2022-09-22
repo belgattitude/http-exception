@@ -105,8 +105,8 @@ jobs:
         if: matrix.node-version == '16.x'
         uses: codecov/codecov-action@v3
         with:
-          #directory: ./packages/http-exception/coverage
-          files: ./packages/http-exception/coverage/clover.xml
+          directory: ./packages/http-exception/coverage
+          #files: ./packages/http-exception/coverage/clover.xml
           flags: http-exception-unittests
           fail_ci_if_error: false
           verbose: false
