@@ -12,18 +12,46 @@ Delightful http exceptions for typescript and js.
 [![license](https://img.shields.io/npm/l/@belgattitude/http-exception?style=for-the-badge&labelColor=333")](https://github.com/belgattitude/http-exception/blob/main/LICENSE)
 [![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/belgattitude)
 
-## Install
+## Features
+
+- [x] All assigned http exception as individual named export.
+- [x] Support contextual information such as url.
+- [x] Messages defaults to prettified exception name.
+- [x] Typescript with useful tsdoc and links to mdn.
+- [x] Optional json serializer to allow sharing in ssr frameworks.
+- [x] Works with node 14+ and browsers (with a conservative policy).
+
+## Table of content
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Install](#install)
+- [Reasoning](#reasoning)
+- [Usage](#usage)
+  - [Assigned exceptions](#assigned-exceptions)
+  - [From status code](#from-status-code)
+  - [Typeguards](#typeguards)
+  - [Instance checks](#instance-checks)
+- [Serializer](#serializer)
+- [List](#list)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+### Install
 
 ```bash
 $ npm install @belgattitude/http-exception  # via npm
 $ yarn add @belgattitude/http-exception     # via yarn
 ```
 
-## Docs
+### Reasoning
 
 ### Usage
 
-#### Creation
+#### Assigned exceptions
+
+To create an assigned HttpException.
 
 ```typescript
 import {
@@ -57,7 +85,7 @@ try {
 }
 ```
 
-#### Factories
+#### From status code
 
 ```typescript
 import { createHttpException } from "@belgattitude/http-exception";
@@ -93,7 +121,7 @@ const false2 = isHttpServerException(new HttpNotFound());
 const false3 = isHttpException(new Error());
 ```
 
-### Instances
+#### Instance checks
 
 ```typescript
 import {
@@ -198,7 +226,3 @@ const exception = fromJson(json); // e === exception
 | 508         | **↳↳ HttpLoopDetected**                  |                              |                                                                                        |
 | 510         | **↳↳ HttpNotExtended**                   |                              |                                                                                        |
 | 511         | **↳↳ HttpNetwordAuthenticationRequired** |                              |                                                                                        |
-
-## Links
-
-[![Featured on Openbase](https://badges.openbase.com/js/featured/@belgattitude/http-exception.svg?token=fn2tsbLKVEbqoZyORlQmPQ637fEcf40bTPdm8q2q3z8=)](https://openbase.com/js/@belgattitude/http-exception?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
