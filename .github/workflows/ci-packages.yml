@@ -102,6 +102,7 @@ jobs:
           yarn workspaces foreach -tv --include '@belgattitude/*' --no-private --since=origin/main run check-dist
 
       - name: Codecov upload
+        if: matrix.node-version == '16.x'
         uses: codecov/codecov-action@v3
         with:
           name: http-exception
