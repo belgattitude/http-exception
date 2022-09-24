@@ -47,6 +47,7 @@ yarn add @belgattitude/http-exception     # via yarn
     - [Instance checks](#instance-checks)
 - [Serializer](#serializer)
   - [JSON](#json)
+  - [Serializable](#serializable)
 - [Advanced](#advanced)
   - [Non-official status codes](#non-official-status-codes)
 - [Notes](#notes)
@@ -149,7 +150,8 @@ throw createHttpException(500, {
 });
 ```
 
-> **warning** No checks are done about the validity of the provided status code. See also
+> **Warning**
+> No checks are done about the validity of the provided status code. See also
 > [about non-official status codes](#non-official-status-codes)
 
 #### Types and validation
@@ -179,7 +181,8 @@ isHttpException(new Error());
 
 ##### Instance checks
 
-> **info** take a look at the [uml class diagram](#uml-class-diagram).
+> **Note**
+> take a look at the [uml class diagram](#uml-class-diagram).
 
 ```typescript
 // True
@@ -196,28 +199,40 @@ new Error() instanceof HttpException;
 
 ### Serializer
 
-HttpException can be serialized to json and vice-versa. It can be useful in ssr frameworks such as
-[nextjs](https://nextjs.org/) whenever a server error should be shared within the browser context (see also
-[superjson](https://github.com/blitz-js/superjson#recipes)).
+Exceptions can be (de-)serialized to json or other formats. Use cases varies from
+ssr-frameworks (ie: nextjs [getServerSideProps](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props))
+/ loggers (sentry, winston...).
 
-Serialization supports the [Error.cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)
-but totally ignores it the runtime (node or browser) does not support it (or without polyfills).
+Nested error causes are supported but ignored [if not supported](#about-errorcause) by
+the runtime.
 
-Additionally, you can pass any native errors (`Error`, `EvalError`, `RangeError`, `ReferenceError`, `SyntaxError`, `TypeError`, `URIError`)
-as well as a custom one (the later will be transformed to the base type Error). That was necessary to support the cause param.
+Additionally, you can pass any native errors (`Error`, `EvalError`, `RangeError`, `ReferenceError`,
+`SyntaxError`, `TypeError`, `URIError`) as well as a custom one (the later will be transformed to the base type Error).
 
 #### JSON
 
 ```typescript
-import { HttpForbidden } from "@belgattitude/http-exception";
 import { fromJson, toJson } from "@belgattitude/http-exception/serializer";
 
-const err = new HttpForbidden({
-  url: "https://www.origin.url",
-});
+const serializedJson = toJson(new HttpForbidden());
+const exception = fromJson(json);
+```
 
-const json = toJson(err);
-const exception = fromJson(json); // err === exception
+> **Note**
+> See also how to integrate with [superjson](https://github.com/blitz-js/superjson#recipes)
+
+#### Serializable
+
+Same as JSON but before json.parse/stringify. Allows to use a different encoder.
+
+```typescript
+import {
+  convertToSerializable,
+  createFromSerializable,
+} from "@belgattitude/http-exception/serializer";
+
+const serializableObject = convertToSerializable(new HttpForbidden());
+const exception = createFromSerializable(serializableObject);
 ```
 
 ### Advanced
@@ -289,7 +304,8 @@ const err = new HttpNotFound({
 console.log(err.url);
 ```
 
-> **info** As contextual info might cause security concern they should be explicitly added. Please contribute or open an issue.
+> **Note**
+> As contextual info might cause security concern they should be explicitly added. Please contribute or open an issue.
 
 #### About Error.cause
 
@@ -301,7 +317,8 @@ const err = new HttpNotFound({ cause: new Error() });
 console.log(err.cause); // undefined if not supported by runtime
 ```
 
-> **info** Error.prototype.cause is supported on node >= 16.9.0 and. Caniuse.com indicates a support for
+> **Warning**
+> Error.prototype.cause is supported on node >= 16.9.0 and. Caniuse.com indicates a support for
 > [89% of browsers](https://caniuse.com/mdn-javascript_builtins_error_error_options_cause_parameter).
 > as of September 2022. There's few polyfills that can be used if needed ([error-cause-polyfill](https://github.com/ehmicky/error-cause-polyfill),
 > [error-cause](https://github.com/es-shims/error-cause)...)
