@@ -1,6 +1,7 @@
 # @belgattitude/http-exception
 
-Delightful http exceptions crafted with node, browsers and ssr frameworks in mind.
+Delightful http exceptions. Crafted with node, browsers, ssr frameworks, error logging / reporting in mind.
+No deps.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge&labelColor=222)](https://www.npmjs.com/package/@belgattitude/http-exception)
 [![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=333&color=informational)](https://bundlephobia.com/package/@belgattitude/http-exception@latest)
@@ -24,10 +25,12 @@ $ yarn add @belgattitude/http-exception     # via yarn
 - [x] Http exceptions as [named export](#named-exceptions) or via [factory](#factory).
 - [x] Allow additional [contextual]() information (i.e: 'url'...)
 - [x] [Json serialization](#serializer) for ssr frameworks, loggers... (i.e. nextjs, superjson, pino, etc)
-- [x] Extends native [Error]() object with stack and [Error.cause](#about-cause) support.
-- [x] Bundled with wide browser support for frontend needs ([0.25%, not dead](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)).
-- [x] Default message extracted from exception name.
-- [x] Doc with descriptions and links to mdn straight from the ide.
+- [x] [Extends](#uml-class-diagram) native [Error]() object with [stacktrace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-cause) support.
+- [x] Bundled for wide browser support ([0.25%, not dead](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)) with minimal [size](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs) impact.
+- [x] Automatic error message inferred from http exception name.
+- [x] Typescript & typedoc with descriptions and links to mdn straight from the ide.
+
+## Reasoning
 
 ## Documentation
 
@@ -47,7 +50,8 @@ $ yarn add @belgattitude/http-exception     # via yarn
   - [JSON](#json)
 - [Advanced](#advanced)
   - [Non-official status codes](#non-official-status-codes)
-- [References](#references)
+- [Notes](#notes)
+  - [About Error.cause](#about-errorcause)
   - [UML class diagram](#uml-class-diagram)
   - [List of named exceptions](#list-of-named-exceptions)
 
@@ -232,7 +236,9 @@ const alternate = new HttpServerException({
 });
 ```
 
-### References
+### Notes
+
+#### About Error.cause
 
 #### UML class diagram
 
@@ -257,48 +263,52 @@ classDiagram
 
 #### List of named exceptions
 
-| Status      | Class                                    | Typeguard                    | Docs                                                                                   |
-| ----------- | :--------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------- |
-| _400...599_ | _HttpException_                          |                              |                                                                                        |
-| _400...499_ | _↳ HttpClientException_                  | [isHttpClientException(e)]() | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#client_error_responses) |
-| 400         | **↳↳ HttpBadRequest**                    |                              |                                                                                        |
-| 401         | **↳↳ HttpUnauthorized**                  |                              |                                                                                        |
-| 402         | **↳↳ HttpPaymentRequired**               |                              |                                                                                        |
-| 403         | **↳↳ HttpForbidden**                     |                              |                                                                                        |
-| 404         | **↳↳ HttpNotFound**                      |                              |                                                                                        |
-| 405         | **↳↳ HttpMethodNotAllowed**              |                              |                                                                                        |
-| 406         | **↳↳ HttpNotAcceptable**                 |                              |                                                                                        |
-| 407         | **↳↳ HttpProxyAuthenticationRequired**   |                              |                                                                                        |
-| 408         | **↳↳ HttpRequestTimeout**                |                              |                                                                                        |
-| 409         | **↳↳ HttpConflict**                      |                              |                                                                                        |
-| 410         | **↳↳ HttpGone**                          |                              |                                                                                        |
-| 411         | **↳↳ HttpLengthRequired**                |                              |                                                                                        |
-| 412         | **↳↳ HttpPreConditionFailed**            |                              |                                                                                        |
-| 413         | **↳↳ HttpPayloadTooLarge**               |                              |                                                                                        |
-| 414         | **↳↳ HttpUriTooLong**                    |                              |                                                                                        |
-| 415         | **↳↳ HttpUnsupportedMediaType**          |                              |                                                                                        |
-| 416         | **↳↳ HttpRangeNotSatisfiable**           |                              |                                                                                        |
-| 417         | **↳↳ HttpExpectationFailed**             |                              |                                                                                        |
-| 418         | **↳↳ HttpImATeapot**                     |                              |                                                                                        |
-| 421         | **↳↳ HttpMisdirectedRequest**            |                              |                                                                                        |
-| 422         | **↳↳ HttpUnprocessableEntity**           |                              |                                                                                        |
-| 423         | **↳↳ HttpLocked**                        |                              |                                                                                        |
-| 424         | **↳↳ HttpFailedDependency**              |                              |                                                                                        |
-| 425         | **↳↳ HttpTooEarly**                      |                              |                                                                                        |
-| 426         | **↳↳ HttpUpgradeRequired**               |                              |                                                                                        |
-| 428         | **↳↳ HttpPreconditionFailed**            |                              |                                                                                        |
-| 429         | **↳↳ HttpTooManyRequests**               |                              |                                                                                        |
-| 431         | **↳↳ HttpRequestHeaderFieldsTooLarge**   |                              |                                                                                        |
-| 451         | **↳↳ HttpUnavailableForLegalReasons**    |                              |                                                                                        |
-| _500...599_ | _↳ HttpServerException_                  | [isHttpServerException(e)]() | [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#server_error_responses) |
-| 500         | **↳↳ HttpInternalServerError**           |                              |                                                                                        |
-| 501         | **↳↳ HttpNotImplemented**                |                              |                                                                                        |
-| 502         | **↳↳ HttpBadGateway**                    |                              |                                                                                        |
-| 503         | **↳↳ HttpServiceUnavailable**            |                              |                                                                                        |
-| 504         | **↳↳ HttpGatewayTimeout**                |                              |                                                                                        |
-| 505         | **↳↳ HttpVersionNotSupported**           |                              |                                                                                        |
-| 506         | **↳↳ HttpVariantAlsoNegotiates**         |                              |                                                                                        |
-| 507         | **↳↳ HttpInsufficientStorage**           |                              |                                                                                        |
-| 508         | **↳↳ HttpLoopDetected**                  |                              |                                                                                        |
-| 510         | **↳↳ HttpNotExtended**                   |                              |                                                                                        |
-| 511         | **↳↳ HttpNetwordAuthenticationRequired** |                              |                                                                                        |
+Client http status error codes (400...499). Link to
+
+| Status | Class                           |
+| ------ | ------------------------------- |
+| 400    | HttpBadRequest                  |
+| 401    | HttpUnauthorized                |
+| 402    | HttpPaymentRequired             |
+| 403    | HttpForbidden                   |
+| 404    | HttpNotFound                    |
+| 405    | HttpMethodNotAllowed            |
+| 406    | HttpNotAcceptable               |
+| 407    | HttpProxyAuthenticationRequired |
+| 408    | HttpRequestTimeout              |
+| 409    | HttpConflict                    |
+| 410    | HttpGone                        |
+| 411    | HttpLengthRequired              |
+| 412    | HttpPreConditionFailed          |
+| 413    | HttpPayloadTooLarge             |
+| 414    | HttpUriTooLong                  |
+| 415    | HttpUnsupportedMediaType        |
+| 416    | HttpRangeNotSatisfiable         |
+| 417    | HttpExpectationFailed           |
+| 418    | HttpImATeapot                   |
+| 421    | HttpMisdirectedRequest          |
+| 422    | HttpUnprocessableEntity         |
+| 423    | HttpLocked                      |
+| 424    | HttpFailedDependency            |
+| 425    | HttpTooEarly                    |
+| 426    | HttpUpgradeRequired             |
+| 428    | HttpPreconditionFailed          |
+| 429    | HttpTooManyRequests             |
+| 431    | HttpRequestHeaderFieldsTooLarge |
+| 451    | HttpUnavailableForLegalReasons  |
+
+Server http status error code
+
+| Status | Class                             |
+| ------ | --------------------------------- |
+| 500    | HttpInternalServerError           |
+| 501    | HttpNotImplemented                |
+| 502    | HttpBadGateway                    |
+| 503    | HttpServiceUnavailable            |
+| 504    | HttpGatewayTimeout                |
+| 505    | HttpVersionNotSupported           |
+| 506    | HttpVariantAlsoNegotiates         |
+| 507    | HttpInsufficientStorage           |
+| 508    | HttpLoopDetected                  |
+| 510    | HttpNotExtended                   |
+| 511    | HttpNetwordAuthenticationRequired |
