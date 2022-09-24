@@ -1,5 +1,14 @@
 # @examples/nextjs-app
 
+## 0.1.14
+
+### Patch Changes
+
+- [#56](https://github.com/belgattitude/http-exception/pull/56) [`bddd84a`](https://github.com/belgattitude/http-exception/commit/bddd84a00d07d1c9619d4a929e6da52f51bf7208) Thanks [@belgattitude](https://github.com/belgattitude)! - Initial documentation and updated examples
+
+- Updated dependencies [[`7208e7b`](https://github.com/belgattitude/http-exception/commit/7208e7bafc06f5db02902bcdd83233b9d4d4d854), [`bddd84a`](https://github.com/belgattitude/http-exception/commit/bddd84a00d07d1c9619d4a929e6da52f51bf7208)]:
+  - @belgattitude/http-exception@1.2.0
+
 ## 0.1.13
 
 ### Patch Changes
