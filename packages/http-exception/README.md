@@ -14,11 +14,12 @@ Delightful http exceptions for typescript and js.
 
 ## Features
 
-- [x] All assigned http exception as individual named export.
+- [x] Http exceptions as individual named export.
 - [x] Support contextual information such as url.
-- [x] Messages defaults to prettified exception name.
-- [x] Typescript with useful tsdoc and links to mdn.
-- [x] Optional json serializer to allow sharing in ssr frameworks.
+- [x] Default message extracted from exception name.
+- [x] Json serializer to allow sharing in ssr frameworks.
+- [x] Supports recent Error.cause for nested.
+- [x] Typescript with typedoc and links to mdn straight from the ide.
 - [x] Works with node 14+ and browsers (with a conservative policy).
 
 ## Table of content
@@ -30,7 +31,10 @@ Delightful http exceptions for typescript and js.
 - [Reasoning](#reasoning)
 - [Usage](#usage)
   - [Assigned exceptions](#assigned-exceptions)
-  - [From status code](#from-status-code)
+    - [Properties](#properties)
+    - [Parameters](#parameters)
+  - [Non-official status codes](#non-official-status-codes)
+  - [Factory](#factory)
   - [Typeguards](#typeguards)
   - [Instance checks](#instance-checks)
 - [Serializer](#serializer)
@@ -51,41 +55,83 @@ $ yarn add @belgattitude/http-exception     # via yarn
 
 #### Assigned exceptions
 
-To create an assigned HttpException.
+IETF assigned http error status codes are available under individual named exports. They start by the
+by `Http` prefix to ease ide experience (suggestions) and to avoid naming collisions
+(ie: domain exceptions such as NotFound...). You'll find the current supported list in [this section](#list).
+
+```typescript
+import { HttpNotFound } from "@belgattitude/http-exception";
+```
+
+##### Properties
+
+| HttpException | Type                    | Description                                                                                                                        |
+| ------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| statusCode    | `number`                | Http error status code (400-599).                                                                                                  |
+| message       | `string`                | Default or provided message.                                                                                                       |
+| url           | `string&#124;undefined` | @see [About exception context](#about-context).                                                                                    |
+| stack         | `string&#124;undefined` | @see [Error.prototype.stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack) on MDN. |
+| cause         | `Error&#124;undefined`  | @see [Error.prototype.stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack)         |
+
+##### Parameters
+
+Exceptions optionally accepts a parameter of type `string | HttpExceptionParams`. When no
+params are provided, message will default to the english description
+(ie: `new HttpNotFound()` -> `Ǹot found`). When a `string` is provided it will be used as the
+error message, otherwise you can use the following params:
+
+| HttpExceptionParams | Type     | Description                                                                                                                                            |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| message?            | `string` | [Error message](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/message), defaults to english short description |
+| url?                | `string` | @see: contextual                                                                                                                                       |
+| cause?              | `Error`  | Error cause                                                                                                                                            |
+
+Example:
 
 ```typescript
 import {
-  HttpNotFound,
-  HttpForbidden,
+  HttpBadRequest,
   HttpInternalServerError,
 } from "@belgattitude/http-exception";
 
-// Basic with default message "Http not found"
-const err1 = new HttpNotFound();
-
-// With custom message
-const err2 = new HttpNotFound("Custom message");
-
-// With original url context
-const err3 = new HttpForbidden({
-  url: "https://moma.org/forbidden-art",
-});
-
-// With context and custom message
-const err4 = HttpInternalServerError({
+throw new HttpInternalServerError({
   message: 'Custom message rather than "Internal Server Error"',
-  url: "https://github.org/microservice",
+  url: "https://microservice.example.org/microservice",
+  cause: new HttpBadRequest("Missing parameter."), // or any Error...
 });
-
-// With cause
-try {
-  throw new Error("Original error");
-} catch (e) {
-  throw new HttpNotFound({ cause: e });
-}
 ```
 
-#### From status code
+#### Non-official status codes
+
+While their usage is not recommended, some status codes might be found in the wild (generally server status codes).
+
+```typescript
+import {
+  createHttpException,
+  HttpServerException,
+} from "@belgattitude/http-exception";
+
+const nonOfficialStatusCodes = [
+  [509, "Might refer to bandwidth limit"],
+  [525, "Might refer to SSL Handshake Failed (ie: cloudflare)"],
+  [526, "Might refer to Invalid SSL Certificate (ie: cloudflare)"],
+  ["...", "..."],
+];
+
+const e = createHttpException(509, {
+  // HttpExceptionParams
+}); // `e2 instanceof HttpServerException
+
+// alternatively
+const alternate = new HttpServerException({
+  statusCode: 509,
+  // HttpExceptionParams
+});
+```
+
+#### Factory
+
+The `createHttpException` function allows to create an exception from any status code.
 
 ```typescript
 import { createHttpException } from "@belgattitude/http-exception";
