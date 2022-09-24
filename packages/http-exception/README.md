@@ -5,6 +5,7 @@ No deps.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge&labelColor=222)](https://www.npmjs.com/package/@belgattitude/http-exception)
 [![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=333&color=informational)](https://bundlephobia.com/package/@belgattitude/http-exception@latest)
+[![node](https://img.shields.io/static/v1?label=Node&message=14%2b&logo=node.js&style=for-the-badge&labelColor=444&color=informational)](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)
 [![browserslist](https://img.shields.io/static/v1?label=Browser&message=>0.25%&logo=googlechrome&style=for-the-badge&labelColor=444&color=informational)](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)
 [![dist](https://img.shields.io/static/v1?label=&message=cjs|esm|treeshake&logo=webpack&style=for-the-badge&labelColor=444&color=informational)](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs)
 [![ci](https://img.shields.io/github/checks-status/belgattitude/http-exception/main?label=CI&logo=github&style=for-the-badge&labelColor=444)](https://github.com/belgattitude/http-exception/actions?query=branch%3Amain)
@@ -22,8 +23,8 @@ yarn add @belgattitude/http-exception     # via yarn
 
 ## Features
 
-- [x] Http exceptions as [named export](#named-exceptions) or via [factory](#factory).
-- [x] Allow additional [contextual](#about-context) information (i.e: logging)
+- [x] Http exceptions as [named export](#named-exceptions) or via [status code](#factory).
+- [x] Allow additional [contextual](#about-context) information (i.e: useful for logging)
 - [x] [Json serialization](#serializer) for ssr frameworks, loggers... (i.e. nextjs, superjson, etc)
 - [x] [Extends](#uml-class-diagram) native [Error](#about-errorcause) object with [stacktrace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-errorcause) support.
 - [x] Bundled for wide browser support ([0.25%, not dead](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)) with minimal [size](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs) impact.
