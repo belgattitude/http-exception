@@ -1,6 +1,6 @@
 # @belgattitude/http-exception
 
-Delightful http exceptions for typescript and js.
+Delightful http exceptions crafted with node, browsers and ssr frameworks in mind.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge&labelColor=222)](https://www.npmjs.com/package/@belgattitude/http-exception)
 [![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=333&color=informational)](https://bundlephobia.com/package/@belgattitude/http-exception@latest)
@@ -12,44 +12,46 @@ Delightful http exceptions for typescript and js.
 [![maintainability](https://img.shields.io/codeclimate/maintainability/belgattitude/http-exception?label=Maintainability&logo=code-climate&style=for-the-badge&labelColor=444)](https://codeclimate.com/github/belgattitude/http-exception)
 [![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/belgattitude)
 
-## Features
-
-- [x] Http exceptions as individual named export.
-- [x] Support contextual information such as url.
-- [x] Default message extracted from exception name.
-- [x] Json serializer to allow sharing in ssr frameworks.
-- [x] Supports recent Error.cause for nested.
-- [x] Typescript with typedoc and links to mdn straight from the ide.
-- [x] Works with node 14+ and browsers (with a conservative policy).
-
-## Table of content
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Install](#install)
-- [Reasoning](#reasoning)
-- [Usage](#usage)
-  - [Named exceptions](#named-exceptions)
-    - [Parameters](#parameters)
-    - [Properties](#properties)
-  - [Factory](#factory)
-  - [Non-official status codes](#non-official-status-codes)
-  - [Typeguards](#typeguards)
-  - [Instance checks](#instance-checks)
-- [Serializer](#serializer)
-- [List](#list)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-### Install
+## Install
 
 ```bash
 $ npm install @belgattitude/http-exception  # via npm
 $ yarn add @belgattitude/http-exception     # via yarn
 ```
 
-### Reasoning
+## Features
+
+- [x] Http exceptions as [named export](#named-exceptions) or via [factory](#factory).
+- [x] Allow additional [contextual]() information (i.e: 'url'...)
+- [x] [Json serialization](#serializer) for ssr frameworks, loggers... (i.e. nextjs, superjson, pino, etc)
+- [x] Extends native [Error]() object with stack and [Error.cause](#about-cause) support.
+- [x] Bundled with wide browser support for frontend needs ([0.25%, not dead](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)).
+- [x] Default message extracted from exception name.
+- [x] Doc with descriptions and links to mdn straight from the ide.
+
+## Documentation
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Usage](#usage)
+  - [Named exceptions](#named-exceptions)
+    - [HttpException parameters](#httpexception-parameters)
+    - [HttpException properties](#httpexception-properties)
+  - [Factory](#factory)
+    - [createHttpException](#createhttpexception)
+  - [Types and validation](#types-and-validation)
+    - [Typeguards](#typeguards)
+    - [Instance checks](#instance-checks)
+- [Serializer](#serializer)
+  - [JSON](#json)
+- [Advanced](#advanced)
+  - [Non-official status codes](#non-official-status-codes)
+- [References](#references)
+  - [UML class diagram](#uml-class-diagram)
+  - [List of named exceptions](#list-of-named-exceptions)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ### Usage
 
@@ -66,7 +68,7 @@ import {
 } from "@belgattitude/http-exception";
 ```
 
-##### Parameters
+##### HttpException parameters
 
 Http exception optionally accepts a parameter of type `string | HttpExceptionParams`. When no
 params are provided, message will default to the english description
@@ -83,18 +85,18 @@ Example:
 
 ```typescript
 import {
-  HttpBadRequest,
   HttpInternalServerError,
+  HttpNotImplemented,
 } from "@belgattitude/http-exception";
 
 throw new HttpInternalServerError({
   message: "Something really wrong happened.",
   url: "https://microservice.example.org/microservice",
-  cause: new HttpBadRequest("Missing parameter."), // or any Error...
+  cause: new HttpNotImplemented(), // or any Error...
 });
 ```
 
-##### Properties
+##### HttpException properties
 
 | HttpException | Type                    | Description                                                                                                                        |
 | ------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -105,6 +107,8 @@ throw new HttpInternalServerError({
 | cause         | `Error&#124;undefined`  | @see [about nested error cause](#about-cause)                                                                                      |
 
 #### Factory
+
+##### createHttpException
 
 The `createHttpException` function allows to create an exception from an
 arbitrary status code.
@@ -123,14 +127,84 @@ const e404 = createHttpException(404, "The graal is yet to find !");
 const e500 = createHttpException(500, {
   message: "Something really wrong happened.",
   url: "https://microservice.example.org/microservice",
-  cause: new HttpBadRequest("Missing parameter."), // or any Error...
+  cause: new HttpNotImplemented(), // or any Error...
 });
 ```
 
 > **warning** No checks are done about the validity of the provided status code. See also
 > [about non-official status codes](#non-official-status-codes)
 
-#### Non-official status codes
+#### Types and validation
+
+##### Typeguards
+
+```typescript
+import {
+  isHttpException,
+  isHttpClientException,
+  isHttpServerException,
+  isHttpErrorStatusCode,
+} from "@belgattitude/http-exception";
+
+// True
+isHttpErrorStatusCode(404);
+isHttpException(new HttpNotFound());
+isHttpClientException(new HttpNotFound());
+isHttpServerException(new HttpInternalServerError());
+
+// False
+isHttpErrorStatusCode(200);
+isHttpClientException(new HttpInternalServerError());
+isHttpServerException(new HttpNotFound());
+isHttpException(new Error());
+```
+
+##### Instance checks
+
+> **info**, take a look at the uml class diagram
+
+```typescript
+// True
+new HttpNotFound() instanceof HttpNotFound;
+new HttpNotFound() instanceof HttpException;
+new HttpNotFound() instanceof HttpClientException;
+new HttpInternalServerError() instanceof HttpServerException;
+
+// False
+new HttpNotFoundError() instanceof HttpServerException;
+new HttpInternalServerError() instanceof HttpClientException;
+new Error() instanceof HttpException;
+```
+
+### Serializer
+
+HttpException can be serialized to json and vice-versa. It can be useful in ssr frameworks such as
+[nextjs](https://nextjs.org/) whenever a server error should be shared within the browser context (see also
+[superjson](https://github.com/blitz-js/superjson#recipes)).
+
+Serialization supports the [Error.cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)
+but totally ignores it the runtime (node or browser) does not support it (or without polyfills).
+
+Additionally, you can pass any native errors (`Error`, `EvalError`, `RangeError`, `ReferenceError`, `SyntaxError`, `TypeError`, `URIError`)
+as well as a custom one (the later will be transformed to the base type Error). That was necessary to support the cause param.
+
+#### JSON
+
+```typescript
+import { HttpForbidden } from "@belgattitude/http-exception";
+import { fromJson, toJson } from "@belgattitude/http-exception/serializer";
+
+const err = new HttpForbidden({
+  url: "https://www.origin.url",
+});
+
+const json = toJson(err);
+const exception = fromJson(json); // err === exception
+```
+
+### Advanced
+
+##### Non-official status codes
 
 While their usage is not recommended, some status codes might be found in the wild (generally server status codes).
 
@@ -158,85 +232,30 @@ const alternate = new HttpServerException({
 });
 ```
 
-#### Typeguards
+### References
 
-```typescript
-import {
-  isHttpException,
-  isHttpClientException,
-  isHttpServerException,
-  HttpNotFound,
-  HttpInternalServerError,
-} from "@belgattitude/http-exception";
+#### UML class diagram
 
-const true1 = isHttpException(new HttpNotFound());
-const true2 = isHttpClientException(new HttpNotFound());
-const true3 = isHttpServerException(new HttpInternalServerError());
-
-const false1 = isHttpClientException(new HttpInternalServerError());
-const false2 = isHttpServerException(new HttpNotFound());
-const false3 = isHttpException(new Error());
+```mermaid
+classDiagram
+    Error <|-- HttpException
+    Error: +string message
+    Error: +string? stack
+    Error: +unknown cause
+    HttpException : +int statusCode
+    HttpException : +String url
+    HttpException : +Error? cause
+    HttpException <|-- HttpClientException
+    HttpException <|-- HttpServerException
+    HttpClientException <|-- HttpBadRequest
+    HttpClientException <|-- HttpNotFound
+    HttpServerException <|-- HttpInternalServerError
+    HttpServerException <|-- HttpServiceUnavailable
+    HttpNotFound : 404 statusCode
+    HttpBadRequest : 400 statusCode
 ```
 
-#### Instance checks
-
-```typescript
-import {
-  HttpException,
-  HttpClientException,
-  HttpServerException,
-  HttpNotFound,
-  HttpInternalServerError,
-} from "@belgattitude/http-exception";
-
-const true1 = new HttpNotFound() instanceof HttpNotFound;
-const true2 = new HttpNotFound() instanceof HttpException;
-const true3 = new HttpNotFound() instanceof HttpClientException;
-const true4 = new HttpInternalServerError() instanceof HttpServerException;
-
-const false1 = new HttpNotFoundError() instanceof HttpServerException;
-const false2 = new HttpInternalServerError() instanceof HttpClientException;
-const false3 = new Error() instanceof HttpException;
-```
-
-### Serializer
-
-HttpException can be serialized to json and vice-versa. It can be useful in ssr frameworks such as
-[nextjs](https://nextjs.org/) whenever a server error should be shared within the browser context (see also
-the excellent [superjson](https://github.com/blitz-js/superjson#recipes)).
-
-Serialization supports the [Error.cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause)
-but totally ignores it the runtime (node or browser) does not support it (or without polyfills).
-
-Additionally, you can pass any native errors (`Error`, `EvalError`, `RangeError`, `ReferenceError`, `SyntaxError`, `TypeError`, `URIError`)
-as well as a custom one (the later will be transformed to the base type Error). That was necessary to support the cause param.
-
-| Method                                                              |
-| ------------------------------------------------------------------- |
-| **toJson**(HttpException &#124; NativeError &#124; Error): string   |
-| **fromJson**(string): HttpException &#124; NativeError &#124; Error |
-
-```typescript
-import {
-  HttpForbidden,
-  HttpUnavailableForLegalReasons,
-} from "@belgattitude/http-exception";
-import { fromJson, toJson } from "@belgattitude/http-exception/serializer";
-
-const e = new HttpForbidden({
-  url: "https://www.cool.me",
-  /*
-    cause: new HttpUnavailableForLegalReasons({
-        cause: new Error('example with cause')
-    }),   
-     */
-});
-
-const json = toJson(e);
-const exception = fromJson(json); // e === exception
-```
-
-### List
+#### List of named exceptions
 
 | Status      | Class                                    | Typeguard                    | Docs                                                                                   |
 | ----------- | :--------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------- |
