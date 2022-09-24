@@ -3,10 +3,10 @@ import {
   HttpBadRequest,
   isHttpErrorStatusCode,
 } from '@belgattitude/http-exception';
-import { toJson } from '@belgattitude/http-exception/serializer';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { ZodTypeAny } from 'zod';
 import { z } from 'zod';
+import { withErrorHandler } from '../../../lib/backend/withErrorHandler';
 
 export const statusCode = (schema: ZodTypeAny) =>
   z.preprocess(
@@ -20,7 +20,26 @@ const reqSchema = z.object({
   }),
 });
 
-export default function statusCodehandler(
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+  const parsed = reqSchema.safeParse(req, {});
+  const status = parsed.success
+    ? parsed.data.query.statusCode
+    : HttpBadRequest.STATUS;
+
+  if (isHttpErrorStatusCode(status)) {
+    throw createHttpException(status);
+  }
+  res.status(status).json({
+    success: true,
+    data: {
+      message: `All good: ${status} is not an http status error code`,
+    },
+  });
+};
+
+export default withErrorHandler(handler);
+/*
+export default function statusCodeHandler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -53,3 +72,4 @@ export default function statusCodehandler(
     },
   });
 }
+*/
