@@ -101,7 +101,7 @@
     "@vitest/ui": "0.23.4",
     "corejs": "1.0.0",
     "cross-env": "7.0.3",
-    "doctoc": "2.2.0",
+    "doctoc": "2.2.1",
     "error-cause-polyfill": "1.1.0",
     "es-check": "7.0.1",
     "eslint": "8.23.1",
