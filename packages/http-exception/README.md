@@ -16,8 +16,8 @@ No deps.
 ## Install
 
 ```bash
-$ npm install @belgattitude/http-exception  # via npm
-$ yarn add @belgattitude/http-exception     # via yarn
+npm install @belgattitude/http-exception  # via npm
+yarn add @belgattitude/http-exception     # via yarn
 ```
 
 ## Features
@@ -25,7 +25,7 @@ $ yarn add @belgattitude/http-exception     # via yarn
 - [x] Http exceptions as [named export](#named-exceptions) or via [factory](#factory).
 - [x] Allow additional [contextual](#about-context) information (i.e: logging)
 - [x] [Json serialization](#serializer) for ssr frameworks, loggers... (i.e. nextjs, superjson, etc)
-- [x] [Extends](#uml-class-diagram) native [Error](#about-errorcause) object with [stacktrace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-cause) support.
+- [x] [Extends](#uml-class-diagram) native [Error](#about-errorcause) object with [stacktrace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-errorcause) support.
 - [x] Bundled for wide browser support ([0.25%, not dead](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)) with minimal [size](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs) impact.
 - [x] Automatic [error message](#about-default-message) inferred from http exception name.
 - [x] Typescript & typedoc with descriptions and links to mdn straight from the ide.
@@ -50,6 +50,7 @@ $ yarn add @belgattitude/http-exception     # via yarn
   - [Non-official status codes](#non-official-status-codes)
 - [Notes](#notes)
   - [About default message](#about-default-message)
+  - [About context](#about-context)
   - [About Error.cause](#about-errorcause)
 - [Examples](#examples)
   - [Backend](#backend)
@@ -66,7 +67,7 @@ $ yarn add @belgattitude/http-exception     # via yarn
 
 IETF assigned http error status codes are available under individual named exports. They start by the
 by `Http` prefix to ease ide experience (suggestions) and to avoid naming collisions
-(ie: domain exceptions such as NotFound...). You'll find the current supported list in [this section](#list).
+(ie: domain exceptions such as NotFound...). You'll find the current supported list in [this section](#list-of-named-exceptions).
 
 ```typescript
 import {
@@ -85,7 +86,7 @@ When a `string` is provided it will be used as the error message, otherwise you 
 | ------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message             | `string?` | [Error.message](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/message), see [about default message](#about-default-message). |
 | url                 | `string?` | Origin error url, see [about context](#about-context).                                                                                                                |
-| cause               | `Error?`  | Error.cause, see also [about error cause](#about-cause).                                                                                                              |
+| cause               | `Error?`  | Error.cause, see also [about error cause](#about-errorcause).                                                                                                         |
 
 Example:
 
@@ -117,9 +118,9 @@ throw new HttpInternalServerError({
 | ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | statusCode    | `number`  | Http error status code (400-599).                                                                                                  |
 | message       | `string`  | Default or provided message.                                                                                                       |
-| url           | `string?` | @see [about exception context](#about-context).                                                                                    |
+| url           | `string?` | @see [about exception context](#about-context)(#about-context).                                                                    |
 | stack         | `string?` | @see [Error.prototype.stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack) on MDN. |
-| cause         | `Error?`  | @see [about nested error cause](#about-cause)                                                                                      |
+| cause         | `Error?`  | @see [about error cause](#about-errorcause)                                                                                        |
 
 #### Factory
 
@@ -135,7 +136,7 @@ const e404 = createHttpException(404); // e404 instanceof HttpClientException
 const e500 = createHttpException(500); // e500 instanceof HttpServerException
 ```
 
-Additional [parameters](#parameters) can be provided as a second argument.
+Additional [parameters](#httpexception-parameters) can be provided as a second argument.
 
 ```typescript
 throw createHttpException(404, "The graal is yet to find !");
@@ -220,7 +221,7 @@ const exception = fromJson(json); // err === exception
 
 ### Advanced
 
-##### Non-official status codes
+#### Non-official status codes
 
 While their usage is not recommended, some status codes might be found in the wild (generally server status codes).
 
@@ -271,6 +272,23 @@ const e4 = createHttpException(HttpMethodNotAllowed.STATUS, {
 });
 // e1.message === e2.message === e3.message === e4.message
 ```
+
+#### About context
+
+It's possible to attach a context to the exception (for logging, reporting...). This can be done by passing the following parameters to [HttpExceptionParams](#httpexception-parameters).
+
+| Name | Type      | Description                     |
+| ---- | --------- | ------------------------------- |
+| url  | `string?` | url on which the error happened |
+
+```typescript
+const err = new HttpNotFound({
+  url: "https://api.dev/user/belgattitude",
+});
+console.log(err.url);
+```
+
+> **info** As contextual info might cause security concern they should be explicitly added. Please contribute or open an issue.
 
 #### About Error.cause
 
@@ -358,11 +376,11 @@ export default withErrorHandler(apiRouteHandler);
 
 #### Frontend
 
-_Wip - @todo axios / react-query_
+Wip - @todo axios / react-query
 
 #### SSR
 
-_Wip - @todo nextjs getServerSideProps_
+Wip - @todo nextjs getServerSideProps
 
 ### UML class diagram
 
