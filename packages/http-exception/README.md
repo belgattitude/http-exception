@@ -23,14 +23,12 @@ $ yarn add @belgattitude/http-exception     # via yarn
 ## Features
 
 - [x] Http exceptions as [named export](#named-exceptions) or via [factory](#factory).
-- [x] Allow additional [contextual]() information (i.e: 'url'...)
-- [x] [Json serialization](#serializer) for ssr frameworks, loggers... (i.e. nextjs, superjson, pino, etc)
-- [x] [Extends](#uml-class-diagram) native [Error]() object with [stacktrace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-cause) support.
+- [x] Allow additional [contextual](#about-context) information (i.e: logging)
+- [x] [Json serialization](#serializer) for ssr frameworks, loggers... (i.e. nextjs, superjson, etc)
+- [x] [Extends](#uml-class-diagram) native [Error](#about-errorcause) object with [stacktrace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-cause) support.
 - [x] Bundled for wide browser support ([0.25%, not dead](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D)) with minimal [size](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs) impact.
-- [x] Automatic error message inferred from http exception name.
+- [x] Automatic [error message](#about-default-message) inferred from http exception name.
 - [x] Typescript & typedoc with descriptions and links to mdn straight from the ide.
-
-## Reasoning
 
 ## Documentation
 
@@ -51,9 +49,14 @@ $ yarn add @belgattitude/http-exception     # via yarn
 - [Advanced](#advanced)
   - [Non-official status codes](#non-official-status-codes)
 - [Notes](#notes)
+  - [About default message](#about-default-message)
   - [About Error.cause](#about-errorcause)
-  - [UML class diagram](#uml-class-diagram)
-  - [List of named exceptions](#list-of-named-exceptions)
+- [Examples](#examples)
+  - [Backend](#backend)
+  - [Frontend](#frontend)
+  - [SSR](#ssr)
+- [UML class diagram](#uml-class-diagram)
+- [List of named exceptions](#list-of-named-exceptions)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -74,41 +77,49 @@ import {
 
 ##### HttpException parameters
 
-Http exception optionally accepts a parameter of type `string | HttpExceptionParams`. When no
-params are provided, message will default to the english description
-(ie: `new HttpNotFound()` -> `Ǹot found`). When a `string` is provided it will be used as the
-error message, otherwise you can use the following params:
+Http exception optionally accepts a parameter of type `string | HttpExceptionParams`. If no parameter
+is provided a [default message](#about-default-message) will be set.
+When a `string` is provided it will be used as the error message, otherwise you can use the following params:
 
-| HttpExceptionParams | Type     | Description                                                                                                                                            |
-| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| message?            | `string` | [Error message](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/message), defaults to english short description |
-| url?                | `string` | @see [about exception context](#about-context).                                                                                                        |
-| cause?              | `Error`  | @see [about nested error cause](#about-cause).                                                                                                         |
+| HttpExceptionParams | Type      | Description                                                                                                                                                           |
+| ------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message             | `string?` | [Error.message](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/message), see [about default message](#about-default-message). |
+| url                 | `string?` | Origin error url, see [about context](#about-context).                                                                                                                |
+| cause               | `Error?`  | Error.cause, see also [about error cause](#about-cause).                                                                                                              |
 
 Example:
 
 ```typescript
 import {
-  HttpInternalServerError,
+  HttpInternalServerError, HttpNotFound,
   HttpNotImplemented,
 } from "@belgattitude/http-exception";
 
+// Simple
+throw new HttpNotFound(); // message = 'Not found'
+
+// Custom message
+throw new HttpNotFound('Record #1234 not found');
+
+// With all properties
 throw new HttpInternalServerError({
   message: "Something really wrong happened.",
-  url: "https://microservice.example.org/microservice",
-  cause: new HttpNotImplemented(), // or any Error...
+  url: "https://microservice.example.org/api-gateway",
+  cause: new HttpNotImplemented({
+    cause: new Error();
+  }),
 });
 ```
 
 ##### HttpException properties
 
-| HttpException | Type                    | Description                                                                                                                        |
-| ------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| statusCode    | `number`                | Http error status code (400-599).                                                                                                  |
-| message       | `string`                | Default or provided message.                                                                                                       |
-| url           | `string&#124;undefined` | @see [about exception context](#about-context).                                                                                    |
-| stack         | `string&#124;undefined` | @see [Error.prototype.stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack) on MDN. |
-| cause         | `Error&#124;undefined`  | @see [about nested error cause](#about-cause)                                                                                      |
+| HttpException | Type      | Description                                                                                                                        |
+| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| statusCode    | `number`  | Http error status code (400-599).                                                                                                  |
+| message       | `string`  | Default or provided message.                                                                                                       |
+| url           | `string?` | @see [about exception context](#about-context).                                                                                    |
+| stack         | `string?` | @see [Error.prototype.stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack) on MDN. |
+| cause         | `Error?`  | @see [about nested error cause](#about-cause)                                                                                      |
 
 #### Factory
 
@@ -127,10 +138,11 @@ const e500 = createHttpException(500); // e500 instanceof HttpServerException
 Additional [parameters](#parameters) can be provided as a second argument.
 
 ```typescript
-const e404 = createHttpException(404, "The graal is yet to find !");
-const e500 = createHttpException(500, {
+throw createHttpException(404, "The graal is yet to find !");
+
+throw createHttpException(500, {
   message: "Something really wrong happened.",
-  url: "https://microservice.example.org/microservice",
+  url: "https://microservice.example.org/api-gateway",
   cause: new HttpNotImplemented(), // or any Error...
 });
 ```
@@ -165,7 +177,7 @@ isHttpException(new Error());
 
 ##### Instance checks
 
-> **info**, take a look at the uml class diagram
+> **info** take a look at the [uml class diagram](#uml-class-diagram).
 
 ```typescript
 // True
@@ -238,9 +250,121 @@ const alternate = new HttpServerException({
 
 ### Notes
 
+#### About default message
+
+The `message` parameter can be omitted for known exceptions. It will be set by default
+to the english short text (inferred from exception name).
+
+```typescript
+import {
+  createHttpException,
+  HttpMethodNotAllowed,
+} from "@belgattitude/http-exception";
+
+const e1 = new HttpMethodNotAllowed();
+const e2 = new HttpMethodNotAllowed("Method not allowed");
+const e3 = new HttpMethodNotAllowed({
+  message: "Method not allowed",
+});
+const e4 = createHttpException(HttpMethodNotAllowed.STATUS, {
+  message: "Method not allowed",
+});
+// e1.message === e2.message === e3.message === e4.message
+```
+
 #### About Error.cause
 
-#### UML class diagram
+Http exceptions and the [serializer](#serializer) support the recent [Error.prototype.cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause#browser_compatibility). When not
+available in the runtime (browser, node, deno, edge...) the library simply discard the parameter (no runtime error).
+
+```typescript
+const err = new HttpNotFound({ cause: new Error() });
+console.log(err.cause); // undefined if not supported by runtime
+```
+
+> **info** Error.prototype.cause is supported on node >= 16.9.0 and. Caniuse.com indicates a support for
+> [89% of browsers](https://caniuse.com/mdn-javascript_builtins_error_error_options_cause_parameter).
+> as of September 2022. There's few polyfills that can be used if needed ([error-cause-polyfill](https://github.com/ehmicky/error-cause-polyfill),
+> [error-cause](https://github.com/es-shims/error-cause)...)
+
+### Examples
+
+Examples are given "as is" and does not represent a real-world usage.
+
+#### Backend
+
+```typescript
+import type { IncomingMessage, ServerResponse } from "node:http";
+import { toJson } from "@belgattitude/http-exception/serializer";
+import {
+  HttpForbidden,
+  HttpImATeapot,
+  HttpInternalServerError,
+  HttpNotFound,
+  HttpUpgradeRequired,
+  isHttpServerException,
+} from "@belgattitude/http-exception";
+
+// Imaginary logger
+const ignoredCodes = [HttpNotFound.STATUS, HttpImATeapot.STATUS];
+const logHttpException = (e: HttpException, req: IncomingMessage): void => {
+  if (ignoredCodes.includes(e.statusCode)) return;
+  const level = isHttpServerException(e) ? "critical" : "error";
+  // Could be sentry, pino logger, winston...
+  console.log(level, req.headers["host"], toJson(e));
+};
+
+// A global error handler / middleware / higher order function...
+const withErrorHandler =
+  (handler: (req: IncomingMessage, res: ServerResponse) => void) =>
+  (req: IncomingMessage, res: ServerResponse) => {
+    try {
+      handler(req, res);
+    } catch (e) {
+      if (isHttpException(e)) {
+        // Call the logger
+        logHttpException(e, req);
+        res.status(e.statusCode).json({
+          success: false,
+          error: {
+            // Choose what is useful to expose
+            message: e.message,
+          },
+        });
+      }
+    }
+  };
+
+// An imaginary situation
+const fetchData = async () => {
+  throw new HttpInternalServerError({
+    message: "Something really wrong happened today.",
+    url: "https://microservice.example.org/api-gateway",
+    cause: new HttpUpgradeRequired("Received from the api gateway"),
+  });
+};
+
+// The route handler: could be nextjs, express, fastly...
+const apiRouteHandler = async (req: IncomingMessage, res: ServerResponse) => {
+  if (!req.headers["authorization"]) {
+    throw new HttpForbidden("Missing authorization header");
+  }
+  const data = await fetchData();
+  res.json({ success: true, data });
+};
+
+export default withErrorHandler(apiRouteHandler);
+```
+
+#### Frontend
+
+_Wip - @todo axios / react-query_
+
+#### SSR
+
+_Wip - @todo nextjs getServerSideProps_
+
+### UML class diagram
 
 ```mermaid
 classDiagram
@@ -261,7 +385,7 @@ classDiagram
     HttpBadRequest : 400 statusCode
 ```
 
-#### List of named exceptions
+### List of named exceptions
 
 Client http status error codes (400...499). Link to
 
