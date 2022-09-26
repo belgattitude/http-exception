@@ -17,6 +17,8 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
+      "@/backend": ["./src/backend/index"],
+      "@/lib": ["./src/lib/index"],
       "@belgattitude/http-exception": [
         "../../packages/http-exception/src/index"
       ],
@@ -25,6 +27,14 @@
       ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.cjs",
+    "**/*.mjs"
+  ],
+  "exclude": ["**/node_modules", "**/.*/"]
 }
