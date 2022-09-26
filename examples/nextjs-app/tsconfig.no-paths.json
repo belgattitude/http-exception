@@ -2,6 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "paths": {}
+    "paths": {
+      "@/backend": ["./src/backend/index"],
+      "@/lib": ["./src/lib/index"]
+    }
   }
 }

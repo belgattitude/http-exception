@@ -1,75 +1,42 @@
 import {
   createHttpException,
-  HttpBadRequest,
   isHttpErrorStatusCode,
 } from '@belgattitude/http-exception';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { ZodTypeAny } from 'zod';
 import { z } from 'zod';
-import { withErrorHandler } from '../../../lib/backend/withErrorHandler';
+import { parseRequestWithZod, withApiErrorHandler } from '@/backend';
+import { zodStringToInt, ConsoleLogger } from '@/lib';
 
-export const statusCode = (schema: ZodTypeAny) =>
-  z.preprocess(
-    (a) => (typeof a === 'string' ? parseInt(a, 10) : undefined),
-    schema
-  );
-
+/** Example of zod schema */
 const reqSchema = z.object({
+  method: z.enum(['GET']),
   query: z.object({
-    statusCode: statusCode(z.number().min(100).max(599)),
+    statusCode: zodStringToInt(z.number().min(100).max(599)),
   }),
 });
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  const parsed = reqSchema.safeParse(req, {});
-  const status = parsed.success
-    ? parsed.data.query.statusCode
-    : HttpBadRequest.STATUS;
+const statusHandler = async (req: NextApiRequest, res: NextApiResponse) => {
+  // Throw HttpBadRequest if didn't pass schema requirements
+  const parsed = parseRequestWithZod(req, reqSchema);
 
-  if (isHttpErrorStatusCode(status)) {
-    throw createHttpException(status);
+  const { statusCode } = parsed.query;
+
+  // Throw HttpException is statusCode query param is between 400 and 599.
+  if (isHttpErrorStatusCode(statusCode)) {
+    throw createHttpException(statusCode, {
+      url: req.url,
+    });
   }
-  res.status(status).json({
+
+  res.status(statusCode).json({
     success: true,
     data: {
-      message: `All good: ${status} is not an http status error code`,
+      statusCode: statusCode,
+      message: `${statusCode} is a not and error code, no reason to throw.`,
     },
   });
 };
 
-export default withErrorHandler(handler);
-/*
-export default function statusCodeHandler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  const parsed = reqSchema.safeParse(req, {});
-  const status = parsed.success
-    ? parsed.data.query.statusCode
-    : HttpBadRequest.STATUS;
-
-  if (isHttpErrorStatusCode(status)) {
-    const e = createHttpException(status, {
-      url: req.headers['host'],
-    });
-    res.status(status).json({
-      success: false,
-      error: {
-        status: e.statusCode,
-        name: e.name,
-        message: e.message,
-        url: e.url,
-        serialized: JSON.parse(toJson(e)),
-      },
-    });
-    return;
-  }
-
-  res.status(status).json({
-    success: true,
-    data: {
-      message: `All good: ${status} is not an http status error code`,
-    },
-  });
-}
-*/
+export default withApiErrorHandler({
+  logger: new ConsoleLogger(),
+})(statusHandler);
