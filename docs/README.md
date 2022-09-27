@@ -16,7 +16,7 @@ Delightful http exceptions. Crafted with node, browsers, ssr frameworks and erro
 
 - 🚀&nbsp; Dead simple: [explicit named imports](#named-exceptions) and/or [status code](#factories).
 - 📡&nbsp; Works everywhere: node, browsers, edge... framework agnostic, no deps.
-- 🎥&nbsp; Logger friendly with [contextual](#about-context) info. Less space for guesses.
+- 🎥&nbsp; Logger friendly with [contextual](#about-context) info. Less guessing games.
 - 🐎&nbsp; [Serializable](#serializer) to cover Server-Side-Rendering use-cases (nextjs, superjson,...).
 - 🎯&nbsp; Up to standards. [extends](#uml-class-diagram) Error class with [stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-errorcause) support.
 - 🍃&nbsp; [Lightweight](https://bundlephobia.com/package/@belgattitude/http-exception@1.2.0) - [treeshakable](<(https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs)>) - wide [browser coverage](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D) - dual cjs/esm.
