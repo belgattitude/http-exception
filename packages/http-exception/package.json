@@ -12,6 +12,15 @@
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
+  "keywords": [
+    "http-error",
+    "http-exception",
+    "error",
+    "exception",
+    "node",
+    "browser",
+    "typescript"
+  ],
   "sideEffects": false,
   "type": "module",
   "main": "dist/cjs/index.cjs",
@@ -62,9 +71,8 @@
   "scripts": {
     "build": "rimraf --no-glob ./dist && cross-env NODE_ENV=production rollup -c rollup.config.js",
     "clean": "rimraf --no-glob ./dist ./coverage ./tsconfig.tsbuildinfo",
-    "build-doc": "run-s build-typedoc build-doctoc",
+    "build-doc": "run-s build-typedoc",
     "build-typedoc": "rimraf --no-glob ./docs/api && typedoc --plugin typedoc-plugin-markdown --out ./docs/api",
-    "build-doctoc": "doctoc ./README.md --github --notitle",
     "prettier-check": "yarn run --top-level prettier --check --config ../../.prettierrc.js --ignore-path ../../.prettierignore \"./**/*.{js,jsx,cjs,mjs,ts,tsx,mts,md,mdx,json,css,scss,less}\"",
     "prettier-fix": "yarn run --top-level prettier --write --config ../../.prettierrc.js --ignore-path ../../.prettierignore \"./**/*.{js,jsx,cjs,mjs,ts,tsx,mts,md,mdx,json,css,scss,less}\"",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.mjs,.cjs,.mts,.cts --cache --cache-location ../../.cache/eslint/errorh.eslintcache",
@@ -101,7 +109,6 @@
     "@vitest/ui": "0.23.4",
     "corejs": "1.0.0",
     "cross-env": "7.0.3",
-    "doctoc": "2.2.1",
     "error-cause-polyfill": "1.1.0",
     "es-check": "7.0.1",
     "eslint": "8.24.0",
