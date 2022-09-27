@@ -55,7 +55,10 @@ When a `string` is provided it will be used as the error message, otherwise you 
 | HttpExceptionParams | Type      | Description                                                                                                                                                           |
 | ------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | message             | `string?` | [Error.message](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/message), see [about default message](#about-default-message). |
-| url                 | `string?` | Origin error url, see [about context](#about-context).                                                                                                                |
+| url                 | `string?` | Origin url ([about context](#about-context)).                                                                                                                         |
+| method              | `string?` | Origin http method ([about context](#about-context)).                                                                                                                 |
+| code                | `string?` | Custom code ([about context](#about-context)).                                                                                                                        |
+| errorId             | `string?` | Unique id ([about context](#about-context)).                                                                                                                          |
 | cause               | `Error?`  | Error.cause, see also [about error cause](#about-errorcause).                                                                                                         |
 
 Example:
@@ -88,7 +91,10 @@ throw new HttpInternalServerError({
 | ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | statusCode    | `number`  | Http error status code (400-599).                                                                                                  |
 | message       | `string`  | Default or provided message.                                                                                                       |
-| url           | `string?` | @see [about exception context](#about-context)(#about-context).                                                                    |
+| url           | `string?` | Origin url ([about context](#about-context)).                                                                                      |
+| method        | `string?` | Origin http method ([about context](#about-context)).                                                                              |
+| code          | `string?` | Custom code ([about context](#about-context)).                                                                                     |
+| errorId       | `string?` | Unique id ([about context](#about-context)).                                                                                       |
 | stack         | `string?` | @see [Error.prototype.stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack) on MDN. |
 | cause         | `Error?`  | @see [about error cause](#about-errorcause)                                                                                        |
 
