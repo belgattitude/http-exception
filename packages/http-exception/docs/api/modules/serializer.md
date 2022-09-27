@@ -11,9 +11,14 @@
 ### Type Aliases
 
 - [NativeError](serializer.md#nativeerror)
+- [SerializableError](serializer.md#serializableerror)
+- [SerializableHttpException](serializer.md#serializablehttpexception)
+- [SerializableNonNativeError](serializer.md#serializablenonnativeerror)
 
 ### Functions
 
+- [convertToSerializable](serializer.md#converttoserializable)
+- [createFromSerializable](serializer.md#createfromserializable)
 - [fromJson](serializer.md#fromjson)
 - [toJson](serializer.md#tojson)
 
@@ -23,14 +28,67 @@
 
 Ƭ **NativeError**: `Error` \| `EvalError` \| `RangeError` \| `ReferenceError` \| `SyntaxError` \| `TypeError` \| `URIError`
 
-Supported native ecmascript errors
+---
 
-**`See`**
+### SerializableError
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types
-- https://262.ecma-international.org/12.0/#sec-well-known-intrinsic-objects
+Ƭ **SerializableError**: `DiscriminateSerializable`<`"NativeError"`\>
+
+---
+
+### SerializableHttpException
+
+Ƭ **SerializableHttpException**: `DiscriminateSerializable`<`"HttpException"`\>
+
+---
+
+### SerializableNonNativeError
+
+Ƭ **SerializableNonNativeError**: `DiscriminateSerializable`<`"NonNativeError"`\>
 
 ## Functions
+
+### convertToSerializable
+
+▸ **convertToSerializable**(`e`): `Serializable`
+
+Convert an Error, NativeError or any HttpException to
+an object suitable for serialization (a serializable version).
+
+**`Link`**
+
+#### Parameters
+
+| Name | Type                                                                                              |
+| :--- | :------------------------------------------------------------------------------------------------ |
+| `e`  | [`HttpException`](../classes/base.HttpException.md) \| [`NativeError`](serializer.md#nativeerror) |
+
+#### Returns
+
+`Serializable`
+
+---
+
+### createFromSerializable
+
+▸ **createFromSerializable**(`payload`): [`HttpException`](../classes/base.HttpException.md) \| [`NativeError`](serializer.md#nativeerror)
+
+create an Error, NativeError or any HttpException from a
+serializable representation
+
+**`Link`**
+
+#### Parameters
+
+| Name      | Type           |
+| :-------- | :------------- |
+| `payload` | `Serializable` |
+
+#### Returns
+
+[`HttpException`](../classes/base.HttpException.md) \| [`NativeError`](serializer.md#nativeerror)
+
+---
 
 ### fromJson
 

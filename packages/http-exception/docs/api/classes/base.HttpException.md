@@ -23,7 +23,10 @@
 ### Properties
 
 - [cause](base.HttpException.md#cause)
+- [code](base.HttpException.md#code)
+- [errorId](base.HttpException.md#errorid)
 - [message](base.HttpException.md#message)
+- [method](base.HttpException.md#method)
 - [name](base.HttpException.md#name)
 - [stack](base.HttpException.md#stack)
 - [statusCode](base.HttpException.md#statuscode)
@@ -58,7 +61,7 @@ Error.constructor
 
 ### cause
 
-• `Optional` `Readonly` **cause**: `Error`
+• `Optional` `Readonly` **cause**: `Error` \| [`HttpException`](base.HttpException.md)
 
 If set and the runtime (browser or node) supports it
 you can get back the error cause
@@ -73,6 +76,22 @@ Error.cause
 
 ---
 
+### code
+
+• `Readonly` **code**: `undefined` \| `string`
+
+Custom additional code (ie: 'AbortError', 'CODE-1234'...)
+
+---
+
+### errorId
+
+• `Readonly` **errorId**: `undefined` \| `string`
+
+Inform about an unique error identifier (ie: nanoid, cuid...)
+
+---
+
 ### message
 
 • **message**: `string`
@@ -80,6 +99,14 @@ Error.cause
 #### Inherited from
 
 Error.message
+
+---
+
+### method
+
+• `Readonly` **method**: `undefined` \| [`HttpMethod`](../modules/types.md#httpmethod)
+
+Http method
 
 ---
 

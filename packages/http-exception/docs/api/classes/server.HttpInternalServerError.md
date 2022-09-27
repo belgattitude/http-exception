@@ -28,7 +28,10 @@ The server has encountered a situation it does not know how to handle.
 ### Properties
 
 - [cause](server.HttpInternalServerError.md#cause)
+- [code](server.HttpInternalServerError.md#code)
+- [errorId](server.HttpInternalServerError.md#errorid)
 - [message](server.HttpInternalServerError.md#message)
+- [method](server.HttpInternalServerError.md#method)
 - [name](server.HttpInternalServerError.md#name)
 - [stack](server.HttpInternalServerError.md#stack)
 - [statusCode](server.HttpInternalServerError.md#statuscode)
@@ -61,7 +64,7 @@ The server has encountered a situation it does not know how to handle.
 
 ### cause
 
-• `Optional` `Readonly` **cause**: `Error`
+• `Optional` `Readonly` **cause**: `Error` \| [`HttpException`](base.HttpException.md)
 
 If set and the runtime (browser or node) supports it
 you can get back the error cause
@@ -76,6 +79,30 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ---
 
+### code
+
+• `Readonly` **code**: `undefined` \| `string`
+
+Custom additional code (ie: 'AbortError', 'CODE-1234'...)
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[code](base.HttpServerException.md#code)
+
+---
+
+### errorId
+
+• `Readonly` **errorId**: `undefined` \| `string`
+
+Inform about an unique error identifier (ie: nanoid, cuid...)
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[errorId](base.HttpServerException.md#errorid)
+
+---
+
 ### message
 
 • **message**: `string`
@@ -83,6 +110,18 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 #### Inherited from
 
 [HttpServerException](base.HttpServerException.md).[message](base.HttpServerException.md#message)
+
+---
+
+### method
+
+• `Readonly` **method**: `undefined` \| [`HttpMethod`](../modules/types.md#httpmethod)
+
+Http method
+
+#### Inherited from
+
+[HttpServerException](base.HttpServerException.md).[method](base.HttpServerException.md#method)
 
 ---
 

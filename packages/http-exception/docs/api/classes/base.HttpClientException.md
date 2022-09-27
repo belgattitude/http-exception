@@ -87,7 +87,10 @@ either a message or an object containing HttpExceptionParams
 ### Properties
 
 - [cause](base.HttpClientException.md#cause)
+- [code](base.HttpClientException.md#code)
+- [errorId](base.HttpClientException.md#errorid)
 - [message](base.HttpClientException.md#message)
+- [method](base.HttpClientException.md#method)
 - [name](base.HttpClientException.md#name)
 - [stack](base.HttpClientException.md#stack)
 - [statusCode](base.HttpClientException.md#statuscode)
@@ -120,7 +123,7 @@ either a message or an object containing HttpExceptionParams
 
 ### cause
 
-• `Optional` `Readonly` **cause**: `Error`
+• `Optional` `Readonly` **cause**: `Error` \| [`HttpException`](base.HttpException.md)
 
 If set and the runtime (browser or node) supports it
 you can get back the error cause
@@ -135,6 +138,30 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 ---
 
+### code
+
+• `Readonly` **code**: `undefined` \| `string`
+
+Custom additional code (ie: 'AbortError', 'CODE-1234'...)
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[code](base.HttpException.md#code)
+
+---
+
+### errorId
+
+• `Readonly` **errorId**: `undefined` \| `string`
+
+Inform about an unique error identifier (ie: nanoid, cuid...)
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[errorId](base.HttpException.md#errorid)
+
+---
+
 ### message
 
 • **message**: `string`
@@ -142,6 +169,18 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 #### Inherited from
 
 [HttpException](base.HttpException.md).[message](base.HttpException.md#message)
+
+---
+
+### method
+
+• `Readonly` **method**: `undefined` \| [`HttpMethod`](../modules/types.md#httpmethod)
+
+Http method
+
+#### Inherited from
+
+[HttpException](base.HttpException.md).[method](base.HttpException.md#method)
 
 ---
 
