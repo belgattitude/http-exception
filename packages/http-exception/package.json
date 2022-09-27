@@ -12,6 +12,15 @@
     "name": "Vanvelthem Sébastien",
     "url": "https://github.com/belgattitude"
   },
+  "keywords": [
+    "http-error",
+    "http-exception",
+    "error",
+    "exception",
+    "node",
+    "browser",
+    "typescript"
+  ],
   "sideEffects": false,
   "type": "module",
   "main": "dist/cjs/index.cjs",
