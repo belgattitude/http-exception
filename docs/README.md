@@ -261,15 +261,21 @@ const e4 = createHttpException(HttpMethodNotAllowed.STATUS, {
 
 It's possible to attach a context to the exception (for logging, reporting...). This can be done by passing the following parameters to [HttpExceptionParams](#httpexception-parameters).
 
-| Name | Type      | Description                     |
-| ---- | --------- | ------------------------------- |
-| url  | `string?` | url on which the error happened |
+| Name    | Type      | Description                                                    |
+| ------- | --------- | -------------------------------------------------------------- |
+| url     | `string?` | url on which the error happened                                |
+| method  | `string?` | http method used to load the url                               |
+| code    | `string?` | Custom code (ie: 'NETWORK_FAILURE', 'AbortError', 'E-1234'...) |
+| errorId | `string?` | Unique error identifier (ie: uuid, nanoid...)                  |
 
 ```typescript
-const err = new HttpNotFound({
+const err = new HttpRequestTimeout({
   url: "https://api.dev/user/belgattitude",
+  method: "GET",
+  code: "NETWORK_FAILURE",
+  errorId: nanoid(),
 });
-console.log(err.url);
+console.log(err.url, err.method, err.code, err.errorId);
 ```
 
 > **Note**

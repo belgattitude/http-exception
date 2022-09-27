@@ -3,6 +3,7 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types
  * @see https://262.ecma-international.org/12.0/#sec-well-known-intrinsic-objects
  */
+import type { HttpMethod } from '../../types';
 
 export type NativeError =
   | Error
@@ -30,6 +31,9 @@ export type NativeErrorFields = {
 export type HttpExceptionFields = NativeErrorFields & {
   statusCode: number;
   url?: string;
+  method?: HttpMethod;
+  errorId?: string;
+  code?: string;
 };
 
 export type Serializable =

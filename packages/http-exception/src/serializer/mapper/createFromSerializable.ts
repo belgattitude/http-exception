@@ -39,6 +39,9 @@ const createHttpExceptionError = (
   const params = {
     message: serializable.message,
     url: serializable.url,
+    method: serializable.method,
+    errorId: serializable.errorId,
+    code: serializable.code,
     cause: cause ? createFromSerializable(cause) : undefined,
   };
   let e: HttpException;

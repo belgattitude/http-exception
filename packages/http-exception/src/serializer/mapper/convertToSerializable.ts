@@ -11,6 +11,7 @@ import type { NativeError, Serializable } from '../types';
  */
 export const convertToSerializable = (
   e: Error | NativeError | HttpException
+  // eslint-disable-next-line sonarjs/cognitive-complexity
 ): Serializable => {
   const {
     name,
@@ -41,6 +42,9 @@ export const convertToSerializable = (
       ...common,
       statusCode: e.statusCode,
       ...(e.url ? { url: e.url } : {}),
+      ...(e.code ? { code: e.code } : {}),
+      ...(e.method ? { method: e.method } : {}),
+      ...(e.errorId ? { errorId: e.errorId } : {}),
     };
   }
   return {
