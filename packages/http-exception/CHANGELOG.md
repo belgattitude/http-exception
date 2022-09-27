@@ -1,5 +1,32 @@
 # @belgattitude/http-exception
 
+## 1.3.0
+
+### Minor Changes
+
+- [#75](https://github.com/belgattitude/http-exception/pull/75) [`89d2dd8`](https://github.com/belgattitude/http-exception/commit/89d2dd85531122eaa39ec531a5b4f2aa36f8dff2) Thanks [@belgattitude](https://github.com/belgattitude)! - Added `method`, `code` and `errorId` params.
+
+  | Name    | Type      | Description                                   |
+  | ------- | --------- | --------------------------------------------- |
+  | url     | `string?` | url on which the error happened               |
+  | method  | `string?` | http method used to load the url              |
+  | code    | `string?` | Custom code (ie: 'AbortError', 'E-1234'...)   |
+  | errorId | `string?` | Unique error identifier (ie: uuid, nanoid...) |
+
+  ```typescript
+  const err = new HttpRequestTimeout({
+    url: 'https://api.dev/user/belgattitude',
+    method: 'GET',
+    code: 'NETWORK_FAILURE',
+    errorId: nanoid(), // can be shared by frontend/backend
+  });
+  console.log(err.url, err.method, err.code, err.errorId);
+  ```
+
+### Patch Changes
+
+- [#71](https://github.com/belgattitude/http-exception/pull/71) [`f3c423f`](https://github.com/belgattitude/http-exception/commit/f3c423f24ab9bad8c51510e20b941597fff6acc2) Thanks [@belgattitude](https://github.com/belgattitude)! - Improved documenation and website live
+
 ## 1.2.0
 
 ### Minor Changes
