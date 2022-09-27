@@ -2,7 +2,7 @@
 '@belgattitude/http-exception': minor
 ---
 
-Added `method`, `code` and `errorId params.
+Added `method`, `code` and `errorId` params.
 
 | Name      | Type      | Description                                           |
 |-----------| --------- |-------------------------------------------------------|
