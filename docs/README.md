@@ -188,8 +188,14 @@ Additionally, you can pass any native errors (`Error`, `EvalError`, `RangeError`
 ```typescript
 import { fromJson, toJson } from "@belgattitude/http-exception/serializer";
 
-const serializedJson = toJson(new HttpForbidden());
-const exception = fromJson(json);
+const original = new HttpForbidden({
+  cause: new Error("Token was revoked"),
+});
+
+const json = toJson(e); // string
+const deserialized = fromJson(json);
+
+// e === deserialized
 ```
 
 > **Note**
@@ -205,8 +211,13 @@ import {
   createFromSerializable,
 } from "@belgattitude/http-exception/serializer";
 
-const serializableObject = convertToSerializable(new HttpForbidden());
-const exception = createFromSerializable(serializableObject);
+const e = new HttpForbidden({
+  cause: new Error("Token was revoked"),
+});
+
+const serializableObject = convertToSerializable(e);
+const deserialized = createFromSerializable(serializableObject);
+// e === deserialized
 ```
 
 ## Advanced
