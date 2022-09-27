@@ -8,7 +8,7 @@ cd ./examples/nextjs-app
 yarn dev
 ```
 
-### Hightlights
+### Highlights
 
 #### Nextjs Api route
 
