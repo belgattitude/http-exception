@@ -19,7 +19,7 @@ Delightful http exceptions. Crafted with node, browsers, ssr frameworks and erro
 - 🎥&nbsp; Logger friendly with [contextual](#about-context) info. Less guessing games.
 - 🐎&nbsp; [Serializable](#serializer) to cover Server-Side-Rendering use-cases (nextjs, superjson,...).
 - 🎯&nbsp; Up to standards. [extends](#uml-class-diagram) Error class with [stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-errorcause) support.
-- 🍃&nbsp; [Lightweight](https://bundlephobia.com/package/@belgattitude/http-exception@1.2.0) - [treeshakable](<(https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs)>) - wide [browser coverage](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D) - dual cjs/esm.
+- 🍃&nbsp; [Lightweight](https://bundlephobia.com/package/@belgattitude/http-exception@latest) - [treeshakable](https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs) - wide [browser coverage](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D) (trade-off).
 - ✨‍&nbsp; Default statusText as [error message](#about-default-message). Less chars, divergence...
 - 🧙‍&nbsp; IDE friendly. Typescript - typedoc with links to mdn and description.
 - 🥃&nbsp; [Docs](https://belgattitude.github.io/http-exception) & [changelogs](https://github.com/belgattitude/http-exception/releases) - Well tested and maintained - [Contributors](https://github.com/belgattitude/http-exception/blob/main/CONTRIBUTING.md) welcome.
