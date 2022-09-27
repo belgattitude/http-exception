@@ -36,6 +36,19 @@ exports[`convertToSerializable > when an http exception is given > works with wi
 }
 `;
 
+exports[`convertToSerializable > when an http exception is given > works with withFullParams 1`] = `
+{
+  "__type": "HttpException",
+  "code": "NETWORK_UNAVAILABLE",
+  "errorId": "nanoid()",
+  "message": "msg",
+  "method": "PUT",
+  "name": "HttpException",
+  "statusCode": 500,
+  "url": "http://localhost",
+}
+`;
+
 exports[`convertToSerializable > when an http exception is given > works with withMsg 1`] = `
 {
   "__type": "HttpException",

@@ -9,6 +9,16 @@ describe('convertToSerializable', () => {
       ['simple', new HttpException(500)],
       ['withMsg', new HttpException(500, 'msg')],
       [
+        'withFullParams',
+        new HttpException(500, {
+          errorId: 'nanoid()',
+          message: 'msg',
+          code: 'NETWORK_UNAVAILABLE',
+          url: 'http://localhost',
+          method: 'PUT',
+        }),
+      ],
+      [
         'withCause',
         new HttpException(500, {
           cause: new HttpException(500, 'msg'),
@@ -32,6 +42,9 @@ describe('convertToSerializable', () => {
       expect(serializable.message).toStrictEqual(err.message);
       expect(serializable.name).toStrictEqual(err.name);
       expect(serializable?.url).toStrictEqual(err?.url);
+      expect(serializable?.code).toStrictEqual(err?.code);
+      expect(serializable?.errorId).toStrictEqual(err?.errorId);
+      expect(serializable?.method).toStrictEqual(err?.method);
       const { cause, stack, ...serializableWithoutCause } = serializable;
       expect(serializableWithoutCause).toMatchSnapshot();
     });

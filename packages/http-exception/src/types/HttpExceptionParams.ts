@@ -8,6 +8,31 @@ export type HttpExceptionParams = {
    * Indicates the original url that caused the error.
    */
   url?: string;
+
+  /**
+   * Inform about http method
+   */
+  method?:
+    | 'GET'
+    | 'HEAD'
+    | 'POST'
+    | 'PUT'
+    | 'DELETE'
+    | 'CONNECT'
+    | 'OPTIONS'
+    | 'TRACE'
+    | 'PATCH';
+
+  /**
+   * Custom additional code (ie: 'AbortError', 'CODE-1234'...)
+   */
+  code?: string;
+
+  /**
+   * Inform about an unique error identifier (ie: nanoid, cuid...)
+   */
+  errorId?: string;
+
   /**
    * Indicates the original cause of the HttpException.
    * Will be ignored/discarded if the runtime (browser / node version) does not support it
