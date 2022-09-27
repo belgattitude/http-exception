@@ -1,7 +1,4 @@
-# @belgattitude/http-exception
-
-Delightful http exceptions. Crafted with node, browsers, ssr frameworks, error logging / reporting in mind.
-No deps.
+Delightful http exceptions. Crafted with node, browsers, ssr frameworks and error logging in mind.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge&labelColor=222)](https://www.npmjs.com/package/@belgattitude/http-exception)
 [![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=333&color=informational)](https://bundlephobia.com/package/@belgattitude/http-exception@latest)
@@ -12,7 +9,20 @@ No deps.
 [![codecov](https://img.shields.io/codecov/c/github/belgattitude/http-exception?logo=codecov&style=for-the-badge&labelColor=444)](https://codecov.io/gh/belgattitude/http-exception)
 [![techdebt](https://img.shields.io/codeclimate/tech-debt/belgattitude/http-exception?label=TechDebt&logo=code-climate&style=for-the-badge&labelColor=444)](https://codeclimate.com/github/belgattitude/http-exception)
 [![maintainability](https://img.shields.io/codeclimate/maintainability/belgattitude/http-exception?label=Maintainability&logo=code-climate&style=for-the-badge&labelColor=444)](https://codeclimate.com/github/belgattitude/http-exception)
+[![license](https://img.shields.io/npm/l/@belgattitude/http-exception?style=for-the-badge&labelColor=000000)](https://github.com/belgattitude/http-exception/blob/main/LICENSE)
 [![ko-fi](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/belgattitude)
+
+## Highlights
+
+- 🚀&nbsp; Dead simple: [explicit named imports](#named-exceptions) and/or [status code](#factories).
+- 📡&nbsp; Works everywhere: node, browsers, edge... framework agnostic, no deps.
+- 🎥&nbsp; Logger friendly with [contextual](#about-context) info. Less space for guesses.
+- 🐎&nbsp; [Serializable](#serializer) to cover Server-Side-Rendering use-cases (nextjs, superjson,...).
+- 🎯&nbsp; Up to standards. [extends](#uml-class-diagram) Error class with [stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-errorcause) support.
+- 🍃&nbsp; [Lightweight](https://bundlephobia.com/package/@belgattitude/http-exception@1.2.0) - [treeshakable](<(https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs)>) - wide [browser coverage](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D) - dual cjs/esm.
+- ✨‍&nbsp; Default statusText as [error message](#about-default-message). Less chars, divergence...
+- 🧙‍&nbsp; IDE friendly. Typescript - typedoc with links to mdn and description.
+- 🥃&nbsp; [Docs](https://belgattitude.github.io/http-exception) & [changelogs](https://github.com/belgattitude/http-exception/releases) - Well tested and maintained - [Contributors](https://github.com/belgattitude/http-exception/blob/main/CONTRIBUTING.md) welcome.
 
 ## Install
 
@@ -21,53 +31,9 @@ npm install @belgattitude/http-exception  # via npm
 yarn add @belgattitude/http-exception     # via yarn
 ```
 
-## Highlights
+## Usage
 
-- 🚀&nbsp; Dead simple: [explicit named imports](#named-exceptions) and/or [status code](#factory).
-- 📡&nbsp; Works everywhere: node, browsers, edge... framework agnostic, no deps.
-- 🎥&nbsp; Logger friendly with [contextual](#about-context) info. Less space for guesses.
-- 🐎&nbsp; [Serializable](#serializer) to cover Server-Side-Rendering use-cases (nextjs, superjson,...).
-- 🎯&nbsp; Up to standards. [extends](#uml-class-diagram) Error class with [stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/stack) and [Error.cause](#about-errorcause) support.
-- 🍃&nbsp; [Lightweight](https://bundlephobia.com/package/@belgattitude/http-exception@1.2.0) - [treeshakable](<(https://github.com/belgattitude/http-exception/blob/main/packages/http-exception/.size-limit.cjs)>) - wide [browser coverage](https://browserslist.dev/?q=PjAuMjUlLCBub3QgZGVhZA%3D%3D) - cjs/esm.
-- ✨‍&nbsp; Default statusText as [error message](#about-default-message).
-- 🧙‍&nbsp; IDE friendly. Typescript - typedoc with links to mdn and description.
-- 🥃&nbsp; Well tested and maintained. Contributors welcome.
-
-## Documentation
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Usage](#usage)
-  - [Named exceptions](#named-exceptions)
-    - [HttpException parameters](#httpexception-parameters)
-    - [HttpException properties](#httpexception-properties)
-  - [Factory](#factory)
-    - [createHttpException](#createhttpexception)
-  - [Types and validation](#types-and-validation)
-    - [Typeguards](#typeguards)
-    - [Instance checks](#instance-checks)
-- [Serializer](#serializer)
-  - [JSON](#json)
-  - [Serializable](#serializable)
-- [Advanced](#advanced)
-  - [Non-official status codes](#non-official-status-codes)
-- [Notes](#notes)
-  - [About default message](#about-default-message)
-  - [About context](#about-context)
-  - [About Error.cause](#about-errorcause)
-- [Examples](#examples)
-  - [Backend](#backend)
-  - [Frontend](#frontend)
-  - [SSR](#ssr)
-- [UML class diagram](#uml-class-diagram)
-- [List of named exceptions](#list-of-named-exceptions)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-### Usage
-
-#### Named exceptions
+### Named exceptions
 
 IETF assigned http error status codes are available under individual named exports. They start by the
 by `Http` prefix to ease ide experience (suggestions) and to avoid naming collisions
@@ -80,7 +46,7 @@ import {
 } from "@belgattitude/http-exception";
 ```
 
-##### HttpException parameters
+#### HttpException parameters
 
 Http exception optionally accepts a parameter of type `string | HttpExceptionParams`. If no parameter
 is provided a [default message](#about-default-message) will be set.
@@ -116,7 +82,7 @@ throw new HttpInternalServerError({
 });
 ```
 
-##### HttpException properties
+#### HttpException properties
 
 | HttpException | Type      | Description                                                                                                                        |
 | ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -126,9 +92,9 @@ throw new HttpInternalServerError({
 | stack         | `string?` | @see [Error.prototype.stack](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/Stack) on MDN. |
 | cause         | `Error?`  | @see [about error cause](#about-errorcause)                                                                                        |
 
-#### Factory
+### Factories
 
-##### createHttpException
+#### createHttpException
 
 The `createHttpException` function allows to create an exception from an
 arbitrary status code.
@@ -156,9 +122,9 @@ throw createHttpException(500, {
 > No checks are done about the validity of the provided status code. See also
 > [about non-official status codes](#non-official-status-codes)
 
-#### Types and validation
+### Types and validation
 
-##### Typeguards
+#### Typeguards
 
 ```typescript
 import {
@@ -181,7 +147,7 @@ isHttpServerException(new HttpNotFound());
 isHttpException(new Error());
 ```
 
-##### Instance checks
+#### Instance checks
 
 > **Note**
 > take a look at the [uml class diagram](#uml-class-diagram).
@@ -199,7 +165,7 @@ new HttpInternalServerError() instanceof HttpClientException;
 new Error() instanceof HttpException;
 ```
 
-### Serializer
+## Serializer
 
 Exceptions can be (de-)serialized to json or other formats. Use cases varies from
 ssr-frameworks (ie: nextjs [getServerSideProps](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props))
@@ -211,7 +177,7 @@ the runtime.
 Additionally, you can pass any native errors (`Error`, `EvalError`, `RangeError`, `ReferenceError`,
 `SyntaxError`, `TypeError`, `URIError`) as well as a custom one (the later will be transformed to the base type Error).
 
-#### JSON
+### JSON
 
 ```typescript
 import { fromJson, toJson } from "@belgattitude/http-exception/serializer";
@@ -223,7 +189,7 @@ const exception = fromJson(json);
 > **Note**
 > See also how to integrate with [superjson](https://github.com/blitz-js/superjson#recipes)
 
-#### Serializable
+### Serializable
 
 Same as JSON but before json.parse/stringify. Allows to use a different encoder.
 
@@ -237,9 +203,9 @@ const serializableObject = convertToSerializable(new HttpForbidden());
 const exception = createFromSerializable(serializableObject);
 ```
 
-### Advanced
+## Advanced
 
-#### Non-official status codes
+### Non-official status codes
 
 While their usage is not recommended, some status codes might be found in the wild (generally server status codes).
 
@@ -267,12 +233,12 @@ const alternate = new HttpServerException({
 });
 ```
 
-### Notes
+## Notes
 
-#### About default message
+### About default message
 
-The `message` parameter can be omitted for known exceptions. It will be set by default
-to the english short text (inferred from exception name).
+The `message` parameter can be omitted for [known exceptions](#list-of-named-exceptions). It will be set by default
+to an english status text (inferred from the exception name).
 
 ```typescript
 import {
@@ -291,7 +257,7 @@ const e4 = createHttpException(HttpMethodNotAllowed.STATUS, {
 // e1.message === e2.message === e3.message === e4.message
 ```
 
-#### About context
+### About context
 
 It's possible to attach a context to the exception (for logging, reporting...). This can be done by passing the following parameters to [HttpExceptionParams](#httpexception-parameters).
 
@@ -309,7 +275,7 @@ console.log(err.url);
 > **Note**
 > As contextual info might cause security concern they should be explicitly added. Please contribute or open an issue.
 
-#### About Error.cause
+### About Error.cause
 
 Http exceptions and the [serializer](#serializer) support the recent [Error.prototype.cause](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/cause#browser_compatibility). When not
 available in the runtime (browser, node, deno, edge...) the library simply discard the parameter (no runtime error).
@@ -325,11 +291,11 @@ console.log(err.cause); // undefined if not supported by runtime
 > as of September 2022. There's few polyfills that can be used if needed ([error-cause-polyfill](https://github.com/ehmicky/error-cause-polyfill),
 > [error-cause](https://github.com/es-shims/error-cause)...)
 
-### Examples
+## Examples
 
 Examples are given "as is" and does not represent a real-world usage.
 
-#### Backend
+### Backend
 
 ```typescript
 import type { IncomingMessage, ServerResponse } from "node:http";
@@ -394,15 +360,17 @@ const apiRouteHandler = async (req: IncomingMessage, res: ServerResponse) => {
 export default withErrorHandler(apiRouteHandler);
 ```
 
-#### Frontend
+### Frontend
 
 Wip - @todo axios / react-query
 
-#### SSR
+### SSR
 
 Wip - @todo nextjs getServerSideProps
 
-### UML class diagram
+## UML class diagram
+
+All http exceptions extends the native [Error class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error).
 
 ```mermaid
 classDiagram
@@ -417,13 +385,18 @@ classDiagram
     HttpException <|-- HttpServerException
     HttpClientException <|-- HttpBadRequest
     HttpClientException <|-- HttpNotFound
+    HttpClientException <|-- Http4xx
     HttpServerException <|-- HttpInternalServerError
     HttpServerException <|-- HttpServiceUnavailable
+    HttpServerException <|-- Http5xx
     HttpNotFound : 404 statusCode
     HttpBadRequest : 400 statusCode
+    HttpInternalServerError: 500 statusCode
+    HttpServiceUnavailable: 500 statusCode
+
 ```
 
-### List of named exceptions
+## List of named exceptions
 
 Client http status error codes (400...499). Link to
 
@@ -474,3 +447,27 @@ Server http status error code
 | 508    | HttpLoopDetected                  |
 | 510    | HttpNotExtended                   |
 | 511    | HttpNetwordAuthenticationRequired |
+
+## License
+
+MIT License
+
+Copyright (c) 2022-current [Sébastien Vanvelthem](https://github.com/belgattitude) and [contributors](https://github.com/belgattitude/http-exception/graphs/contributors).
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
