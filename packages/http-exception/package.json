@@ -88,6 +88,7 @@
     "fix-all-files": "eslint . --ext .ts,.tsx,.js,.jsx,.mjs,.cjs,.mts,.cts --fix"
   },
   "devDependencies": {
+    "@babel/core": "7.19.3",
     "@babel/plugin-proposal-class-properties": "7.18.6",
     "@babel/plugin-transform-classes": "7.19.0",
     "@babel/plugin-transform-spread": "7.19.0",
@@ -103,7 +104,7 @@
     "@size-limit/webpack-why": "8.1.0",
     "@swc/core": "1.3.3",
     "@types/jest": "29.1.0",
-    "@types/node": "18.7.22",
+    "@types/node": "18.7.23",
     "@types/statuses": "2.0.0",
     "@vitest/coverage-istanbul": "0.23.4",
     "@vitest/ui": "0.23.4",
@@ -125,13 +126,13 @@
     "statuses": "2.0.1",
     "superjson": "1.10.0",
     "terser": "5.15.0",
-    "ts-jest": "29.0.2",
+    "ts-jest": "29.0.3",
     "tslib": "2.4.0",
     "tsup": "6.2.3",
     "typedoc": "0.23.15",
     "typedoc-plugin-markdown": "3.13.6",
     "typescript": "4.8.4",
-    "vite": "3.1.3",
+    "vite": "3.1.4",
     "vite-tsconfig-paths": "3.5.1",
     "vitest": "0.23.4",
     "webpack": "5.74.0"
