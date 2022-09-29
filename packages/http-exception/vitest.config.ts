@@ -7,6 +7,9 @@ import 'error-cause-polyfill/auto';
 
 export default defineConfig({
   plugins: [tsconfigPaths()],
+  esbuild: {
+    target: ['node14'],
+  },
   test: {
     globals: true,
     environment: 'node',
