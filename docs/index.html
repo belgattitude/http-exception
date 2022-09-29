@@ -20,8 +20,27 @@
     />
     <link
       rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/prism-themes@1.9.0/themes/prism-vsc-dark-plus.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css"
     />
+    <style>
+      .markdown-section pre {
+        background-color: #2d2b2b;
+      }
+      .markdown-section pre > code {
+        background-color: #2d2323;
+        color: #aaaaaa;
+      }
+      .markdown-section
+        > :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)
+        code {
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
