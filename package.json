@@ -36,6 +36,7 @@
     "clean:global-cache": "rimraf --no-glob ./.cache",
     "deps:check": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml --deep",
     "deps:update": "yarn dlx npm-check-updates@latest --configFileName ncurc.yml -u --deep",
+    "docs:serve": "docsify serve ./docs",
     "check:install": "yarn dlx @yarnpkg/doctor@3.1 .",
     "postinstall": "is-ci || yarn husky install",
     "format": "prettier --config .prettierrc.js --ignore-path .prettierignore \"./*.{js,cjs,mjs,ts,mts,md,mdx,json}\""
