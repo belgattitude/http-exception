@@ -46,16 +46,16 @@ export class HttpException extends Error {
       name,
       msgOrParams
     );
-    if (supportsErrorCause() && cause) {
-      super(message, { cause });
-    } else {
-      super(message);
+    super(message);
+    if (supportsErrorCause() && cause instanceof Error) {
+      this.cause = cause;
     }
     this.statusCode = statusCode;
     this.url = url;
     this.errorId = errorId;
     this.code = code;
     this.method = method;
+
     Object.setPrototypeOf(this, HttpException.prototype);
     this.name = name;
   }

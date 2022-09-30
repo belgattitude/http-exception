@@ -25,7 +25,7 @@ describe('HttpServerException', () => {
     expect(exception.url).toStrictEqual('https://localhost');
     expect(exception.statusCode).toStrictEqual(599);
   });
-  it('should support sending a cause', () => {
+  it('should support sending a cause as Error', () => {
     let exception: HttpServerException;
     const errorCause = new Error('Origin error');
     try {
