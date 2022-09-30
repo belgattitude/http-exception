@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 1.3.1
+
+### Patch Changes
+
+- [#87](https://github.com/belgattitude/http-exception/pull/87) [`a8fbdd2`](https://github.com/belgattitude/http-exception/commit/a8fbdd26842243b87096c209994afc317d1f9810) Thanks [@belgattitude](https://github.com/belgattitude)! - Fix potential issue with cause that could be undefined
+
 ## 1.3.0
 
 ### Minor Changes
