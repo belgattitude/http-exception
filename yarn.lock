@@ -1534,7 +1534,7 @@ __metadata:
     "@size-limit/webpack": "npm:8.1.0"
     "@size-limit/webpack-why": "npm:8.1.0"
     "@swc/core": "npm:1.3.3"
-    "@types/jest": "npm:29.1.0"
+    "@types/jest": "npm:29.1.1"
     "@types/node": "npm:18.7.23"
     "@types/statuses": "npm:2.0.0"
     "@vitest/coverage-istanbul": "npm:0.23.4"
@@ -3765,13 +3765,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:*, @types/jest@npm:29.1.0":
-  version: 29.1.0
-  resolution: "@types/jest@npm:29.1.0"
+"@types/jest@npm:*, @types/jest@npm:29.1.1":
+  version: 29.1.1
+  resolution: "@types/jest@npm:29.1.1"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: d64e95f33cc16c7a8c1b089c766541bdaba13dc5a3a2453deeb45b48de21a8d28f4d96491fab371cc29506c61440e12b7763c644c750bed31356d9eef901361f
+  checksum: dd323fff5b15b5f1571eb17acc9eee234d6dd61a968b769a5b5047aeaea883cc80a9205001381e120a8a915a7650c7095d124da22bf2b38928ca8353cfac854e
   languageName: node
   linkType: hard
 
