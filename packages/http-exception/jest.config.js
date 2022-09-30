@@ -21,7 +21,7 @@ const getTsConfigBasePaths = (tsConfigFile) => {
     : {};
 };
 
-/** @type {import('ts-jest/dist').InitialOptionsTsJest} */
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 const config = {
   displayName: `ts-utils:unit`,
   preset: 'ts-jest/presets/default-esm',
