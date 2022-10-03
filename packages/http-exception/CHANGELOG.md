@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 1.3.2
+
+### Patch Changes
+
+- [#91](https://github.com/belgattitude/http-exception/pull/91) [`9498cb2`](https://github.com/belgattitude/http-exception/commit/9498cb269dbcf2fd43946209198fda16684be3db) Thanks [@belgattitude](https://github.com/belgattitude)! - Remove hardcoded string in supportsCause function
+
 ## 1.3.1
 
 ### Patch Changes
