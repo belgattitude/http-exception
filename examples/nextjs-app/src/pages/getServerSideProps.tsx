@@ -20,7 +20,7 @@ type Props = {
   apiData: ApiData;
 };
 
-export default function MonitorSentrySsrRoute(
+export default function ssrRoute(
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) {
   const { apiData } = props;
