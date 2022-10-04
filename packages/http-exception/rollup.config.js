@@ -17,7 +17,7 @@ const config = {
   sourceMap: false, // process.env.NODE_ENV === 'production',
   cache: false,
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
-  minify: true,
+  minify: false,
   external: [
     ...Object.keys(pkg?.dependencies ?? {}),
     ...Object.keys(pkg?.peerDependencies ?? {}),
