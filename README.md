@@ -62,13 +62,17 @@ throw new HttpInternalServerError({
 });
 ```
 
-## Contributors
-
-Initiated by [Sébastien Vanvelthem](https://github.com/belgattitude). Contributors welcome
-
 ## Support
 
-Open an issue.
+Don't hesitate and open an issue.
+
+## Contributors
+
+Contributors are warmly welcomed. Have a look to the [CONTRIBUTING](./CONTRIBUTING.md) document.
+
+## Sponsors :heart:
+
+If you are enjoying some of my OSS guides or libs for your company, I'd really appreciate a [sponsorship](https://github.com/sponsors/belgattitude), a [coffee](https://ko-fi.com/belgattitude) or a dropped star. That gives me a tasty morning boost and help me to make some of my ideas come true :pray:
 
 ## License
 
