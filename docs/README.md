@@ -64,22 +64,24 @@ Example:
 
 ```typescript
 import {
-  HttpInternalServerError, HttpNotFound,
-  HttpNotImplemented,
+  HttpGatewayTimeout,
+  HttpInternalServerError,
+  HttpNotFound,
 } from "@belgattitude/http-exception";
 
 // Simple
 throw new HttpNotFound(); // message = 'Not found'
 
 // Custom message
-throw new HttpNotFound('Record #1234 not found');
+throw new HttpNotFound("User not found");
 
 // With all properties
 throw new HttpInternalServerError({
-  message: "Something really wrong happened.",
-  url: "https://microservice.example.org/api-gateway",
-  cause: new HttpNotImplemented({
-    cause: new Error();
+  message: "Oups, this is on our side.",
+  url: "https://api.dev/gateway",
+  cause: new HttpGatewayTimeout({
+    code: "This Serverless Function has timed out",
+    errorId: "cdg1::h99k2-1664884491087-b41a2832f559",
   }),
 });
 ```
@@ -118,7 +120,7 @@ throw createHttpException(404, "The graal is yet to find !");
 
 throw createHttpException(500, {
   message: "Something really wrong happened.",
-  url: "https://microservice.example.org/api-gateway",
+  url: "https://api.dev/gateway",
   cause: new HttpNotImplemented(), // or any Error...
 });
 ```
