@@ -189,9 +189,7 @@ Additionally, you can pass any native errors (`Error`, `EvalError`, `RangeError`
 ```typescript
 import { fromJson, toJson } from "@belgattitude/http-exception/serializer";
 
-const original = new HttpForbidden({
-  cause: new Error("Token was revoked"),
-});
+const e = new HttpForbidden();
 
 const json = toJson(e); // string
 const deserialized = fromJson(json);
