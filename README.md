@@ -38,25 +38,27 @@ yarn add @belgattitude/http-exception     # via yarn
 
 ## Quick start
 
+Simple named exceptions:
+
 ```typescript
 import {
-  HttpNotFound,
+  HttpGatewayTimeout,
   HttpInternalServerError,
-  HttpNotImplemented,
+  HttpNotFound,
 } from "@belgattitude/http-exception";
 
-// Simple
-throw new HttpNotFound(); // message = 'Not found'
+throw new HttpNotFound(); // message = 'Not found', statusCode = 404
 
 // Custom message
-throw new HttpNotFound("Record #1234 not found");
+throw new HttpNotFound("User not found");
 
-// With all properties
+// Custom context
 throw new HttpInternalServerError({
-  message: "Something really wrong happened.",
-  url: "https://api-gateway.dev/service",
-  cause: new HttpNotImplemented({
-    cause: new Error("Error.cause"),
+  message: "Oups, this is on our side.",
+  url: "https://api.dev/gateway",
+  cause: new HttpGatewayTimeout({
+    code: "This Serverless Function has timed out",
+    errorId: "cdg1::h99k2-1664884491087-b41a2832f559",
   }),
 });
 ```
