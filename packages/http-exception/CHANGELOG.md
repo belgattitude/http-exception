@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 1.3.3
+
+### Patch Changes
+
+- [#96](https://github.com/belgattitude/http-exception/pull/96) [`5b964fd`](https://github.com/belgattitude/http-exception/commit/5b964fde6165254596d955e559bacf0eb0d1112d) Thanks [@belgattitude](https://github.com/belgattitude)! - Disable minification to allow patching (patch-package...)
+
 ## 1.3.2
 
 ### Patch Changes
