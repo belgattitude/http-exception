@@ -38,28 +38,54 @@ yarn add @belgattitude/http-exception     # via yarn
 
 ## Quick start
 
+Simple named exceptions:
+
 ```typescript
 import {
-  HttpNotFound,
+  HttpGatewayTimeout,
   HttpInternalServerError,
-  HttpNotImplemented,
+  HttpNotFound,
+  HttpServiceUnavailable,
 } from "@belgattitude/http-exception";
 
-// Simple
-throw new HttpNotFound(); // message = 'Not found'
+throw new HttpNotFound(); // message = 'Not found', statusCode = 404
 
 // Custom message
-throw new HttpNotFound("Record #1234 not found");
+throw new HttpServiceUnavailable("Service temporarily unavailable");
 
-// With all properties
+// Custom context
 throw new HttpInternalServerError({
-  message: "Something really wrong happened.",
-  url: "https://api-gateway.dev/service",
-  cause: new HttpNotImplemented({
-    cause: new Error("Error.cause"),
+  message: "Oups, this is on our side.",
+  url: "https://api.dev/gateway",
+  code: "EXTERNAL_SERVICE_TIMEOUT",
+  cause: new HttpGatewayTimeout({
+    code: "This Serverless Function has timed out",
+    errorId: "cdg1::h99k2-1664884491087-b41a2832f559",
   }),
 });
 ```
+
+By status code
+
+```typescript
+import { createHttpException } from "@belgattitude/http-exception";
+
+const e404 = createHttpException(404);
+const e500 = createHttpException(500, { message: "Server error" });
+```
+
+Serialization
+
+```typescript
+import { fromJson, toJson } from "@belgattitude/http-exception/serializer";
+
+const e = new HttpForbidden();
+
+const json = toJson(e);
+const deserialized = fromJson(json);
+```
+
+More in the docs: [https://belgattitude.github.io/http-exception](https://belgattitude.github.io/http-exception)
 
 ## Support
 
