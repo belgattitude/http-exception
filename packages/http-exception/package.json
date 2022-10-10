@@ -122,7 +122,7 @@
     "rollup-plugin-swc3": "0.6.0",
     "size-limit": "8.1.0",
     "statuses": "2.0.1",
-    "superjson": "1.10.0",
+    "superjson": "1.10.1",
     "ts-jest": "29.0.3",
     "tslib": "2.4.0",
     "typedoc": "0.23.15",
