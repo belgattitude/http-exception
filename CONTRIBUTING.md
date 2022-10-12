@@ -2,20 +2,14 @@
 
 The base branch is **`main`**.
 
-## Structure
-
-```
-.
-├── examples
-│   └── nextjs-app
-└── packages
-    └── http-exception
-```
-
 ## Workflow
 
-- Make changes, push and create a P/R on github.
-- Please split feature/fix/update... into isolated PR
+> **Note**
+> Please feature/fix/update... into individual PRs (not one changing everything)
+
+- Create a [github fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+- On your fork, create a branch make the changes, commit and push.
+- Create a pull-request.
 
 ## Checklist
 
@@ -25,32 +19,31 @@ If applicable:
 - [x] a **changeset** should be provided (`yarn g:changeset`) to request a version bump.
 - [x] **documentation** should be updated (`yarn g:build-doc` to rebuild the api doc).
 
-## Locally
+## Local scripts
 
-| Name                         | Description                                                                                                                          |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `yarn g:changeset`           | Add a changeset to declare a new version                                                                                             |
-| `yarn g:typecheck`           | Run typechecks in all workspaces                                                                                                     |
-| `yarn g:lint`                | Display linter issues in all workspaces                                                                                              |
-| `yarn g:lint --fix`          | Attempt to run linter auto-fix in all workspaces                                                                                     |
-| `yarn g:test-unit`           | Run unit tests in all workspaces                                                                                                     |
-| `yarn g:build`               | Run build in all workspaces                                                                                                          |
-| `yarn g:clean`               | Clean builds in all workspaces                                                                                                       |
-| `yarn g:check-dist`          | Ensure build dist files passes es2017 (run `g:build` first).                                                                         |
-| `yarn g:check-size`          | Ensure build files are within size limit (run `g:build` first).                                                                      |
-| `yarn g:build-doc`           | Build documentation (generally api doc)                                                                                              |
-| `yarn clean:global-cache`    | Clean tooling caches (eslint, jest...)                                                                                               |
+| Name                         | Description                                                                                                                                    |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `yarn g:changeset`           | Add a changeset to declare a new version                                                                                                       |
+| `yarn g:typecheck`           | Run typechecks in all workspaces                                                                                                               |
+| `yarn g:lint`                | Display linter issues in all workspaces                                                                                                        |
+| `yarn g:lint --fix`          | Attempt to run linter auto-fix in all workspaces                                                                                               |
+| `yarn g:test-unit`           | Run unit tests in all workspaces                                                                                                               |
+| `yarn g:build`               | Run build in all workspaces                                                                                                                    |
+| `yarn g:clean`               | Clean builds in all workspaces                                                                                                                 |
+| `yarn g:check-dist`          | Ensure build dist files passes es2017 (run `g:build` first).                                                                                   |
+| `yarn g:check-size`          | Ensure build files are within size limit (run `g:build` first).                                                                                |
+| `yarn g:build-doc`           | Build documentation (generally api doc)                                                                                                        |
+| `yarn clean:global-cache`    | Clean tooling caches (eslint, jest...)                                                                                                         |
 | `yarn deps:check --dep dev`  | Will print what packages can be upgraded globally (see also [.ncurc.yml](https://github.com/belgattitude/http-exception/blob/main/.ncurc.yml)) |
-| `yarn deps:update --dep dev` | Apply possible updates (run `yarn install && yarn dedupe` after)                                                                     |
-| `yarn check:install`         | Verify if there's no peer-deps missing in packages                                                                                   |
-| `yarn dedupe`                | Built-in yarn deduplication of the lock file                                                                                         |
+| `yarn deps:update --dep dev` | Apply possible updates (run `yarn install && yarn dedupe` after)                                                                               |
+| `yarn check:install`         | Verify if there's no peer-deps missing in packages                                                                                             |
+| `yarn dedupe`                | Built-in yarn deduplication of the lock file                                                                                                   |
 
 ## Git message format
 
 This repo adheres to the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) convention.
 
-Commit messages are enforced through [commitlint](https://github.com/conventional-changelog/commitlint) and [a husky](https://github.com/typicode/husky) [commit-msg](https://github.com/belgattitude/http-exception/blob/main/.husky/commit-msg) hook. 
-
+Commit messages are enforced through [commitlint](https://github.com/conventional-changelog/commitlint) and [a husky](https://github.com/typicode/husky) [commit-msg](https://github.com/belgattitude/http-exception/blob/main/.husky/commit-msg) hook.
 
 ### Activated prefixes
 
@@ -69,4 +62,14 @@ Commit messages are enforced through [commitlint](https://github.com/conventiona
 - **release**: All related to changeset (pre exit...)
 
 > **Note**
-> Latest configuration can be found in [commitlint.config.js](https://github.com/belgattitude/http-exception/blob/main/commitlint.config.js).
+> Up-to-date configuration can be found in [commitlint.config.js](https://github.com/belgattitude/http-exception/blob/main/commitlint.config.js).
+
+## Structure
+
+```
+.
+├── examples
+│   └── nextjs-app
+└── packages
+    └── http-exception
+```
