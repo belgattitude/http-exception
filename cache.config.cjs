@@ -4,14 +4,15 @@
  *
  * Recently more & more tools like babel-loader tend to cache in
  * node_modules/.cache (@link https://github.com/avajs/find-cache-dir)
- * It's possible too.
+ * It's possible too, but keeping a cache folder at the root simplifies
+ * the cache management on CI
  */
 // @ts-check
 'use strict';
 
 const { resolve } = require('path');
 
-export const globalCachePath = resolve(`${__dirname}/.cache`);
+const globalCachePath = resolve(`${__dirname}/.cache`);
 
 /**
  * @param {string} packageName
@@ -25,6 +26,11 @@ function sanitize(packageName) {
  * @param {string} packageName
  * @returns string
  */
-export function getEslintCachePath(packageName) {
+function getEslintCachePath(packageName) {
   return `${globalCachePath}/eslint/${sanitize(packageName)}`;
+}
+
+module.exports = {
+  getEslintCachePath,
+  globalCachePath,
 }
