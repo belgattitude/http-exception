@@ -6,7 +6,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import { minify as swcMinify } from 'rollup-plugin-swc3';
-import { globalCachePath } from '../../cache.config.mjs';
+import { globalCachePath } from '../../cache.config.cjs';
 
 const require = createRequire(import.meta.url);
 const pkg = require('./package.json');
@@ -87,11 +87,11 @@ export default () => [
   // ESM Compat
   {
     input: ['./src/index.ts', './src/serializer/index.ts'],
-    preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
     external: config.external,
     plugins: [...getDefaultRollupPlugins('compat', 'esm', config.minify)],
     output: {
       format: 'esm',
+      preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
       dir: `${config.distDir}/esm`,
       entryFileNames: '[name].js',
       sourcemap: config.sourceMap,
@@ -101,11 +101,11 @@ export default () => [
   /*
   {
     input: ['./src/index.ts'],
-    preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
     external: config.external,
     plugins: [...getDefaultRollupPlugins('modern', 'esm', config.minify)],
     output: {
       format: 'esm',
+      preserveModules: true, // Will allow maximum tree-shakeability by bundlers such as webpack
       dir: `${config.distDir}/modern/esm`,
       entryFileNames: '[name].js',
       sourcemap: config.sourceMap,
