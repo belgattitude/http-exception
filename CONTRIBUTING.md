@@ -14,13 +14,16 @@ The base branch is **`main`**.
 
 ## Workflow
 
-- Makes changes, push and create a P/R on github.
+- Make changes, push and create a P/R on github.
+- Please split feature/fix/update... into isolated PR
 
 ## Checklist
 
-- [x] **tests** should be included part of your PR (`yarn g:test-unit`)
-- [x] a **changeset** should be provided (`yarn g:changeset`) when applicable.
-- [x] **documentation** should be updated (`yarn g:build-doc` helps to api doc).
+If applicable:
+
+- [x] **tests** should be included part of your PR (`yarn g:test-unit`).
+- [x] a **changeset** should be provided (`yarn g:changeset`) to request a version bump.
+- [x] **documentation** should be updated (`yarn g:build-doc` to rebuild the api doc).
 
 ## Locally
 
