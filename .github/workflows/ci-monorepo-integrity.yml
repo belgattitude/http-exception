@@ -35,16 +35,16 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: 📥 Monorepo install
-        uses: ./.github/actions/monorepo-install
+        uses: ./.github/actions/yarn-nm-install
 
-      - name: Check for duplicate dependencies in lock file
+      - name: 🔎 Check for duplicates
         run: |
           yarn dedupe --check
 
-      - name: Check for yarn constraints.pro
+      - name: 🦺 Check for yarn constraints.pro
         run: |
           yarn constraints
 
-      #- name: Check monorepo dependency graph
-      #  run: |
-      #    yarn check:install
+      - name: 🛟 Check monorepo dependency graph
+        run: |
+          yarn check:install
