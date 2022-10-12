@@ -4,8 +4,6 @@ The base branch is **`main`**.
 
 ## Structure
 
-## Structure
-
 ```
 .
 ├── examples
