@@ -37,7 +37,7 @@ The base branch is **`main`**.
 | `yarn g:check-size`          | Ensure build files are within size limit (run `g:build` first).                                                                      |
 | `yarn g:build-doc`           | Build documentation (generally api doc)                                                                                              |
 | `yarn clean:global-cache`    | Clean tooling caches (eslint, jest...)                                                                                               |
-| `yarn deps:check --dep dev`  | Will print what packages can be upgraded globally (see also [.ncurc.yml](https://github.com/sortlist/packages/blob/main/.ncurc.yml)) |
+| `yarn deps:check --dep dev`  | Will print what packages can be upgraded globally (see also [.ncurc.yml](https://github.com/belgattitude/http-exception/blob/main/.ncurc.yml)) |
 | `yarn deps:update --dep dev` | Apply possible updates (run `yarn install && yarn dedupe` after)                                                                     |
 | `yarn check:install`         | Verify if there's no peer-deps missing in packages                                                                                   |
 | `yarn dedupe`                | Built-in yarn deduplication of the lock file                                                                                         |
@@ -46,11 +46,8 @@ The base branch is **`main`**.
 
 This repo adheres to the [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) convention.
 
-Commit messages are enforced through [husky](https://github.com/typicode/husky) git hooks. The latest configuration options can be found in [commitlint.config.js](https://github.com/sortlist/packages/blob/main/commitlint.config.js), they are
-enforced on commit thanks to [husky](https://github.com/typicode/husky).
+Commit messages are enforced through [commitlint](https://github.com/conventional-changelog/commitlint) and [a husky](https://github.com/typicode/husky) [commit-msg](https://github.com/belgattitude/http-exception/blob/main/.husky/commit-msg) hook. 
 
-Note that the commit message prefix is only valuable for commits, it does not make
-sense to use them for the github pull-request title.
 
 ### Activated prefixes
 
@@ -67,3 +64,6 @@ sense to use them for the github pull-request title.
 - **revert**: When reverting a commit
 - **style**: A change that affects the scss, less, css styles
 - **release**: All related to changeset (pre exit...)
+
+> **Note**
+> Latest configuration can be found in [commitlint.config.js](https://github.com/belgattitude/http-exception/blob/main/commitlint.config.js).
