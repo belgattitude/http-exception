@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 1.3.4
+
+### Patch Changes
+
+- [#118](https://github.com/belgattitude/http-exception/pull/118) [`2bea0d6`](https://github.com/belgattitude/http-exception/commit/2bea0d630a5629ebbde12165f59dd48208e01c6f) Thanks [@belgattitude](https://github.com/belgattitude)! - Bundle with rollup v3.0.0
+
 ## 1.3.3
 
 ### Patch Changes
