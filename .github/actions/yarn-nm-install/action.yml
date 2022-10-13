@@ -43,7 +43,7 @@ runs:
       uses: actions/cache@v3
       with:
         path: |
-          .ci-cache/yarn-state
+          .yarn/ci-cache/
         key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
     - name: Install dependencies
@@ -53,7 +53,7 @@ runs:
         # CI optimizations. Overrides yarnrc.yml options (or their defaults) in the CI action.
         YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
         YARN_NM_MODE: 'hardlinks-local' # Hardlinks-(local|global) reduces io / node_modules size
-        YARN_INSTALL_STATE_PATH: .ci-cache/yarn-state/install-state.gz # Very small speedup when lock does not change
+        YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Very small speedup when lock does not change
         # Other environment variables
         HUSKY: '0' # By default do not run HUSKY install
         PRISMA_SKIP_POSTINSTALL_GENERATE: ${{ inputs.skip-prisma-postinstall-generate }}
