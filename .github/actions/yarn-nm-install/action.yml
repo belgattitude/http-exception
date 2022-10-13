@@ -25,11 +25,11 @@ runs:
       id: yarn-config
       shell: bash
       run: |
-        echo "CACHE_DIR=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+        echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
     #- name: Debug cache-dir
     #  shell: bash
-    #  run: echo "CACHE_DIR = ${{ steps.yarn-config.outputs.CACHE_DIR }}"
+    #  run: echo "CACHE_FOLDER = ${{ steps.yarn-config.outputs.CACHE_FOLDER }}"
 
     # Yarn rotates the downloaded cache archives.
     # @see https://github.com/actions/setup-node/issues/325
@@ -37,7 +37,7 @@ runs:
       uses: actions/cache@v3
       id: yarn-download-cache
       with:
-        path: ${{ steps.yarn-config.outputs.CACHE_DIR }}
+        path: ${{ steps.yarn-config.outputs.CACHE_FOLDER }}
         key: yarn-download-cache-${{ hashFiles('yarn.lock') }}
         restore-keys: |
           yarn-download-cache-
