@@ -11,7 +11,7 @@ on:
       - 'packages/**'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
-      - '.github/workflows/**'
+      - '.github/**'
 
   pull_request:
     types:
@@ -24,7 +24,7 @@ on:
       - 'packages/**'
       - '.yarnrc.yml'
       - 'tsconfig.base.json'
-      - '.github/workflows/**'
+      - '.github/**'
 
 jobs:
   test:
