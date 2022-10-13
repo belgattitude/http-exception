@@ -21,7 +21,7 @@ runs:
   using: 'composite'
 
   steps:
-    - name: Get yarn cache directory path
+    - name: Expose yarn config as "$GITHUB_OUTPUT"
       id: yarn-config
       shell: bash
       run: |
