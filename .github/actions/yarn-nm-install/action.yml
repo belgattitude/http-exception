@@ -28,6 +28,7 @@ runs:
         echo "CACHE_DIR=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
     - name: Debug cache-dir
+      shell: bash
       run: echo "The YARN_CACHE_DIR = ${{ steps.yarn-config.outputs.CACHE_DIR }}"
 
 
