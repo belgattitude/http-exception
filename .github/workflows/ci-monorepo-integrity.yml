@@ -8,7 +8,7 @@ on:
     paths:
       - 'yarn.lock'
       - '.yarnrc.yml'
-      - '.github/workflows/**'
+      - '.github/**'
 
   pull_request:
     types:
@@ -18,7 +18,7 @@ on:
     paths:
       - 'yarn.lock'
       - '.yarnrc.yml'
-      - '.github/workflows/**'
+      - '.github/**'
 
 jobs:
   test:
