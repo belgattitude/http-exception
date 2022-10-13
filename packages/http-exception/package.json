@@ -110,7 +110,7 @@
     "@vitest/ui": "0.24.1",
     "corejs": "1.0.0",
     "cross-env": "7.0.3",
-    "error-cause-polyfill": "1.1.0",
+    "error-cause-polyfill": "1.2.1",
     "es-check": "7.0.1",
     "eslint": "8.25.0",
     "get-tsconfig": "4.2.0",
