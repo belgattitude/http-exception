@@ -1443,7 +1443,7 @@ __metadata:
     superjson: "npm:1.10.1"
     ts-jest: "npm:29.0.3"
     tslib: "npm:2.4.0"
-    typedoc: "npm:0.23.16"
+    typedoc: "npm:0.23.17"
     typedoc-plugin-markdown: "npm:3.13.6"
     typescript: "npm:4.8.4"
     vite: "npm:3.1.8"
@@ -12903,9 +12903,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:0.23.16":
-  version: 0.23.16
-  resolution: "typedoc@npm:0.23.16"
+"typedoc@npm:0.23.17":
+  version: 0.23.17
+  resolution: "typedoc@npm:0.23.17"
   dependencies:
     lunr: "npm:^2.3.9"
     marked: "npm:^4.0.19"
@@ -12915,7 +12915,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x || 4.8.x
   bin:
     typedoc: bin/typedoc
-  checksum: e52f82502213c7cc7a2f3e2f2a1470d85d9b29c87d28d8298d335f61945bfe38e1b8429f28e8bf631e5debaea73b6d6a4b021b2a538a606f23e8d7e90bc93deb
+  checksum: bac48b2af6a4aad21d0eb55136bd21b7bf0f1c148640ad2f5488d7f56c63183e4201ce8374bd79ac2fafb1308f3f6d1c100f1e171e2d1ff66b5425e831b68140
   languageName: node
   linkType: hard
 
