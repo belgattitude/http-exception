@@ -51,7 +51,7 @@ runs:
           .yarn/ci-cache/
         key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
 
-    - name: Install dependencies
+    - name: 📥 Install dependencies
       shell: bash
       run: yarn install --immutable --inline-builds
       env:

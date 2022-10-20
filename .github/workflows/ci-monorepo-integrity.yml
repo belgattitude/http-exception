@@ -38,13 +38,10 @@ jobs:
         uses: ./.github/actions/yarn-nm-install
 
       - name: 🔎 Check for duplicates
-        run: |
-          yarn dedupe --check
+        run: yarn dedupe --check
 
       - name: 🦺 Check for yarn constraints.pro
-        run: |
-          yarn constraints
+        run: yarn constraints
 
       - name: 🛟 Check monorepo dependency graph
-        run: |
-          yarn check:install
+        run: yarn check:install
