@@ -93,7 +93,7 @@ Don't hesitate and open [an issue](https://github.com/belgattitude/http-exceptio
 
 ## Contributors
 
-Contributors are warmly welcomed. Have a look to the [CONTRIBUTING](https://github.com/belgattitude/http-exception/blob/main/CONTRIBUTING.md) document.
+Contributors are warmly welcome. Have a look to the [CONTRIBUTING](https://github.com/belgattitude/http-exception/blob/main/CONTRIBUTING.md) document.
 
 ## Sponsors ♥
 
