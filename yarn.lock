@@ -1440,7 +1440,7 @@ __metadata:
     rollup-plugin-swc3: "npm:0.7.0"
     size-limit: "npm:8.1.0"
     statuses: "npm:2.0.1"
-    superjson: "npm:1.10.1"
+    superjson: "npm:1.11.0"
     ts-jest: "npm:29.0.3"
     tslib: "npm:2.4.0"
     typedoc: "npm:0.23.17"
@@ -12360,6 +12360,15 @@ __metadata:
   dependencies:
     copy-anything: "npm:^3.0.2"
   checksum: fec6e544a58045e0c8b094fe6c6565d68ca040e5e5aa8278e48b903da8105972f4bdab5bc5e5a2519443447caa62e6747edef3b6c68952966163117b4c921a56
+  languageName: node
+  linkType: hard
+
+"superjson@npm:1.11.0":
+  version: 1.11.0
+  resolution: "superjson@npm:1.11.0"
+  dependencies:
+    copy-anything: "npm:^3.0.2"
+  checksum: ea9e343a8c931ee71f91b3b3728cd1d1aeca0247d711bc8309c0793fbe3b0106aca9da0f55c357e5ea19d11fedd59d52846462a7f3a274edde3cf1016905a1ca
   languageName: node
   linkType: hard
 
