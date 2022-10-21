@@ -1,5 +1,11 @@
 # @belgattitude/http-exception
 
+## 1.4.0
+
+### Minor Changes
+
+- [#141](https://github.com/belgattitude/http-exception/pull/141) [`57574ed`](https://github.com/belgattitude/http-exception/commit/57574ed858cdb207812e2035778a30c726d5a458) Thanks [@belgattitude](https://github.com/belgattitude)! - Upgrapde to rollup v3
+
 ## 1.3.4
 
 ### Patch Changes
