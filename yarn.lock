@@ -1415,7 +1415,7 @@ __metadata:
     "@babel/preset-typescript": "npm:7.18.6"
     "@belgattitude/eslint-config-bases": "npm:1.10.0"
     "@rollup/plugin-babel": "npm:6.0.1"
-    "@rollup/plugin-node-resolve": "npm:15.0.0"
+    "@rollup/plugin-node-resolve": "npm:15.0.1"
     "@rollup/plugin-typescript": "npm:9.0.1"
     "@size-limit/file": "npm:8.1.0"
     "@size-limit/webpack": "npm:8.1.0"
@@ -2839,11 +2839,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:15.0.0":
-  version: 15.0.0
-  resolution: "@rollup/plugin-node-resolve@npm:15.0.0"
+"@rollup/plugin-node-resolve@npm:15.0.1":
+  version: 15.0.1
+  resolution: "@rollup/plugin-node-resolve@npm:15.0.1"
   dependencies:
-    "@rollup/pluginutils": "npm:^4.2.1"
+    "@rollup/pluginutils": "npm:^5.0.1"
     "@types/resolve": "npm:1.20.2"
     deepmerge: "npm:^4.2.2"
     is-builtin-module: "npm:^3.2.0"
@@ -2854,7 +2854,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 2c186399e6cde8c1cc1bf0453c82255f5cfa626e0a4516c214ff1ee0bf5a9c9894b5346df643d23bf11150a1786023dfcc0f28e8f1193358077610b2b23cfc98
+  checksum: 5f709d14dfd1f22af02d087098f2c2136ebb7f5d57a34fb91978168e4cce7852a4f0338ec951f7f96b47d0da1d443c024fdbaf99093ffb8107ac18369e65bc5c
   languageName: node
   linkType: hard
 
