@@ -5981,9 +5981,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"docsify@npm:4.12.2, docsify@npm:^4.12.1, docsify@npm:^4.12.2":
-  version: 4.12.2
-  resolution: "docsify@npm:4.12.2"
+"docsify@npm:4.12.4, docsify@npm:^4.12.1, docsify@npm:^4.12.2":
+  version: 4.12.4
+  resolution: "docsify@npm:4.12.4"
   dependencies:
     dompurify: "npm:^2.3.1"
     marked: "npm:^1.2.9"
@@ -5993,7 +5993,7 @@ __metadata:
     strip-indent: "npm:^3.0.0"
     tinydate: "npm:^1.3.0"
     tweezer.js: "npm:^1.4.0"
-  checksum: 303232ff9cf7897b9913612ed4b6d339a8d30d7e67380f7abc3fee700c804f8d852a2ad4b661dbd75e24220d3e91282e144ff9ded939381661dcd2629c577308
+  checksum: c2a508bdad8e7e142f2e78f6f46f54db1d203f2c4b1ac2ff2e6168cf4e073164f3028fadca8a3f6a7ba7cc534b56cb482b7888edfc094a03375ed903f90256d1
   languageName: node
   linkType: hard
 
@@ -7939,7 +7939,7 @@ __metadata:
     "@types/prettier": "npm:2.7.1"
     "@types/shell-quote": "npm:1.7.1"
     cross-env: "npm:7.0.3"
-    docsify: "npm:4.12.2"
+    docsify: "npm:4.12.4"
     docsify-cli: "npm:4.4.4"
     eslint: "npm:8.26.0"
     husky: "npm:8.0.1"
