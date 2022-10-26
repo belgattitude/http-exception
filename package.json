@@ -50,7 +50,7 @@
     "@types/prettier": "2.7.1",
     "@types/shell-quote": "1.7.1",
     "cross-env": "7.0.3",
-    "docsify": "4.12.4",
+    "docsify": "4.13.0",
     "docsify-cli": "4.4.4",
     "eslint": "8.26.0",
     "husky": "8.0.1",
