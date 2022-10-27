@@ -773,14 +773,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-typescript@npm:^7.18.6, @babel/plugin-syntax-typescript@npm:^7.7.2":
-  version: 7.18.6
-  resolution: "@babel/plugin-syntax-typescript@npm:7.18.6"
+"@babel/plugin-syntax-typescript@npm:^7.20.0, @babel/plugin-syntax-typescript@npm:^7.7.2":
+  version: 7.20.0
+  resolution: "@babel/plugin-syntax-typescript@npm:7.20.0"
   dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.18.6"
+    "@babel/helper-plugin-utils": "npm:^7.19.0"
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: 99aaa2a38b3cfc19427c04b0eebfdda3dc2c02a538dfc70c9c6e651db82a5abe71c94d6f59f2113204a61ef053e5f05b76ef94ddcc1dd6c624237dc35ddb43d1
+  checksum: 64cc3320ec9127571427c437511ea8df08ab6592693d50b647cc0126e474da36166c782e59839ff419b1d8bbadd7bd100a359616d1da282ad8db1f90d1973c50
   languageName: node
   linkType: hard
 
@@ -1142,16 +1142,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-typescript@npm:7.19.3, @babel/plugin-transform-typescript@npm:^7.18.6":
-  version: 7.19.3
-  resolution: "@babel/plugin-transform-typescript@npm:7.19.3"
+"@babel/plugin-transform-typescript@npm:7.20.0, @babel/plugin-transform-typescript@npm:^7.18.6":
+  version: 7.20.0
+  resolution: "@babel/plugin-transform-typescript@npm:7.20.0"
   dependencies:
     "@babel/helper-create-class-features-plugin": "npm:^7.19.0"
     "@babel/helper-plugin-utils": "npm:^7.19.0"
-    "@babel/plugin-syntax-typescript": "npm:^7.18.6"
+    "@babel/plugin-syntax-typescript": "npm:^7.20.0"
   peerDependencies:
     "@babel/core": ^7.0.0-0
-  checksum: acc19c50a78bc8a953479af838da24574fa76f502f3ce991ac8a6fa8088fac846f21bec70d9b67889482341d1cf3996e45baccb19a90812e16764ededebe11e7
+  checksum: 6932c950baa21b8e7df73ff6771695674be13a3afb03331c3f071c91078b459f3960e4372f08430b5299fdb082ff558a6b6c3eb9b75c7c0530691554aa5ad0df
   languageName: node
   linkType: hard
 
@@ -1410,7 +1410,7 @@ __metadata:
     "@babel/plugin-proposal-class-properties": "npm:7.18.6"
     "@babel/plugin-transform-classes": "npm:7.19.0"
     "@babel/plugin-transform-spread": "npm:7.19.0"
-    "@babel/plugin-transform-typescript": "npm:7.19.3"
+    "@babel/plugin-transform-typescript": "npm:7.20.0"
     "@babel/preset-env": "npm:7.19.4"
     "@babel/preset-typescript": "npm:7.18.6"
     "@belgattitude/eslint-config-bases": "npm:1.10.0"
