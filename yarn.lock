@@ -1508,9 +1508,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:2.25.0":
-  version: 2.25.0
-  resolution: "@changesets/cli@npm:2.25.0"
+"@changesets/cli@npm:2.25.1":
+  version: 2.25.1
+  resolution: "@changesets/cli@npm:2.25.1"
   dependencies:
     "@babel/runtime": "npm:^7.10.4"
     "@changesets/apply-release-plan": "npm:^6.1.1"
@@ -1547,7 +1547,7 @@ __metadata:
     tty-table: "npm:^4.1.5"
   bin:
     changeset: bin.js
-  checksum: b692c9844bb98aed0835b166cd35dd1d5c471be7ef8ea87ba592f687046caef682d794c85c14751f27f1dd974c9ec0b84f62c87462922a806b6b92c6788e0ee9
+  checksum: 4f4a450cab073f7bf87e4e141e3ba21916fac84bb78850d8ba5ae0af9c4c0abb1a7fab57003ec4b6bf369ccb581c560bdb127966bd1046b8acf81a6d63d3a4b9
   languageName: node
   linkType: hard
 
@@ -7932,7 +7932,7 @@ __metadata:
   dependencies:
     "@belgattitude/eslint-config-bases": "npm:1.10.0"
     "@changesets/changelog-github": "npm:0.4.7"
-    "@changesets/cli": "npm:2.25.0"
+    "@changesets/cli": "npm:2.25.1"
     "@commitlint/cli": "npm:17.1.2"
     "@commitlint/config-conventional": "npm:17.1.0"
     "@types/prettier": "npm:2.7.1"
