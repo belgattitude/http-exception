@@ -1424,8 +1424,8 @@ __metadata:
     "@types/jest": "npm:29.2.1"
     "@types/node": "npm:18.8.4"
     "@types/statuses": "npm:2.0.0"
-    "@vitest/coverage-istanbul": "npm:0.24.4"
-    "@vitest/ui": "npm:0.24.4"
+    "@vitest/coverage-istanbul": "npm:0.24.5"
+    "@vitest/ui": "npm:0.24.5"
     corejs: "npm:1.0.0"
     cross-env: "npm:7.0.3"
     error-cause-polyfill: "npm:1.2.1"
@@ -1448,7 +1448,7 @@ __metadata:
     typescript: "npm:4.8.4"
     vite: "npm:3.2.2"
     vite-tsconfig-paths: "npm:3.5.2"
-    vitest: "npm:0.24.4"
+    vitest: "npm:0.24.5"
     webpack: "npm:5.74.0"
   languageName: unknown
   linkType: soft
@@ -3985,9 +3985,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-istanbul@npm:0.24.4":
-  version: 0.24.4
-  resolution: "@vitest/coverage-istanbul@npm:0.24.4"
+"@vitest/coverage-istanbul@npm:0.24.5":
+  version: 0.24.5
+  resolution: "@vitest/coverage-istanbul@npm:0.24.5"
   dependencies:
     istanbul-lib-coverage: "npm:^3.2.0"
     istanbul-lib-instrument: "npm:^5.2.1"
@@ -3995,17 +3995,17 @@ __metadata:
     istanbul-lib-source-maps: "npm:^4.0.1"
     istanbul-reports: "npm:^3.1.5"
     test-exclude: "npm:^6.0.0"
-    vitest: "npm:0.24.4"
-  checksum: 72cd290b3ef1528c995ea6d62ad9c02d684b35482dc7c3d0deecd04460f6cbf6b43c3c473c9a2f344d8a93b7622ba1d075bc42be35c45bf725892adc35e4ca2e
+    vitest: "npm:0.24.5"
+  checksum: 183e0bfc14a128d4631e47970bd4510da4b56a43b3484dd2d69844c6343e85327db82239c340cfb3c7bc48a5b559e8e1908bd95a1bc084a47656a009a0652283
   languageName: node
   linkType: hard
 
-"@vitest/ui@npm:0.24.4":
-  version: 0.24.4
-  resolution: "@vitest/ui@npm:0.24.4"
+"@vitest/ui@npm:0.24.5":
+  version: 0.24.5
+  resolution: "@vitest/ui@npm:0.24.5"
   dependencies:
     sirv: "npm:^2.0.2"
-  checksum: 6d4113a9aaa7041229b669e416f5706e513cadfdc036bf4ae5d300e57908673d6348fb5d1f5513cdde68055b5157b20dcafcf71127e9f2facc85742ecdc59f2f
+  checksum: 98eae54600f50d0c0c71180f77900d8f70e491fca600af3e5c3fd2a5ab8fdbc5ba9fb7a8931138bc87f61889d4d4ab9125f74221bed01a95f0025e8fcd2ea546
   languageName: node
   linkType: hard
 
@@ -13317,9 +13317,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:0.24.4":
-  version: 0.24.4
-  resolution: "vitest@npm:0.24.4"
+"vitest@npm:0.24.5":
+  version: 0.24.5
+  resolution: "vitest@npm:0.24.5"
   dependencies:
     "@types/chai": "npm:^4.3.3"
     "@types/chai-subset": "npm:^1.3.3"
@@ -13351,7 +13351,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: 72d1da12c4b160a2f46c56928e181976849b01bc9f15138b5f54f70920b156020dcbf5e20ce27a57f0c61a4bba8294b90cf088941e9c949960ba072db8e919e1
+  checksum: 5b30ae6d4e519ed50c8b450472441c47a6416f82a713637a79e6eff2a040e7716266c0d8c38ee19887f7899b6a0e78f30969c7c5edb668cf8151d4376dfe6c11
   languageName: node
   linkType: hard
 
