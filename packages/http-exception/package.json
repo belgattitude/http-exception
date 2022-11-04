@@ -103,7 +103,7 @@
     "@size-limit/webpack": "8.1.0",
     "@size-limit/webpack-why": "8.1.0",
     "@swc/core": "1.3.14",
-    "@types/jest": "29.2.1",
+    "@types/jest": "29.2.2",
     "@types/node": "18.8.4",
     "@types/statuses": "2.0.0",
     "@vitest/coverage-istanbul": "0.24.5",
