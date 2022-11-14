@@ -1,6 +1,6 @@
 # @belgattitude/http-exception
 
-Delightful http exceptions. Crafted with node, browsers, ssr frameworks and error logging in mind.
+Delightful http exceptions. Crafted with node, browsers, ssr frameworks (serialization) and error logging in mind.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge&labelColor=222)](https://www.npmjs.com/package/@belgattitude/http-exception)
 [![size](https://img.shields.io/bundlephobia/minzip/@belgattitude/http-exception@latest?label=MinGZIP&style=for-the-badge&labelColor=333&color=informational)](https://bundlephobia.com/package/@belgattitude/http-exception@latest)
