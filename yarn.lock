@@ -1443,7 +1443,7 @@ __metadata:
     typedoc: "npm:0.23.21"
     typedoc-plugin-markdown: "npm:3.13.6"
     typescript: "npm:4.8.4"
-    vite: "npm:3.2.3"
+    vite: "npm:3.2.4"
     vite-tsconfig-paths: "npm:3.5.2"
     vitest: "npm:0.25.2"
     webpack: "npm:5.75.0"
@@ -13221,9 +13221,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:3.2.3, vite@npm:^3.0.0":
-  version: 3.2.3
-  resolution: "vite@npm:3.2.3"
+"vite@npm:3.2.4, vite@npm:^3.0.0":
+  version: 3.2.4
+  resolution: "vite@npm:3.2.4"
   dependencies:
     esbuild: "npm:^0.15.9"
     fsevents: "npm:~2.3.2"
@@ -13255,7 +13255,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 90c7cd812322301bba7869aba505394286dd27a8664b5e02935733a8a3bfcd8041deaa7c4316139b87ac3fca45cbbffc7287185110fc006783cc1c53bac5109e
+  checksum: c3b6a1643e6436e4628db1fe183a3eb7db970bf8cf20104540079b9e97b6f5ce1ea33c498373f130ddee7259a96cc3f9ce96d5e43a8b23f7484e35ac8634bcc7
   languageName: node
   linkType: hard
 
