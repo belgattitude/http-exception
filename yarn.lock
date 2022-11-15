@@ -1419,7 +1419,7 @@ __metadata:
     "@size-limit/webpack-why": "npm:8.1.0"
     "@swc/core": "npm:1.3.16"
     "@types/jest": "npm:29.2.3"
-    "@types/node": "npm:18.8.4"
+    "@types/node": "npm:18.11.9"
     "@types/statuses": "npm:2.0.0"
     "@vitest/coverage-istanbul": "npm:0.25.2"
     "@vitest/ui": "npm:0.25.2"
@@ -3576,7 +3576,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:18.8.4":
+"@types/node@npm:*, @types/node@npm:18.11.9":
+  version: 18.11.9
+  resolution: "@types/node@npm:18.11.9"
+  checksum: aeaa925406f841c41679b32def9391a9892171e977105e025050e9f66e2830b4c50d0d974a1af0077ead3337a1f3bdf49ee7e7f402ebf2e034a3f97d9d240dba
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:18.8.4":
   version: 18.8.4
   resolution: "@types/node@npm:18.8.4"
   checksum: 2dab5a821edd12c2e435c14645dc396d568090c1703d65aef2f8a2b66abf24cce8cd925ce7c645a105c505a1457722159d6248e9f69f35c0d196fa85e0a52f3c
