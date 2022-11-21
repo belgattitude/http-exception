@@ -19,6 +19,16 @@ If applicable:
 - [x] a **changeset** should be provided (`yarn g:changeset`) to request a version bump.
 - [x] **documentation** should be updated (`yarn g:build-doc` to rebuild the api doc).
 
+## Structure
+
+```
+.
+├── examples
+│   └── next-app
+└── packages
+    └── http-exception
+```
+
 ## Local scripts
 
 | Name                         | Description                                                                                                                                    |
