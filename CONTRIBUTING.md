@@ -73,13 +73,3 @@ Commit messages are enforced through [commitlint](https://github.com/conventiona
 
 > **Note**
 > Up-to-date configuration can be found in [commitlint.config.js](https://github.com/belgattitude/http-exception/blob/main/commitlint.config.js).
-
-## Structure
-
-```
-.
-├── examples
-│   └── nextjs-app
-└── packages
-    └── http-exception
-```
