@@ -1,6 +1,6 @@
 {
   "name": "@belgattitude/http-exception",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "license": "MIT",
   "description": "Warning: has been moved to @httpx/exception. Please update.",
   "homepage": "https://github.com/belgattitude/http-exception",
