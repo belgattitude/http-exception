@@ -1,5 +1,18 @@
 # @belgattitude/http-exception
 
+## 1.5.0
+
+### Minor Changes
+
+- [#204](https://github.com/belgattitude/http-exception/pull/204) [`c128653`](https://github.com/belgattitude/http-exception/commit/c1286533dcce9927b4170dcb1dbe3199c177587e) Thanks [@belgattitude](https://github.com/belgattitude)! - Package moved to @httpx/exception.
+
+  > ⚠️ Version 1.5.0 will be the last one ! We've **moved** to https://github.com/belgattitude/httpx ⚠️
+  >
+  > No breaking changes, just update from `@belgattitude/http-exception` to `@httpx/exception`.
+  >
+  > The change to `httpx` namespace makes it shorter, allow more
+  > packages to be grouped and eventually will be managed inside a github org.
+
 ## 1.4.0
 
 ### Minor Changes
