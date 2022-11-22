@@ -1,5 +1,10 @@
 # @belgattitude/http-exception
 
+> **Warning**
+> ⚠️ This package have been moved to https://github.com/belgattitude/httpx ⚠️
+>
+> No breaking changes, just update from `@belgattitude/http-exception` to `@httpx/exception`.
+
 Delightful http exceptions. Crafted with node, browsers, ssr frameworks (serialization) and error logging in mind.
 
 [![npm](https://img.shields.io/npm/v/@belgattitude/http-exception?style=for-the-badge&labelColor=222)](https://www.npmjs.com/package/@belgattitude/http-exception)
