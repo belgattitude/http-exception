@@ -1,7 +1,8 @@
 # @belgattitude/http-exception
 
 > **Warning**
-> ⚠️ This package have been moved to https://github.com/belgattitude/httpx ⚠️
+>
+> ⚠️ **MOVED TO https://github.com/belgattitude/httpx** ⚠️
 >
 > No breaking changes, just update from `@belgattitude/http-exception` to `@httpx/exception`.
 
